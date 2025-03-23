@@ -1,0 +1,16 @@
+[
+    {
+      "id": 1,
+      "title": "The Future of IT Strategy",
+      "summary": "Exploring the latest trends in IT governance and strategy.",
+      "slug": "1",
+      "content": "In this article, we discuss the future of IT strategy..."
+    },
+    {
+      "id": 2,
+      "title": "AI in Enterprise Decision-Making",
+      "summary": "How AI is transforming enterprise IT decision-making.",
+      "slug": "2",
+      "content": "AI is rapidly changing how businesses make decisions..."
+    }
+  ]

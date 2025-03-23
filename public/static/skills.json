@@ -1,0 +1,14 @@
+[
+    {
+      "category": "Technical Skills",
+      "skills": ["React", "TypeScript", "JavaScript", "Node.js", "GraphQL", "Tailwind CSS"]
+    },
+    {
+      "category": "Leadership & Strategy",
+      "skills": ["IT Strategy", "Digital Transformation", "Enterprise Architecture"]
+    },
+    {
+      "category": "Tools & Platforms",
+      "skills": ["AWS", "Docker", "Kubernetes", "Jira", "GitHub Actions"]
+    }
+  ]
