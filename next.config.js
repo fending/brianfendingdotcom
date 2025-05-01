@@ -2,24 +2,36 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  
+  // Simplified image configuration with all domains
   images: {
-    domains: ['localhost'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'brianfending.com',
-        pathname: '/**',
-      },
-    ],
+    domains: [
+      'localhost',
+      'brianfending.com',
+      'brianfending.vercel.app',
+      'brianfendingcom.vercel.app'
+    ]
   },
-  // For AWS Lightsail deployment
+  
+  // For AWS Lightsail and Vercel deployment
   output: 'standalone',
-  // Prevent stack overflow in file pattern matching
+  
+  // Optimize build process
   staticPageGenerationTimeout: 120,
-  // Exclude problematic SVG files from processing
+  
+  // Simplified webpack configuration with explicit ignores
   webpack(config) {
+    // Add explicit ignore patterns for directories that might cause issues
+    config.watchOptions = {
+      ignored: [
+        '**/node_modules',
+        '**/.git',
+        '**/public/favicon/**'
+      ]
+    };
+    
     return config;
-  },
+  }
 };
 
 module.exports = nextConfig;

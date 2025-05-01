@@ -1,0 +1,11 @@
+# Ignore files and directories that might cause build issues
+.git
+.github
+temp
+**/*.test.*
+**/*.spec.*
+**/node_modules
+**/.next/cache
+public/favicon/favicon-dark.svg
+public/favicon/favicon.svg
+.vercel
