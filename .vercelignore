@@ -6,6 +6,11 @@ temp
 **/*.spec.*
 **/node_modules
 **/.next/cache
-public/favicon/favicon-dark.svg
-public/favicon/favicon.svg
+public/favicon
+**/*.svg
 .vercel
+*.ico
+README.md
+.eslintrc*
+postcss.config.js
+tailwind.config.js

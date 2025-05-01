@@ -1,33 +1,60 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   
-  // Simplified image configuration with all domains
+  // Disable swcMinify which can sometimes cause build issues
+  swcMinify: false,
+  
+  // Ultra simplified image config - use unoptimized to bypass image processing
+  // Use environment variables for domains
   images: {
-    domains: [
-      'localhost',
-      'brianfending.com',
-      'brianfending.vercel.app',
-      'brianfendingcom.vercel.app'
-    ]
+    unoptimized: true,
+    domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS 
+      ? process.env.NEXT_PUBLIC_IMAGE_DOMAINS.split(',') 
+      : ['localhost', 'brianfending.com']
   },
   
-  // For AWS Lightsail and Vercel deployment
-  output: 'standalone',
+  // Minimize output type
+  output: 'export',
   
-  // Optimize build process
-  staticPageGenerationTimeout: 120,
+  // Disable unnecessary features
+  optimizeFonts: false,
   
-  // Simplified webpack configuration with explicit ignores
+  // Increase timeouts
+  staticPageGenerationTimeout: 180,
+  
+  // Disable experimental features that might cause issues
+  experimental: {
+    cpus: 1, // Force single CPU to avoid memory issues
+    workerThreads: false,
+    optimizeCss: false,
+    optimizeServerReact: false,
+    scrollRestoration: false
+  },
+  
+  // Disable unnecessary page extensions 
+  pageExtensions: ['tsx', 'ts'],
+  
+  // Explicitly mark files to exclude from compilation
+  excludeDefaultMomentLocales: true,
+  
+  // Simplified webpack configuration
   webpack(config) {
-    // Add explicit ignore patterns for directories that might cause issues
+    // More aggressive ignores
     config.watchOptions = {
-      ignored: [
-        '**/node_modules',
-        '**/.git',
-        '**/public/favicon/**'
-      ]
+      ignored: ['**/*']
+    };
+    
+    // Disable file watching during build
+    config.infrastructureLogging = {
+      level: 'error'
+    };
+    
+    // Add memory limits to avoid stack overflows
+    config.optimization = {
+      ...config.optimization,
+      nodeEnv: 'production',
+      minimize: true
     };
     
     return config;
