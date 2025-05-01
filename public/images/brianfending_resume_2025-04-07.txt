@@ -1,0 +1,80 @@
+﻿Brian Fending
+brianfending@gmail.com
+
+SUMMARY
+
+Strategic IT executive with a track record of driving enterprise-wide digital transformation, optimizing IT spend, and leading high-impact AI and automation initiatives. Adept at aligning technology with business goals, improving cybersecurity posture, and managing large-scale cloud infrastructure. Known for leading cross-functional teams, optimizing vendor relationships, and transforming IT governance to enhance efficiency and compliance. Proven ability to drive innovation and revenue growth, particularly in digital and online service delivery.
+CORE COMPETENCIES
+Technology Leadership: IT Strategy, Digital Transformation, Cloud & Infrastructure (AWS, Azure), Business Intelligence & Analytics
+Governance & Compliance: IT Governance, Cybersecurity, Risk Management, IT Operations, Compliance (GDPR, NIST 800-171, US Data Privacy Compliance, KSA PDPL)
+Business & Operations: Cross-Functional Leadership, Product Development, Vendor & Stakeholder Management, Cost Optimization, AI & Automation Initiatives
+EXPERIENCE
+American Association for Physician Leadership (AAPL)
+Tampa, FL and Washington, DC
+CIO | January 2020 – March 2025
+Led enterprise IT strategy, governance, and digital transformation, overseeing cloud infrastructure, cybersecurity, and business intelligence operations for an $8 million online revenue stream, representing 80% of total operating revenue.
+* Reduced IT spend by 30% through full cloud migration and remote IT enablement.
+* Spearheaded AI-driven automation initiatives, optimizing resource allocation and customer engagement.
+* Established comprehensive IT governance frameworks, ensuring compliance with industry standards and enhancing data security.
+* Managed a hybrid IT team of 5 direct reports and multiple MSP and development partners, delivering scalable infrastructure to support growth.
+* Migrated 100% of core IT infrastructure to the cloud, improving system resilience, scalability, and remote workforce enablement.
+________________
+AAPL (continued)
+   * Strengthened cybersecurity posture, implementing several globally-oriented policies, multi-factor authentication (MFA), and continuous risk assessment frameworks.
+   * Optimized IT vendor strategy, renegotiating contracts and consolidating services to reduce costs and improve service levels.
+SVP, Information Technology | January 2019 – January 2020
+   * Managed IT infrastructure, audits, and technology initiatives to ensure system resilience and readiness for growth.
+   * Directed IT staff and led projects to improve service delivery, optimize systems, and prepare the organization with future-facing technology and risk postures.
+   * Implemented Salesforce CRM and Hubspot marketing automation, reducing direct expense by $180,000 annually as compared to legacy solutions.
+MADE, Inc.
+Owner and Principal Consultant | March 2015 – December 2018
+Provided strategic IT leadership for enterprise clients, focusing on IT governance, vendor management, compliance, and product development.
+   * Led full product development lifecycles, from concept to market launch, delivering scalable technology solutions.
+   * Implemented IT governance frameworks to enhance security, regulatory compliance, and risk management.
+   * Drove $600,000 in annual revenue, scaling consulting and product development services across multiple industries.
+CrowdBouncer
+Chief Technology Officer | February 2013 – December 2014
+Designed and launched an API-driven compliance platform, enabling secure, automated verification for equity crowdfunding transactions.
+   * Developed and implemented CrowdSIP protocol, creating a scalable infrastructure for a secondary equity crowdfunding market.
+   * Secured $600,000+ in Series A funding, managing all IT-related investments and strategic direction.
+   * Built a high-availability, distributed API, ensuring secure transactions for exposed services via Apigee.
+________________
+Monster Assembly
+Owner and Principal Consultant | December 2011 – February 2015
+Led 100+ projects across multiple products, delivering scalable technology solutions across industries.
+   * Designed and deployed tailored technology solutions, optimizing business workflows and customer engagement.
+   * Grew annual revenue to $450,000, leveraging technical innovation and strategic consulting.
+Black Squirrel Distillery
+Cofounder | VP, Product Development | August 2013 – September 2019
+Built a successful craft distillery from concept to commercialization, launching four unique spirits into retail and distribution.
+   * Developed operational and product standards, optimizing production and quality control.
+   * Scaled sales to 4,000 cases annually, driving growth through direct and channel distribution strategies.
+   * Exited via sale to Lafayette Distilling (Buffalo, NY).
+Fending Group
+Owner and Principal Consultant | April 2010 – June 2012
+Provided technology strategy, software development, and enterprise system integrations for startups and SMBs.
+   * Led architecture and engineering for the world’s first at-scale iPad-based ordering system at JFK Terminal 5, integrating with Micros POS.
+   * Developed a graph-based content management system, combining Neo4j and Lucene for real-time indexing and search (Doolli, Inc.).
+EARLY CAREER EXPERIENCE
+   * Senior Web Developer at publisher BuildingGreen, managing projects serving U.S. Department of Energy (High Performance Buildings Database) and USGBC (LEEDuser.com).
+   * Information Analyst at hospitality conglomerate Delaware North Companies, leading Oracle BI projects and advising on data management and emerging technologies.
+   * Senior Programmer at insurance brokerage (MGA) LoVullo Associates, developing online insurance rating solutions for excess lines products and financial reporting systems.
+   * Web Administrator ("Webmaster") at Buffalo & Erie County Public Library, managing the web presence for a 52-site system and contributing to digitization efforts.
+   * Contractor at Network Solutions by Verisign, providing support for website builder tools.
+   * Federal Sales Administrator at 3Com Corporation, supporting federal sales operations and processes for civilian agency and DOD customers.
+
+
+PROFESSIONAL AFFILIATIONS
+   * Information Systems Audit and Control Association (ISACA)
+   * Product Development & Management Association (PDMA)
+   * Project Management Institute (PMI)
+EDUCATION & CERTIFICATIONS
+Certified Information Security Manager (CISM)
+In Progress (Expected May 2025)
+Miami University, Oxford, OH — MM
+Aug 1996 – Dec 1999
+State University of New York at Fredonia, Fredonia, NY — BM
+Aug 1992 – May 1996
+
+
+ of 4

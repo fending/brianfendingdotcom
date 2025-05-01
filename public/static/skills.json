@@ -1,14 +1,50 @@
-[
+{
+  "title": "Skills & Expertise",
+  "description": "My professional skills and areas of expertise from years of experience in technology leadership and software engineering.",
+  "skills": [
     {
-      "category": "Technical Skills",
-      "skills": ["React", "TypeScript", "JavaScript", "Node.js", "GraphQL", "Tailwind CSS"]
+      "category": "Leadership & Management",
+      "items": [
+        "Technical Strategy",
+        "Engineering Leadership",
+        "Team Building & Mentorship",
+        "Governance, Risk & Compliance (GRC)",
+        "Development & Documentation Methodologies",
+        "New Product & Category Development"
+      ]
     },
     {
-      "category": "Leadership & Strategy",
-      "skills": ["IT Strategy", "Digital Transformation", "Enterprise Architecture"]
+      "category": "Software Architecture",
+      "items": [
+        "Cloud Architecture",
+        "System Scalability",
+        "Event-Driven Systems",
+        "API Design",
+        "Data Architecture",
+        "Microservice Implementations"
+      ]
     },
     {
-      "category": "Tools & Platforms",
-      "skills": ["AWS", "Docker", "Kubernetes", "Jira", "GitHub Actions"]
+      "category": "Technologies",
+      "items": [
+        "Cloud Platforms (Azure, AWS)",
+        "DevOps & CI/CD Pipelines",
+        "Modern Web Technologies",
+        "JavaScript/TypeScript Ecosystem",
+        "Python, C#, similar languages & constructs",
+        "Database Systems (SQL & NoSQL)"
+      ]
+    },
+    {
+      "category": "AI & Machine Learning",
+      "items": [
+        "AI Strategy & Governance",
+        "AI Risk Management & Policy Design",
+        "Executive Leadership of AI Initiatives",
+        "Data Engineering Foundations",
+        "Ethical & Responsible AI Oversight",
+        "AI-Driven Business Process Automation"
+      ]
     }
   ]
+}

@@ -1,14 +1,18 @@
 {
-    "title": "Welcome to Brian Fending's Portfolio",
-    "description": "Showcasing thought leadership in IT strategy.",
-    "sections": [
-      {
-        "title": "What I Do",
-        "content": "I specialize in IT strategy, digital transformation, and leadership."
-      },
-      {
-        "title": "Current Focus",
-        "content": "Exploring AI-driven decision-making in enterprise IT."
-      }
-    ]
-  }
+  "title": "IT Leadership, Strategy, & Engineering Expertise",
+  "description": "I'm Brian Fending, a technology leader with extensive experience in executive IT leadership for startups and enterprises.",
+  "sections": [
+    {
+      "title": "About Me",
+      "content": "With over 25 years of experience in the technology sector, I've led engineering teams and architected solutions for startups and enterprises of all sizes. My expertise spans cloud infrastructure, data engineering, application development, new product development process, and building scalable processes and systems."
+    },
+    {
+      "title": "My Approach",
+      "content": "I believe in pragmatic engineering practices that balance innovation with reliability, and progress with governance. My leadership style emphasizes the paramount importance of mentorship, continuous learning, and creating an environment where engineers and designers can do their best work while staying aligned with business objectives. I also believe that AI is a powerful tool with which to increase both release velocity and stability, and that when using it in systems design architecture validation with proper separation of concerns always comes first."
+    },
+    {
+      "title": "Services",
+      "content": "I've contributed as both a consultant to and in-house leadership for many orgs and newcos, typically in an SVP, CTO, or CIO role. The services that I personally deliver span technology strategy, GRC, engineering leadership, software architecture, AI transformation, and various forms of hands-on development. So if you or your org are looking to optimize your current systems, build new capabilities (including governance and cyber-response!), or improve engineering processes, I can partner to help guide your organization to success."
+    }
+  ]
+}
