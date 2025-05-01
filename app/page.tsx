@@ -7,7 +7,7 @@ import NewsletterSignup from '@/components/NewsletterSignup'
 import AnimatedElement from '@/components/AnimatedElement'
 
 export const metadata: Metadata = {
-  title: 'Technology Leadership',
+  title: 'Brian Fending | Technology Leadership',
   description: 'Technology Leadership insights and experiences from Brian Fending',
 }
 

@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Brian Fending' }],
   icons: {
     icon: '/favicon.ico',
-    apple: '/favicon/apple-touch-icon.png',
   },
 }
 
