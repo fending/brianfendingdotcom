@@ -21,11 +21,11 @@ export default async function ArticlesPage() {
       </div>
 
       {articles.length === 0 ? (
-        <div className="text-center py-12 text-gray-500 dark:text-gray-400">
+        <div className="text-center py-12 text-gray-500 dark:text-gray-400 mb-12">
           No articles found. Check back soon!
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 gap-8 mb-12">
           {articles.map((article) => (
             <article key={article.slug} className="card overflow-hidden">
               <div className="md:flex">
@@ -85,7 +85,7 @@ export default async function ArticlesPage() {
                         href={article.linkedinUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-primary inline-flex items-center"
+                        className="btn bg-linkedin text-white hover:bg-linkedin/80 hover:text-white focus:ring-linkedin/70 inline-flex items-center justify-center"
                       >
                         <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
@@ -99,7 +99,7 @@ export default async function ArticlesPage() {
                         href={article.substackUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-secondary inline-flex items-center"
+                        className="btn bg-white text-substack border border-substack hover:bg-substack/10 focus:ring-substack/30 inline-flex items-center justify-center dark:bg-gray-800 dark:hover:bg-substack/20"
                       >
                         <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>

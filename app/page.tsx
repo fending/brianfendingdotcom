@@ -51,7 +51,7 @@ export default async function HomePage() {
       </AnimatedElement>
 
       <AnimatedElement animation="fade-in" duration={150} delay={100}>
-        <section className="mt-12">
+        <section className="mt-12 mb-12">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-gray-900 dark:text-white text-fluid-3xl text-balanced">Recent Articles</h2>
             <Link 

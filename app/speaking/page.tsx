@@ -141,7 +141,7 @@ export default function SpeakingPage() {
       )}
 
       {/* Past engagements section by year */}
-      <section>
+      <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Past Engagements</h2>
         
         {years.map(year => (
