@@ -12,13 +12,8 @@ export const metadata: Metadata = {
   description: 'Technology Leadership insights and experiences from Brian Fending',
   authors: [{ name: 'Brian Fending' }],
   icons: {
-    icon: [
-      { url: '/favicon/favicon.svg' },
-      { url: '/favicon/favicon-dark.svg', media: '(prefers-color-scheme: dark)' },
-    ],
-    apple: [
-      { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    icon: '/favicon.ico',
+    apple: '/favicon/apple-touch-icon.png',
   },
 }
 
