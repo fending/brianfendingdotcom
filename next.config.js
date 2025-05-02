@@ -14,8 +14,8 @@ const nextConfig = {
       : ['localhost', 'brianfending.com', 'www.brianfending.com']
   },
   
-  // Use standalone output for deployment
-  output: 'standalone',
+  // Don't use standalone output - it's causing CSS issues
+  // output: 'standalone',
   
   // Disable unnecessary features
   optimizeFonts: false,
@@ -23,9 +23,10 @@ const nextConfig = {
   // Increase timeouts for build
   staticPageGenerationTimeout: 180,
   
-  // Use default experimental features
+  // Disable all non-essential experimental features
   experimental: {
-    optimizeCss: false, // Disable CSS optimization to use standard CSS processing
+    optimizeCss: false,
+    optimizeServerReact: false,
   },
   
   // Disable unnecessary page extensions 
@@ -34,23 +35,28 @@ const nextConfig = {
   // Explicitly mark files to exclude from compilation
   excludeDefaultMomentLocales: true,
   
-  // Simplified webpack configuration
+  // Minimal webpack configuration for consistent CSS processing
   webpack(config) {
-    // More aggressive ignores
-    config.watchOptions = {
-      ignored: ['**/*']
-    };
-    
-    // Disable file watching during build
-    config.infrastructureLogging = {
-      level: 'error'
-    };
-    
-    // Production optimization
-    config.optimization = {
-      ...config.optimization,
-      minimize: true
-    };
+    // Ensure CSS processing happens properly
+    if (config.module && config.module.rules) {
+      const cssRule = config.module.rules.find(
+        rule => rule.oneOf && rule.oneOf.some(
+          oneOf => oneOf.test && oneOf.test.toString().includes('css')
+        )
+      );
+      
+      if (cssRule && cssRule.oneOf) {
+        cssRule.oneOf.forEach(rule => {
+          if (rule.use && Array.isArray(rule.use)) {
+            rule.use.forEach(loader => {
+              if (loader.options && loader.options.url === false) {
+                delete loader.options.url;
+              }
+            });
+          }
+        });
+      }
+    }
     
     return config;
   }

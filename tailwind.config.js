@@ -5,8 +5,9 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   safelist: [
+    'dark',
     {
-      pattern: /^(bg|text|border|ring|hover|dark|rounded|shadow|flex|grid|space|h|w|p|m|gap|font)-.+/,
+      pattern: /.+/,
     },
   ],
   theme: {
