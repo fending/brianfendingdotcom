@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import './critical.css'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
