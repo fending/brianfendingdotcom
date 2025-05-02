@@ -4,31 +4,10 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  // Safelist critical classes that might be purged
   safelist: [
-    // Colors
     {
-      pattern: /^(bg|text|border|ring)-(primary|secondary|gray|white|black)(-\d+)?/,
-      variants: ['hover', 'dark', 'dark:hover']
+      pattern: /^(bg|text|border|ring|hover|dark|rounded|shadow|flex|grid|space|h|w|p|m|gap|font)-.+/,
     },
-    // Standard utilities
-    {
-      pattern: /^(m|p)(t|r|b|l|x|y)?-\d+/,
-    },
-    'dark:bg-gray-800',
-    'dark:bg-gray-900',
-    'dark:text-white',
-    'dark:text-gray-300',
-    'dark:text-gray-400',
-    'dark:text-primary-400',
-    'dark:text-primary-300',
-    'dark:border-gray-700',
-    'dark:border-gray-800',
-    'btn-primary',
-    'btn-secondary',
-    'card',
-    'icon-md',
-    'icon-lg',
   ],
   theme: {
     extend: {

@@ -14,8 +14,8 @@ const nextConfig = {
       : ['localhost', 'brianfending.com', 'www.brianfending.com']
   },
   
-  // Output mode for deployment
-  output: 'export',
+  // Use standalone output for deployment
+  output: 'standalone',
   
   // Disable unnecessary features
   optimizeFonts: false,
@@ -23,13 +23,9 @@ const nextConfig = {
   // Increase timeouts for build
   staticPageGenerationTimeout: 180,
   
-  // Disable experimental features that might cause issues
+  // Use default experimental features
   experimental: {
-    cpus: 1, // Force single CPU to avoid memory issues
-    workerThreads: false,
-    optimizeCss: false, // Disable CSS optimization
-    optimizeServerReact: false,
-    scrollRestoration: false
+    optimizeCss: false, // Disable CSS optimization to use standard CSS processing
   },
   
   // Disable unnecessary page extensions 
@@ -53,7 +49,6 @@ const nextConfig = {
     // Production optimization
     config.optimization = {
       ...config.optimization,
-      nodeEnv: 'production',
       minimize: true
     };
     
