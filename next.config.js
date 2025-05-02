@@ -27,7 +27,7 @@ const nextConfig = {
   experimental: {
     cpus: 1, // Force single CPU to avoid memory issues
     workerThreads: false,
-    optimizeCss: false,
+    optimizeCss: false, // Disable CSS optimization
     optimizeServerReact: false,
     scrollRestoration: false
   },
