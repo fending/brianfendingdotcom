@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { Suspense } from 'react'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
@@ -19,7 +20,9 @@ export default function ContactPage() {
       <div className="grid md:grid-cols-2 gap-12 mb-16">
         <div>
           <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Send a Message</h2>
-          <ContactForm />
+          <Suspense fallback={<div className="animate-pulse h-96 bg-gray-100 dark:bg-gray-800 rounded-lg"></div>}>
+            <ContactForm />
+          </Suspense>
         </div>
 
         <div>
