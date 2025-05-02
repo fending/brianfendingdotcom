@@ -14,8 +14,8 @@ const nextConfig = {
       : ['localhost', 'brianfending.com', 'www.brianfending.com']
   },
   
-  // Use standalone output for deployment
-  output: 'standalone',
+  // Output mode for deployment
+  output: 'export',
   
   // Disable unnecessary features
   optimizeFonts: false,
