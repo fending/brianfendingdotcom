@@ -7,7 +7,7 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
+      ? `https://${process.env.VERCEL_URL}`
       : process.env.NODE_ENV === 'production'
         ? `https://${process.env.NEXT_PUBLIC_SITE_URL || 'www.brianfending.com'}`
         : 'http://localhost:3000'
