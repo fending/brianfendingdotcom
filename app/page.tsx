@@ -19,8 +19,25 @@ export default async function HomePage() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <AnimatedElement animation="fade-in" duration={150}>
         <section className="mb-12 pt-8">
-          <h1 className="text-gray-900 dark:text-white text-fluid-5xl text-balanced">{content.title}</h1>
-          <p className="text-fluid-xl mt-4 text-gray-700 dark:text-gray-300 max-w-3xl">{content.description}</p>
+          <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between md:gap-8">
+            <div className="md:max-w-[68%] lg:max-w-[70%]">
+              <h1 className="text-gray-900 dark:text-white text-fluid-5xl text-balanced">{content.title}</h1>
+              <p className="text-fluid-xl mt-4 text-gray-700 dark:text-gray-300">{content.description}</p>
+            </div>
+            <div className="mb-8 md:mb-0 flex justify-center shrink-0">
+              {/* Single responsive container with tailwind classes for sizing */}
+              <div className="w-[160px] h-[160px] md:w-[240px] md:h-[240px] rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg flex-shrink-0">
+                <Image
+                  src="/images/fending_profile_headshot.jpg"
+                  alt="Brian Fending"
+                  width={480}
+                  height={480}
+                  className="object-cover w-full h-full"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </section>
       </AnimatedElement>
 
