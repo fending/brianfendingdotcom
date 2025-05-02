@@ -6,12 +6,5 @@
     "env": {
       "NODE_OPTIONS": "--max-old-space-size=3072"
     }
-  },
-  "redirects": [
-    {
-      "source": "https://brianfending.com/:path*",
-      "destination": "https://www.brianfending.com/:path*",
-      "permanent": true
-    }
-  ]
+  }
 }
