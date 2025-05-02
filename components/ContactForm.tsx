@@ -54,29 +54,44 @@ export default function ContactForm() {
     e.preventDefault()
     setFormStatus({ status: 'submitting' })
 
-    // This is a placeholder for the actual form submission
-    // In production, you would send this data to your API or a form service
     try {
-      // Simulate API request
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      // Submit form data to our API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
       
-      // Reset form on success
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      })
-      
-      setFormStatus({
-        status: 'success',
-        message: 'Your message has been sent! I\'ll get back to you soon.'
-      })
+      if (response.ok) {
+        // Reset form on success
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+        });
+        
+        setFormStatus({
+          status: 'success',
+          message: data.message || 'Your message has been sent! I\'ll get back to you soon.'
+        });
+      } else {
+        // Handle error response
+        setFormStatus({
+          status: 'error',
+          message: data.message || 'There was an error sending your message. Please try again.'
+        });
+      }
     } catch (error) {
+      console.error('Error submitting form:', error);
       setFormStatus({
         status: 'error',
-        message: 'There was an error sending your message. Please try again.'
-      })
+        message: 'There was an error connecting to the server. Please try again later.'
+      });
     }
   }
 

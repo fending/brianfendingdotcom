@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   
-  // Disable swcMinify which can sometimes cause build issues
-  swcMinify: false,
+  // Re-enable SWC minifier since we're not using Babel
+  swcMinify: true,
   
   // Ultra simplified image config - use unoptimized to bypass image processing
   // Use environment variables for domains
@@ -14,8 +14,8 @@ const nextConfig = {
       : ['localhost', 'brianfending.com']
   },
   
-  // Minimize output type
-  output: 'export',
+  // Use standalone output (export caused issues with Babel)
+  output: 'standalone',
   
   // Disable unnecessary features
   optimizeFonts: false,
