@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
@@ -39,32 +39,8 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link href="/tailwind.css" rel="stylesheet" />
-        <style dangerouslySetInnerHTML={{ __html: `
-          /* Fallback styles in case Tailwind doesn't apply */
-          body {
-            background-color: #0f172a;
-            color: white;
-            font-family: 'Inter', sans-serif;
-          }
-          .dark {
-            background-color: #0f172a;
-            color: white;
-          }
-          .text-gray-900 { color: #111827; }
-          .dark .text-white { color: white; }
-          .text-gray-700 { color: #374151; }
-          .dark .text-gray-300 { color: #d1d5db; }
-          .flex { display: flex; }
-          .flex-col { flex-direction: column; }
-          .min-h-screen { min-height: 100vh; }
-          .flex-grow { flex-grow: 1; }
-          .pt-24 { padding-top: 6rem; }
-          @media (min-width: 768px) {
-            .md\\:pt-28 { padding-top: 7rem; }
-          }
-        `}} />
       </head>
-      <body className="bg-gray-900 text-white">
+      <body>
         <ThemeProvider>
           <div className="flex flex-col min-h-screen">
             <Navigation />
@@ -74,39 +50,6 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
-        <Script id="debug-styles" strategy="afterInteractive">
-          {`
-            console.log("Styles debug script running");
-            // Check if stylesheet is loaded
-            const styleSheets = document.styleSheets;
-            console.log("Stylesheets loaded:", styleSheets.length);
-            
-            // Print all loaded style rules
-            for (let i = 0; i < styleSheets.length; i++) {
-              try {
-                const sheet = styleSheets[i];
-                console.log("Stylesheet " + i + " href:", sheet.href);
-                console.log("Rules count:", sheet.cssRules ? sheet.cssRules.length : "No access to rules");
-              } catch (e) {
-                console.log("Cannot access stylesheet " + i + " rules:", e.message);
-              }
-            }
-            
-            // Force dark mode - try multiple approaches
-            document.documentElement.classList.add('dark');
-            
-            // Apply dark mode styles directly
-            document.body.style.backgroundColor = '#0f172a';
-            document.body.style.color = 'white';
-            
-            // Check if styles are working
-            const computedStyle = window.getComputedStyle(document.body);
-            console.log("Body styles:", {
-              backgroundColor: computedStyle.backgroundColor,
-              color: computedStyle.color
-            });
-          `}
-        </Script>
       </body>
     </html>
   )

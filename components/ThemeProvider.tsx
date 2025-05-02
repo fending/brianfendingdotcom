@@ -21,22 +21,15 @@ const initialState: ThemeProviderState = {
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>('dark') // Default to dark
+  const [theme, setTheme] = useState<Theme>('system')
 
   useEffect(() => {
-    // Force dark mode in production, but allow saved theme in development
-    if (process.env.NODE_ENV === 'production') {
-      setTheme('dark')
-      // Force dark mode immediately
-      document.documentElement.classList.add('dark')
+    const savedTheme = localStorage.getItem('theme') as Theme | null
+    if (savedTheme) {
+      setTheme(savedTheme)
     } else {
-      const savedTheme = localStorage.getItem('theme') as Theme | null
-      if (savedTheme) {
-        setTheme(savedTheme)
-      } else {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-        setTheme(prefersDark ? 'dark' : 'light')
-      }
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      setTheme(prefersDark ? 'dark' : 'light')
     }
   }, [])
 

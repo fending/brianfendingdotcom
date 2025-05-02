@@ -11,7 +11,7 @@ export default function DesignSystemPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <section className="mb-12 pt-8">
-        <h1 className="text-gray-900 dark:text-white">Design System</h1>
+        <h1 className="page-header text-gray-900 dark:text-white">Design System</h1>
         <p className="text-xl mt-4 text-gray-700 dark:text-gray-300 max-w-3xl">
           This page documents the components, styles, and patterns used throughout brianfending.com.
         </p>

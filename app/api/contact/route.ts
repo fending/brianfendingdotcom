@@ -1,5 +1,4 @@
 import { google } from 'googleapis';
-import nodemailer from 'nodemailer';
 import { NextRequest, NextResponse } from 'next/server';
 
 // Define the expected request body structure
@@ -27,18 +26,8 @@ export async function POST(request: NextRequest) {
     // Format current date in ISO format for Google Sheets
     const datetime = new Date().toISOString();
     
-    // 1. Write to Google Sheet
+    // Write to Google Sheet
     await writeToSheet({ name, email, subject, message, datetime });
-    
-    // 2. Send notification email (optional)
-    if (process.env.EMAIL_USERNAME && process.env.EMAIL_PASSWORD && process.env.NOTIFICATION_EMAIL) {
-      try {
-        await sendNotificationEmail({ name, email, subject, message, datetime });
-      } catch (emailError) {
-        console.error('Error sending notification email:', emailError);
-        // Continue even if email fails - data is saved to sheet
-      }
-    }
     
     return NextResponse.json(
       { message: 'Your message has been sent! I\'ll get back to you soon.' },
@@ -83,52 +72,4 @@ async function writeToSheet({ name, email, subject, message, datetime }: Contact
     console.error('Error writing to Google Sheet:', error);
     throw new Error('Failed to save form data to Google Sheet');
   }
-}
-
-async function sendNotificationEmail({ name, email, subject, message, datetime }: ContactFormData & { datetime: string }) {
-  // Configure transporter
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD, // Use app password for Gmail
-    },
-  });
-
-  // Format date for email display
-  const formattedDate = new Date(datetime).toLocaleString('en-US', {
-    timeZone: 'America/New_York'
-  });
-
-  // Email content
-  const mailOptions = {
-    from: process.env.EMAIL_USERNAME,
-    to: process.env.NOTIFICATION_EMAIL,
-    subject: `New Contact Form Submission: ${subject}`,
-    text: `
-      New contact form submission from brianfending.com:
-      
-      Name: ${name}
-      Email: ${email}
-      Subject: ${subject}
-      Date: ${formattedDate}
-      
-      Message:
-      ${message}
-    `,
-    html: `
-      <h2>New contact form submission from brianfending.com</h2>
-      
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Subject:</strong> ${subject}</p>
-      <p><strong>Date:</strong> ${formattedDate}</p>
-      
-      <h3>Message:</h3>
-      <p>${message.replace(/\n/g, '<br>')}</p>
-    `,
-  };
-
-  // Send email
-  return transporter.sendMail(mailOptions);
 }

@@ -12,9 +12,9 @@ export default async function ArticlesPage() {
   const articles = await getAllArticles()
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="mb-12 pt-8">
-        <h1 className="text-gray-900 dark:text-white">Articles</h1>
+        <h1 className="page-header text-gray-900 dark:text-white">Articles</h1>
         <p className="text-xl mt-4 text-gray-700 dark:text-gray-300 max-w-3xl">
           Thoughts and insights on technology, leadership, and software engineering.
         </p>

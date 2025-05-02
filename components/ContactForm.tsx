@@ -3,6 +3,14 @@
 import { useState, useEffect, FormEvent } from 'react'
 import { useSearchParams } from 'next/navigation'
 
+// Form validation types
+interface FormErrors {
+  name?: string;
+  email?: string;
+  subject?: string;
+  message?: string;
+}
+
 export default function ContactForm() {
   const searchParams = useSearchParams()
   
@@ -12,6 +20,10 @@ export default function ContactForm() {
     subject: '',
     message: '',
   })
+  
+  // Validation state
+  const [errors, setErrors] = useState<FormErrors>({})
+  const [touched, setTouched] = useState<Record<string, boolean>>({})
   
   // Map URL parameter values to valid subject options
   useEffect(() => {
@@ -43,20 +55,130 @@ export default function ContactForm() {
   }>({
     status: 'idle'
   })
+  
+  // Validate a single field
+  const validateField = (name: string, value: string): string | undefined => {
+    switch (name) {
+      case 'name':
+        if (!value.trim()) return 'Name is required';
+        if (value.length < 2) return 'Name must be at least 2 characters';
+        return undefined;
+      
+      case 'email':
+        if (!value.trim()) return 'Email is required';
+        // Simple email validation regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) return 'Please enter a valid email address';
+        return undefined;
+      
+      case 'subject':
+        if (!value) return 'Please select a subject';
+        return undefined;
+      
+      case 'message':
+        if (!value.trim()) return 'Message is required';
+        if (value.length < 10) return 'Message must be at least 10 characters';
+        return undefined;
+      
+      default:
+        return undefined;
+    }
+  };
+  
+  // Validate all fields
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+    
+    // Check each field
+    Object.entries(formData).forEach(([name, value]) => {
+      const error = validateField(name, value as string);
+      if (error) {
+        newErrors[name as keyof FormErrors] = error;
+      }
+    });
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
+    
+    // Update form data
     setFormData(prev => ({
       ...prev,
       [name]: value
     }))
+    
+    // Mark field as touched
+    setTouched(prev => ({
+      ...prev,
+      [name]: true
+    }))
+    
+    // Validate field on change if it's been touched
+    if (touched[name]) {
+      const fieldError = validateField(name, value);
+      setErrors(prev => ({
+        ...prev,
+        [name]: fieldError
+      }));
+    }
+  }
+  
+  // Handle field blur event
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    
+    // Mark as touched
+    setTouched(prev => ({
+      ...prev,
+      [name]: true
+    }));
+    
+    // Validate on blur
+    const fieldError = validateField(name, value);
+    setErrors(prev => ({
+      ...prev,
+      [name]: fieldError
+    }));
   }
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
+    
+    // Validate all fields before submission
+    const isValid = validateForm();
+    if (!isValid) {
+      // Mark all fields as touched to show errors
+      const allTouched: Record<string, boolean> = {};
+      Object.keys(formData).forEach(key => {
+        allTouched[key] = true;
+      });
+      setTouched(allTouched);
+      
+      setFormStatus({ 
+        status: 'error',
+        message: 'Please correct the errors in the form'
+      });
+      return;
+    }
+    
     setFormStatus({ status: 'submitting' })
 
     try {
+      // Rate limiting: Prevent multiple submissions
+      const lastSubmission = localStorage.getItem('lastFormSubmission');
+      const now = new Date().getTime();
+      
+      if (lastSubmission) {
+        const timeSince = now - parseInt(lastSubmission, 10);
+        // 60 second rate limit
+        if (timeSince < 60000) {
+          throw new Error(`Please wait before submitting again (${Math.ceil(60 - timeSince/1000)} seconds)`);
+        }
+      }
+      
       // Submit form data to our API endpoint
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -69,6 +191,9 @@ export default function ContactForm() {
       const data = await response.json();
       
       if (response.ok) {
+        // Save submission timestamp for rate limiting
+        localStorage.setItem('lastFormSubmission', now.toString());
+        
         // Reset form on success
         setFormData({
           name: '',
@@ -76,6 +201,9 @@ export default function ContactForm() {
           subject: '',
           message: '',
         });
+        
+        // Reset touched state
+        setTouched({});
         
         setFormStatus({
           status: 'success',
@@ -92,7 +220,7 @@ export default function ContactForm() {
       console.error('Error submitting form:', error);
       setFormStatus({
         status: 'error',
-        message: 'There was an error connecting to the server. Please try again later.'
+        message: error instanceof Error ? error.message : 'There was an error connecting to the server. Please try again later.'
       });
     }
   }
@@ -119,10 +247,15 @@ export default function ContactForm() {
           type="text"
           value={formData.name}
           onChange={handleChange}
-          required
-          className="form-input w-full"
+          onBlur={handleBlur}
+          className={`form-input w-full ${touched.name && errors.name ? 'border-red-500 dark:border-red-400' : ''}`}
           disabled={formStatus.status === 'submitting'}
+          aria-invalid={touched.name && errors.name ? 'true' : 'false'}
+          aria-describedby={errors.name ? 'name-error' : undefined}
         />
+        {touched.name && errors.name && (
+          <p id="name-error" className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name}</p>
+        )}
       </div>
 
       {/* Email field */}
@@ -134,10 +267,15 @@ export default function ContactForm() {
           type="email"
           value={formData.email}
           onChange={handleChange}
-          required
-          className="form-input w-full"
+          onBlur={handleBlur}
+          className={`form-input w-full ${touched.email && errors.email ? 'border-red-500 dark:border-red-400' : ''}`}
           disabled={formStatus.status === 'submitting'}
+          aria-invalid={touched.email && errors.email ? 'true' : 'false'}
+          aria-describedby={errors.email ? 'email-error' : undefined}
         />
+        {touched.email && errors.email && (
+          <p id="email-error" className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>
+        )}
       </div>
 
       {/* Subject field */}
@@ -148,9 +286,11 @@ export default function ContactForm() {
           name="subject"
           value={formData.subject}
           onChange={handleChange}
-          required
-          className="form-input w-full"
+          onBlur={handleBlur}
+          className={`form-input w-full ${touched.subject && errors.subject ? 'border-red-500 dark:border-red-400' : ''}`}
           disabled={formStatus.status === 'submitting'}
+          aria-invalid={touched.subject && errors.subject ? 'true' : 'false'}
+          aria-describedby={errors.subject ? 'subject-error' : undefined}
         >
           <option value="">Please select</option>
           <option value="Speaking Inquiry">Speaking Inquiry</option>
@@ -158,6 +298,9 @@ export default function ContactForm() {
           <option value="Article Feedback">Article Feedback</option>
           <option value="Other">Other</option>
         </select>
+        {touched.subject && errors.subject && (
+          <p id="subject-error" className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.subject}</p>
+        )}
       </div>
 
       {/* Message field */}
@@ -169,14 +312,24 @@ export default function ContactForm() {
           rows={5}
           value={formData.message}
           onChange={handleChange}
-          required
-          className="form-input w-full"
+          onBlur={handleBlur}
+          className={`form-input w-full ${touched.message && errors.message ? 'border-red-500 dark:border-red-400' : ''}`}
           style={{
             minHeight: '120px',
             height: 'auto'
           }}
           disabled={formStatus.status === 'submitting'}
+          aria-invalid={touched.message && errors.message ? 'true' : 'false'}
+          aria-describedby={errors.message ? 'message-error' : undefined}
         />
+        {touched.message && errors.message && (
+          <p id="message-error" className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.message}</p>
+        )}
+      </div>
+
+      {/* Form data protection note */}
+      <div className="text-xs text-gray-500 dark:text-gray-400">
+        Your information is stored securely and never shared with third parties.
       </div>
 
       {/* Submit button */}

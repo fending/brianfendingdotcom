@@ -31,7 +31,8 @@ body {
   margin: 0;
 }
 
-.dark {
+/* The dark class is applied to the html element by ThemeProvider */
+html.dark body {
   background-color: #0f172a;
   color: white;
 }
@@ -44,12 +45,12 @@ body {
 .md\:pt-28 { padding-top: 7rem; }
 
 .text-gray-900 { color: #111827; }
-.dark .text-white { color: white; }
+html.dark .text-white { color: white; }
 .text-gray-700 { color: #374151; }
-.dark .text-gray-300 { color: #d1d5db; }
+html.dark .text-gray-300 { color: #d1d5db; }
 
 .text-primary-600 { color: var(--primary-600); }
-.dark .text-primary-400 { color: var(--primary-400); }
+html.dark .text-primary-400 { color: var(--primary-400); }
 
 .btn-primary {
   display: inline-flex;
@@ -67,11 +68,11 @@ body {
   background-color: var(--primary-700);
 }
 
-.dark .btn-primary {
+html.dark .btn-primary {
   background-color: var(--primary-600);
 }
 
-.dark .btn-primary:hover {
+html.dark .btn-primary:hover {
   background-color: var(--primary-700);
 }
 
@@ -92,14 +93,26 @@ body {
   background-color: var(--primary-50);
 }
 
-.dark .btn-secondary {
+html.dark .btn-secondary {
   background-color: var(--gray-800);
   color: var(--primary-400);
   border-color: var(--primary-400);
 }
 
-.dark .btn-secondary:hover {
+html.dark .btn-secondary:hover {
   background-color: var(--gray-700);
+}
+
+/* Form styling */
+.form-input {
+  color: #111827; /* Dark text for inputs */
+  background-color: white;
+}
+
+html.dark .form-input {
+  background-color: white; /* Keep white background in dark mode */
+  color: #111827; /* Keep dark text in dark mode for readability */
+  border-color: #374151;
 }
 
 .card {
@@ -109,7 +122,7 @@ body {
   overflow: hidden;
 }
 
-.dark .card {
+html.dark .card {
   background-color: #1f2937;
   border: 1px solid #374151;
 }
@@ -188,7 +201,7 @@ body {
   padding-bottom: 1.25rem;
 }
 
-.dark\:bg-transparent {
+html.dark .bg-transparent {
   background-color: transparent;
 }
 

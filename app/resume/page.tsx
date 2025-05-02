@@ -102,9 +102,9 @@ const education: Education[] = [
 
 export default function ResumePage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="mb-12 pt-8">
-        <h1 className="text-gray-900 dark:text-white">Resume</h1>
+        <h1 className="page-header text-gray-900 dark:text-white">Resume</h1>
         <p className="text-xl mt-4 text-gray-700 dark:text-gray-300 max-w-3xl">
           Strategic IT executive with a track record of driving enterprise-wide digital transformation, optimizing IT spend, and leading high-impact AI and automation initiatives. Adept at aligning technology with business goals, governance, and velocity.
         </p>

@@ -12,7 +12,7 @@ export default async function SkillsPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="mb-12 pt-8">
-        <h1 className="text-gray-900 dark:text-white">{content.title || 'Skills & Expertise'}</h1>
+        <h1 className="page-header text-gray-900 dark:text-white">{content.title || 'Skills & Expertise'}</h1>
         <p className="text-xl mt-4 text-gray-700 dark:text-gray-300 max-w-3xl">
           {content.description || 'My professional skills and areas of expertise.'}
         </p>

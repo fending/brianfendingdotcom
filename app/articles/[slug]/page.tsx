@@ -48,12 +48,12 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
   }
   
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <article className="py-8">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <article className="py-8 max-w-3xl mx-auto">
         <header className="mb-8">
           <div className="md:flex md:items-start md:gap-8">
             <div className="md:flex-1">
-              <h1 className="text-gray-900 dark:text-white mb-4">{article.title}</h1>
+              <h1 className="page-header text-gray-900 dark:text-white mb-4">{article.title}</h1>
               
               <div className="flex items-center text-gray-500 dark:text-gray-400 mb-6">
                 <time dateTime={article.date}>
