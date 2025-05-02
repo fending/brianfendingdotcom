@@ -15,6 +15,8 @@ export default function ContactForm() {
   
   // Map URL parameter values to valid subject options
   useEffect(() => {
+    if (!searchParams) return;
+    
     const subjectParam = searchParams.get('subject')
     
     if (subjectParam) {

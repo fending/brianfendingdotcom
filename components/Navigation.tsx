@@ -29,6 +29,7 @@ export function Navigation() {
 
   // Helper function to check if a link is active
   const isActive = (path: string) => {
+    if (!pathname) return false
     if (path === '/' && pathname !== '/') return false
     return pathname === path || pathname.startsWith(`${path}/`)
   }

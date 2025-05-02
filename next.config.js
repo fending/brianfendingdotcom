@@ -5,56 +5,73 @@ const nextConfig = {
   // Re-enable SWC minifier since we're not using Babel
   swcMinify: true,
   
-  // Ultra simplified image config - use unoptimized to bypass image processing
-  // Use environment variables for domains
+  // Image configuration 
   images: {
-    unoptimized: true,
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS 
       ? process.env.NEXT_PUBLIC_IMAGE_DOMAINS.split(',') 
-      : ['localhost', 'brianfending.com']
+      : ['localhost', 'brianfending.com', 'www.brianfending.com'],
+    unoptimized: false // Enable image optimization
   },
   
-  // Use standalone output (export caused issues with Babel)
+  // Use standalone output for deployment
   output: 'standalone',
   
-  // Disable unnecessary features
-  optimizeFonts: false,
+  // Enable font optimization
+  optimizeFonts: true,
   
-  // Increase timeouts
+  // Increase timeouts for build
   staticPageGenerationTimeout: 180,
   
-  // Disable experimental features that might cause issues
+  // Configure experimental features
   experimental: {
-    cpus: 1, // Force single CPU to avoid memory issues
-    workerThreads: false,
-    optimizeCss: false,
-    optimizeServerReact: false,
-    scrollRestoration: false
+    cpus: 4, // Use more CPUs for better build performance
+    optimizeCss: false, // Disable CSS optimization to prevent critters issues
+    optimizeServerReact: true, // Enable server-side React optimization
+    scrollRestoration: true // Enable scroll restoration
   },
   
-  // Disable unnecessary page extensions 
-  pageExtensions: ['tsx', 'ts'],
+  // Define page extensions
+  pageExtensions: ['tsx', 'ts', 'js', 'jsx'],
   
   // Explicitly mark files to exclude from compilation
   excludeDefaultMomentLocales: true,
   
-  // Simplified webpack configuration
+  // Enhanced webpack configuration
   webpack(config) {
-    // More aggressive ignores
-    config.watchOptions = {
-      ignored: ['**/*']
-    };
+    // Configure for production builds
+    if (process.env.NODE_ENV === 'production') {
+      // Improve CSS processing
+      const cssRule = config.module.rules.find(
+        (rule) => rule.test && rule.test.toString().includes('css')
+      );
+      
+      if (cssRule) {
+        cssRule.use = [
+          ...cssRule.use,
+        ];
+      }
+    }
     
-    // Disable file watching during build
+    // Keep minimal logging for cleaner output
     config.infrastructureLogging = {
       level: 'error'
     };
     
-    // Add memory limits to avoid stack overflows
+    // Production optimization
     config.optimization = {
       ...config.optimization,
-      nodeEnv: 'production',
-      minimize: true
+      minimize: true,
+      splitChunks: {
+        chunks: 'all',
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.css$/,
+            chunks: 'all',
+            enforce: true,
+          },
+        },
+      },
     };
     
     return config;
