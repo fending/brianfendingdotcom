@@ -5,6 +5,9 @@ import { Footer } from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.VERCEL_URL 
+    ? `https://${process.env.VERCEL_URL}` 
+    : `http://${process.env.NEXT_PUBLIC_SITE_URL || 'localhost:3000'}`),
   title: {
     template: '%s | Brian Fending',
     default: 'Brian Fending | Technology Leadership',

@@ -13,6 +13,10 @@ declare global {
       
       // Environment variables for image domains
       NEXT_PUBLIC_IMAGE_DOMAINS?: string;
+      
+      // Site URL for metadata
+      NEXT_PUBLIC_SITE_URL?: string;
+      VERCEL_URL?: string;
     }
   }
 }

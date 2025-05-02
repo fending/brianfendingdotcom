@@ -75,7 +75,7 @@ async function writeToSheet({ name, email, subject, message, datetime }: Contact
       spreadsheetId: process.env.GOOGLE_SHEETS_SHEET_ID,
       range: 'Sheet1!A:E', // Match column headings in the sheet
       valueInputOption: 'USER_ENTERED',
-      resource: { values },
+      requestBody: { values },
     });
     
     return response;
