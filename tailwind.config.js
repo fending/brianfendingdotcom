@@ -5,7 +5,6 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './lib/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  purge: false, // Critical: Disable purging completely
   theme: {
     extend: {
       fontFamily: {

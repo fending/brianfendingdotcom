@@ -31,13 +31,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
           rel="stylesheet"
           crossOrigin="anonymous"
         />
+        <link href="/tailwind.css" rel="stylesheet" />
         <style dangerouslySetInnerHTML={{ __html: `
           /* Fallback styles in case Tailwind doesn't apply */
           body {
@@ -63,7 +64,7 @@ export default function RootLayout({
           }
         `}} />
       </head>
-      <body>
+      <body className="bg-gray-900 text-white">
         <ThemeProvider>
           <div className="flex flex-col min-h-screen">
             <Navigation />
@@ -91,8 +92,19 @@ export default function RootLayout({
               }
             }
             
-            // Force dark mode
+            // Force dark mode - try multiple approaches
             document.documentElement.classList.add('dark');
+            
+            // Apply dark mode styles directly
+            document.body.style.backgroundColor = '#0f172a';
+            document.body.style.color = 'white';
+            
+            // Check if styles are working
+            const computedStyle = window.getComputedStyle(document.body);
+            console.log("Body styles:", {
+              backgroundColor: computedStyle.backgroundColor,
+              color: computedStyle.color
+            });
           `}
         </Script>
       </body>
