@@ -77,6 +77,7 @@ export default function TermsOfServicePage() {
         <p>
           If you have any questions about these Terms, please <Link href="/contact" className="text-primary-600 dark:text-primary-400">contact us</Link>.
         </p>
+        <p>&nbsp;</p>
       </div>
     </div>
   )

@@ -120,7 +120,7 @@ export default function CookieConsentBanner() {
         You can choose to accept or decline these cookies at any time.
       </p>
       <a 
-        href="/privacy-policy" 
+        href="/privacy" 
         style={{ 
           textDecoration: 'underline', 
           color: '#60a5fa', 
