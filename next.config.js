@@ -2,8 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   
-  // Re-enable SWC minifier since we're not using Babel
+  // SWC minifier enabled for better performance
   swcMinify: true,
+  
+  // Default output mode instead of standalone to avoid CSS issues
+  // output: 'standalone',
   
   // Redirects
   async redirects() {
@@ -16,8 +19,7 @@ const nextConfig = {
     ];
   },
   
-  // Ultra simplified image config - use unoptimized to bypass image processing
-  // Use environment variables for domains
+  // Image optimization settings
   images: {
     unoptimized: true,
     domains: process.env.NEXT_PUBLIC_IMAGE_DOMAINS 
@@ -25,28 +27,26 @@ const nextConfig = {
       : ['localhost', 'brianfending.com', 'www.brianfending.com']
   },
   
-  // Don't use standalone output - it's causing CSS issues
-  // output: 'standalone',
-  
-  // Disable unnecessary features
+  // Font optimization disabled for simplified builds
   optimizeFonts: false,
   
-  // Increase timeouts for build
+  // Increase timeout for static page generation
   staticPageGenerationTimeout: 180,
   
-  // Disable all non-essential experimental features
+  // Experimental features configuration
   experimental: {
+    // Development options
     optimizeCss: false,
-    optimizeServerReact: false,
+    optimizeServerReact: true,
   },
   
-  // Disable unnecessary page extensions 
+  // Only compile .tsx and .ts files
   pageExtensions: ['tsx', 'ts'],
   
-  // Explicitly mark files to exclude from compilation
+  // Reduce bundle size
   excludeDefaultMomentLocales: true,
   
-  // Minimal webpack configuration for consistent CSS processing
+  // Webpack configuration for CSS processing
   webpack(config) {
     // Ensure CSS processing happens properly
     if (config.module && config.module.rules) {

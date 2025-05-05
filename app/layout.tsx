@@ -7,33 +7,26 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 // ReCaptchaProvider moved to contact form
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import CookieConsentBanner from '@/components/CookieConsent'
+import JsonLd from '@/components/JsonLd'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}`
-      : process.env.NODE_ENV === 'production'
-        ? `https://${process.env.NEXT_PUBLIC_SITE_URL || 'www.brianfending.com'}`
-        : 'http://localhost:3000'
-  ),
+  metadataBase: new URL('https://www.brianfending.com'),
   title: {
     template: '%s | Brian Fending',
     default: 'Brian Fending | Technology Leadership',
   },
-  description: 'Technology Leadership insights and experiences from Brian Fending',
-  authors: [{ name: 'Brian Fending' }],
+  description: 'Technology Leadership insights on AI, governance, and software engineering.',
+  keywords: ['Technology Leadership', 'Software Engineering', 'AI', 'Governance', 'Risk Management'],
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon/favicon-16x16.png',
+    icon: '/favicon/favicon.ico',
+    shortcut: '/favicon/favicon.ico',
     apple: '/favicon/apple-touch-icon.png',
     other: [
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '32x32',
-        url: '/favicon/favicon-32x32.png',
-      },
       {
         rel: 'icon',
         type: 'image/png',
@@ -43,19 +36,12 @@ export const metadata: Metadata = {
       {
         rel: 'icon',
         type: 'image/png',
-        sizes: '192x192',
-        url: '/favicon/android-chrome-192x192.png',
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '512x512',
-        url: '/favicon/android-chrome-512x512.png',
+        sizes: '32x32',
+        url: '/favicon/favicon-32x32.png',
       },
     ],
   },
   manifest: '/favicon/site.webmanifest',
-  applicationName: 'Brian Fending',
 }
 
 export const viewport: Viewport = {
@@ -79,6 +65,7 @@ export default function RootLayout({
       </head>
       <body>
         <GoogleAnalytics />
+        <JsonLd />
         <ThemeProvider>
           <div className="flex flex-col min-h-screen">
             <Navigation />

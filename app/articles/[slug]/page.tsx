@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import { getAllArticles, getArticleBySlug } from '@/lib/articles'
 import NewsletterSignup from '@/components/NewsletterSignup'
+import ShareButtons from '@/components/ShareButtons'
 
 // Generate metadata for the page
 export async function generateMetadata({ params }: { params: { slug: string }}): Promise<Metadata> {
@@ -69,6 +70,15 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
                 </time>
                 <span className="mx-2">•</span>
                 <span>{article.author}</span>
+              </div>
+              
+              {/* Share buttons */}
+              <div className="mb-6">
+                <ShareButtons
+                  title={article.title}
+                  url={`https://www.brianfending.com/articles/${article.slug}`}
+                  summary={article.excerpt}
+                />
               </div>
               
               <div className="flex flex-wrap gap-2 mb-6">
@@ -180,32 +190,6 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
               </svg>
               Back to articles
             </Link>
-            
-            {/* Share links */}
-            <div className="flex space-x-3">
-              <a 
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(`https://brianfending.com/articles/${article.slug}`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-[#1da1f2] dark:text-gray-400 dark:hover:text-[#1da1f2]"
-                aria-label="Share on Twitter"
-              >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.023 10.023 0 01-3.127 1.195 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
-              </a>
-              <a 
-                href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(`https://brianfending.com/articles/${article.slug}`)}&title=${encodeURIComponent(article.title)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-linkedin dark:text-gray-400 dark:hover:text-linkedin"
-                aria-label="Share on LinkedIn"
-              >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19.7 3H4.3A1.3 1.3 0 003 4.3v15.4A1.3 1.3 0 004.3 21h15.4a1.3 1.3 0 001.3-1.3V4.3A1.3 1.3 0 0019.7 3zM8.4 18.3H5.7V9.8h2.7v8.5zM7 8.4a1.6 1.6 0 110-3.2 1.6 1.6 0 010 3.2zm11.3 9.9h-2.7v-4.2c0-1 0-2.3-1.4-2.3-1.4 0-1.6 1.1-1.6 2.2v4.3h-2.7V9.8h2.6v1.2a2.8 2.8 0 012.5-1.4c2.7 0 3.2 1.8 3.2 4v4.7z"/>
-                </svg>
-              </a>
-            </div>
           </div>
         </div>
       </article>
