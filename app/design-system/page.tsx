@@ -1,10 +1,14 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 import Link from 'next/link'
 import NewsletterSignup from '@/components/NewsletterSignup'
 
 export const metadata: Metadata = {
   title: 'Design System',
   description: 'Component library and design guidelines for brianfending.com',
+}
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff'
 }
 
 export default function DesignSystemPage() {

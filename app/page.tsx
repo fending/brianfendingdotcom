@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getHomeContent } from '@/lib/content'
@@ -9,6 +9,10 @@ import AnimatedElement from '@/components/AnimatedElement'
 export const metadata: Metadata = {
   title: 'Brian Fending | Technology Leadership',
   description: 'Technology Leadership insights and experiences from Brian Fending',
+}
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff'
 }
 
 export default async function HomePage() {

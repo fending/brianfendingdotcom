@@ -1,9 +1,13 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Resume',
   description: 'Brian Fending\'s professional experience, education, and achievements in technology leadership and software engineering.',
+}
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff'
 }
 
 interface Experience {

@@ -1,10 +1,14 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 import { Suspense } from 'react'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact',
   description: 'Get in touch with Brian Fending for consulting, speaking engagements, or other inquiries.',
+}
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff'
 }
 
 export default function ContactPage() {

@@ -1,10 +1,14 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Speaking',
   description: 'Information about Brian Fending\'s speaking engagements, conference talks, workshops, and upcoming events.',
+}
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff'
 }
 
 // Types for speaking engagements

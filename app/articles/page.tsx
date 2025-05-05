@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getAllArticles } from '@/lib/articles'
@@ -6,6 +6,10 @@ import { getAllArticles } from '@/lib/articles'
 export const metadata: Metadata = {
   title: 'Articles',
   description: 'Articles about technology leadership, software engineering, and more.',
+}
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff'
 }
 
 export default async function ArticlesPage() {

@@ -1,4 +1,9 @@
 import Link from 'next/link'
+import { Viewport } from 'next'
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff'
+}
 
 export default function NotFound() {
   return (

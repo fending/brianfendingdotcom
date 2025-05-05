@@ -1,10 +1,11 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import './critical.css'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { ReCaptchaProvider } from '@/components/ReCaptchaProvider'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
@@ -54,6 +55,9 @@ export const metadata: Metadata = {
   },
   manifest: '/favicon/site.webmanifest',
   applicationName: 'Brian Fending',
+}
+
+export const viewport: Viewport = {
   themeColor: '#ffffff',
 }
 
@@ -73,6 +77,7 @@ export default function RootLayout({
         <link href="/tailwind.css" rel="stylesheet" />
       </head>
       <body>
+        <GoogleAnalytics />
         <ThemeProvider>
           <ReCaptchaProvider>
             <div className="flex flex-col min-h-screen">

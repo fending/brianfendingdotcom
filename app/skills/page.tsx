@@ -1,9 +1,13 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 import { getSkillsContent, SkillCategory } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Skills & Expertise',
   description: 'Brian Fending\'s professional skills and areas of expertise in technology leadership and software engineering.',
+}
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff'
 }
 
 export default async function SkillsPage() {

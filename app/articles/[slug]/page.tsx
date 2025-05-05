@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import { Metadata, Viewport } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -38,6 +38,10 @@ export async function generateStaticParams() {
   return articles.map((article) => ({
     slug: article.slug,
   }))
+}
+
+export const viewport: Viewport = {
+  themeColor: '#ffffff'
 }
 
 export default async function ArticleDetailPage({ params }: { params: { slug: string }}) {
