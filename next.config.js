@@ -5,6 +5,17 @@ const nextConfig = {
   // Re-enable SWC minifier since we're not using Babel
   swcMinify: true,
   
+  // Redirects
+  async redirects() {
+    return [
+      {
+        source: '/privacy-policy',
+        destination: '/privacy',
+        permanent: true,
+      }
+    ];
+  },
+  
   // Ultra simplified image config - use unoptimized to bypass image processing
   // Use environment variables for domains
   images: {

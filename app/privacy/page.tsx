@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
       <div className="mb-12 pt-8">
         <h1 className="page-header text-gray-900 dark:text-white">Privacy Policy</h1>
         <p className="text-xl mt-4 text-gray-700 dark:text-gray-300 max-w-3xl">
-          Last updated: May 2024
+          Last updated: May 2025
         </p>
       </div>
 
@@ -63,6 +63,7 @@ export default function PrivacyPolicyPage() {
         <p>
           For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please <Link href="/contact" className="text-primary-600 dark:text-primary-400">contact us</Link>.
         </p>
+        <p>&nbsp;</p>
       </div>
     </div>
   )
