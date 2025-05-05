@@ -2,6 +2,7 @@
 
 import { useState, useEffect, FormEvent } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
 // Form validation types
 interface FormErrors {
@@ -13,6 +14,7 @@ interface FormErrors {
 
 export default function ContactForm() {
   const searchParams = useSearchParams()
+  const { executeRecaptcha } = useGoogleReCaptcha()
   
   const [formData, setFormData] = useState({
     name: '',
@@ -164,6 +166,15 @@ export default function ContactForm() {
       return;
     }
     
+    // Check if reCAPTCHA is ready
+    if (!executeRecaptcha) {
+      setFormStatus({
+        status: 'error',
+        message: 'reCAPTCHA not yet available. Please try again in a moment.'
+      });
+      return;
+    }
+    
     setFormStatus({ status: 'submitting' })
 
     try {
@@ -179,13 +190,23 @@ export default function ContactForm() {
         }
       }
       
-      // Submit form data to our API endpoint
+      // Execute reCAPTCHA with context 'contact_form'
+      const recaptchaToken = await executeRecaptcha('contact_form');
+      
+      if (!recaptchaToken) {
+        throw new Error('Failed to execute reCAPTCHA. Please try again.');
+      }
+      
+      // Submit form data with reCAPTCHA token to our API endpoint
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken
+        }),
       });
 
       const data = await response.json();

@@ -4,6 +4,7 @@ import './critical.css'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { ReCaptchaProvider } from '@/components/ReCaptchaProvider'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
@@ -73,13 +74,15 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <div className="flex flex-col min-h-screen">
-            <Navigation />
-            <main className="flex-grow pt-24 md:pt-28">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          <ReCaptchaProvider>
+            <div className="flex flex-col min-h-screen">
+              <Navigation />
+              <main className="flex-grow pt-24 md:pt-28">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </ReCaptchaProvider>
         </ThemeProvider>
       </body>
     </html>

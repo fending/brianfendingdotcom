@@ -7,13 +7,49 @@ interface ContactFormData {
   email: string;
   subject: string;
   message: string;
+  recaptchaToken: string;
+}
+
+// Function to verify reCAPTCHA token
+async function verifyRecaptcha(token: string): Promise<boolean> {
+  try {
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+    
+    if (!secretKey) {
+      console.error('reCAPTCHA secret key not configured');
+      return false;
+    }
+    
+    const response = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`,
+      { method: 'POST' }
+    );
+    
+    const data = await response.json();
+    
+    // Check response
+    if (data.success) {
+      // For v3, check score (0.0 to 1.0, where 1.0 is very likely a good interaction)
+      // Typically, 0.5 is a good threshold, but you can adjust based on your needs
+      if (data.score && data.score < 0.5) {
+        console.warn(`reCAPTCHA score too low: ${data.score}`);
+        return false;
+      }
+      return true;
+    }
+    
+    return false;
+  } catch (error) {
+    console.error('Error verifying reCAPTCHA:', error);
+    return false;
+  }
 }
 
 export async function POST(request: NextRequest) {
   try {
     // Parse the JSON request body
     const body = await request.json() as ContactFormData;
-    const { name, email, subject, message } = body;
+    const { name, email, subject, message, recaptchaToken } = body;
     
     // Validate form data
     if (!name || !email || !subject || !message) {
@@ -23,10 +59,27 @@ export async function POST(request: NextRequest) {
       );
     }
     
+    // Validate reCAPTCHA token
+    if (!recaptchaToken) {
+      return NextResponse.json(
+        { message: 'reCAPTCHA verification failed. Please try again.' },
+        { status: 400 }
+      );
+    }
+    
+    // Verify reCAPTCHA token
+    const isRecaptchaValid = await verifyRecaptcha(recaptchaToken);
+    if (!isRecaptchaValid) {
+      return NextResponse.json(
+        { message: 'reCAPTCHA verification failed. Please try again.' },
+        { status: 400 }
+      );
+    }
+    
     // Format current date in ISO format for Google Sheets
     const datetime = new Date().toISOString();
     
-    // Write to Google Sheet
+    // Write to Google Sheet - exclude recaptchaToken as it's not needed in the sheet
     await writeToSheet({ name, email, subject, message, datetime });
     
     return NextResponse.json(
@@ -42,7 +95,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-async function writeToSheet({ name, email, subject, message, datetime }: ContactFormData & { datetime: string }) {
+async function writeToSheet({ name, email, subject, message, datetime }: Omit<ContactFormData, 'recaptchaToken'> & { datetime: string }) {
   try {
     // Configure auth
     const auth = new google.auth.GoogleAuth({

@@ -12,6 +12,10 @@ declare global {
       // Site URL for metadata
       NEXT_PUBLIC_SITE_URL?: string;
       VERCEL_URL?: string;
+      
+      // reCAPTCHA v3 keys
+      NEXT_PUBLIC_RECAPTCHA_SITE_KEY: string;
+      RECAPTCHA_SECRET_KEY: string;
     }
   }
 }
