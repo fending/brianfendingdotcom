@@ -1,6 +1,7 @@
 import { Metadata, Viewport } from 'next'
 import { Suspense } from 'react'
 import ContactForm from '@/components/ContactForm'
+import { ReCaptchaProvider } from '@/components/ReCaptchaProvider'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -25,7 +26,14 @@ export default function ContactPage() {
         <div>
           <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Send a Message</h2>
           <Suspense fallback={<div className="animate-pulse h-96 bg-gray-100 dark:bg-gray-800 rounded-lg"></div>}>
-            <ContactForm />
+            <ReCaptchaProvider>
+              <ContactForm />
+              <div className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                This form is protected by reCAPTCHA and the Google 
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="mx-1 text-primary-600 dark:text-primary-400">Privacy Policy</a> and
+                <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="mx-1 text-primary-600 dark:text-primary-400">Terms of Service</a> apply.
+              </div>
+            </ReCaptchaProvider>
           </Suspense>
         </div>
 

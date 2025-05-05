@@ -4,7 +4,7 @@ import './critical.css'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
-import { ReCaptchaProvider } from '@/components/ReCaptchaProvider'
+// ReCaptchaProvider moved to contact form
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import Script from 'next/script'
 
@@ -79,15 +79,13 @@ export default function RootLayout({
       <body>
         <GoogleAnalytics />
         <ThemeProvider>
-          <ReCaptchaProvider>
-            <div className="flex flex-col min-h-screen">
-              <Navigation />
-              <main className="flex-grow pt-24 md:pt-28">
-                {children}
-              </main>
-              <Footer />
-            </div>
-          </ReCaptchaProvider>
+          <div className="flex flex-col min-h-screen">
+            <Navigation />
+            <main className="flex-grow pt-24 md:pt-28">
+              {children}
+            </main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
