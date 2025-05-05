@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer'
 import { ThemeProvider } from '@/components/ThemeProvider'
 // ReCaptchaProvider moved to contact form
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import CookieConsentBanner from '@/components/CookieConsent'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
@@ -86,6 +87,7 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
+          <CookieConsentBanner />
         </ThemeProvider>
       </body>
     </html>
