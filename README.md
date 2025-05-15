@@ -10,9 +10,17 @@ BrianFending.com serves as a professional website and content hub for technology
 
 - Modern web technology stack: Next.js 14 with App Router, React 18, TypeScript
 - Responsive design with Tailwind CSS
-- Dark/light mode support
+- Dark/light mode theme support
 - Content syndication with GitHub content repository
-- SEO optimization with Next.js metadata
+- Comprehensive SEO optimization:
+  - Next.js Metadata API
+  - OpenGraph and Twitter Cards
+  - JSON-LD structured data
+  - robots.txt and sitemap.xml
+  - llms.txt for LLM-friendly content indexing
+- GDPR-compliant cookie consent with Google Analytics integration
+- Contact form with Google Sheets integration and reCAPTCHA protection
+- Social sharing features for articles (LinkedIn, X, Bluesky, and copy link)
 - Image optimization with Next.js Image component
 - Fluid typography and minimal animations (150ms max)
 - Perfect Lighthouse scores
@@ -58,10 +66,19 @@ npm run lint
 ## Project Structure
 
 - `/app`: Next.js App Router pages and layouts
+  - `/api`: API routes including contact form handler 
+  - `/articles`: Article listing and detail pages
+  - `/privacy` and `/terms`: Legal pages
 - `/components`: Reusable React components
+  - `CookieConsent.tsx`: GDPR-compliant cookie banner
+  - `GoogleAnalytics.tsx`: GA4 integration with privacy controls
+  - `ShareButtons.tsx`: Social sharing component
+  - `ContactForm.tsx`: Form with Google Sheets integration
+  - `JsonLd.tsx`: Structured data for SEO
 - `/lib`: Utility functions and data fetching
 - `/context`: Documentation for implementation details and workflows
 - `/public`: Static assets and fallback content
+  - `/favicon`: Favicon files in various formats
   - `/images`: Images used throughout the site
   - `/static`: JSON data files
 
@@ -83,6 +100,7 @@ For detailed information about content workflows, see the following documentatio
 - [Shorts Production Workflow](./context/shorts-production-workflow.md)
 - [Podcast Workflow](./context/acast-podcast-workflow.md)
 - [GitHub Workflows](./context/github-workflows-actions.md)
+- [Google Sheets Implementation](./context/nextjs-google-sheets-implementation_2025-05-02.md)
 
 ## Design System
 
@@ -90,7 +108,11 @@ This project follows a comprehensive design system. See the [Design System Guide
 
 ## Deployment
 
-The website is automatically deployed via GitHub Actions when content changes are pushed to the content repository. See `.github/workflows/content-deploy.yml` for details.
+The website is configured for deployment on Vercel with environment variables for:
+- Google Analytics tracking ID
+- reCAPTCHA keys
+- Google Sheets API credentials
+- Email notification settings
 
 ## License
 
@@ -98,4 +120,4 @@ All rights reserved.
 
 ## Contact
 
-Brian Fending - [contact information]
+Brian Fending - [Visit contact page](https://www.brianfending.com/contact)

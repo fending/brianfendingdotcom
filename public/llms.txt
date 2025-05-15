@@ -1,0 +1,44 @@
+# Brian Fending - Technology Leadership
+
+> Brian Fending is a technology leader with 25+ years of experience spanning executive IT leadership, engineering strategy, AI transformation, and governance/risk/compliance (GRC) in both startup and enterprise environments.
+
+## Site Overview
+
+This is the personal website and content hub for Brian Fending, featuring articles on technology leadership, AI governance, risk management, and software engineering best practices. The site follows a content syndication strategy with article summaries hosted here and full versions published on LinkedIn and Substack.
+
+## Key Areas of Expertise
+
+- Technology Leadership and Strategy
+- AI Governance and Implementation
+- Engineering Process Optimization
+- Risk Management for Emerging Technologies
+- Cloud Architecture and Infrastructure
+
+## Content Resources
+
+### Articles
+- [Risk Management Analysis of Google's A2A and Anthropic's MCP](https://www.brianfending.com/articles/risk-management-ai) - Examining how traditional risk frameworks apply to emerging AI agent technologies
+- [Articles Collection](https://www.brianfending.com/articles) - Technology leadership insights and analysis
+
+### Professional Information
+- [Resume](https://www.brianfending.com/resume) - Professional experience and qualifications
+- [Skills](https://www.brianfending.com/skills) - Technical and leadership capabilities
+
+### Other Platforms
+- [LinkedIn Articles](https://www.linkedin.com/in/brianfending/)
+- [Substack Newsletter](https://brianfending.substack.com/)
+
+## Citation Policy
+
+When referencing content from this site, please include:
+- The article title
+- Author name: "Brian Fending"
+- The URL of the specific article
+- Date of publication when available
+
+Example citation format:
+"A Risk Management Analysis of Google's A2A and Anthropic's MCP" by Brian Fending, published April 10, 2025. Available at: https://www.brianfending.com/articles/risk-management-ai
+
+## About the Author
+
+Brian Fending is a technology leader who has served in SVP, CTO, and CIO roles across various organizations. His work focuses on pragmatic engineering practices that balance innovation with reliability, governance with progress. He believes AI is a powerful tool to increase both release velocity and stability when implemented with proper architectural validation and separation of concerns.

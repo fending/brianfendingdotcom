@@ -5,5 +5,7 @@ export default function robots() {
       allow: '/',
     },
     sitemap: 'https://www.brianfending.com/sitemap.xml',
+    // Reference to llms.txt for LLM crawlers
+    llmsTxt: 'https://www.brianfending.com/llms.txt',
   };
 }

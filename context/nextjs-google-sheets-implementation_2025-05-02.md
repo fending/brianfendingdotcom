@@ -62,252 +62,458 @@ npm install googleapis nodemailer
 
 ### Step 4: Create API Route Handler
 
-Create a file at `pages/api/contact.js`:
+Create a file at `app/api/contact/route.ts`:
 
-```javascript
+```typescript
 import { google } from 'googleapis';
-import nodemailer from 'nodemailer';
+import { NextRequest, NextResponse } from 'next/server';
 
-export default async function handler(req, res) {
-  // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
-  }
+// Define the expected request body structure
+interface ContactFormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  recaptchaToken: string;
+}
 
+// Function to verify reCAPTCHA token
+async function verifyRecaptcha(token: string): Promise<boolean> {
   try {
-    const { name, email, message } = req.body;
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
     
-    // Validate form data
-    if (!name || !email || !message) {
-      return res.status(400).json({ message: 'All fields are required' });
+    if (!secretKey) {
+      console.error('reCAPTCHA secret key not configured');
+      return false;
     }
     
-    // Format current date
-    const date = new Date().toLocaleString();
+    const response = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}`,
+      { method: 'POST' }
+    );
     
-    // 1. Write to Google Sheet
-    await writeToSheet({ name, email, message, date });
+    const data = await response.json();
     
-    // 2. Send notification email (optional)
-    await sendNotificationEmail({ name, email, message });
+    // Check response
+    if (data.success) {
+      // For v3, check score (0.0 to 1.0, where 1.0 is very likely a good interaction)
+      // Typically, 0.5 is a good threshold, but you can adjust based on your needs
+      if (data.score && data.score < 0.5) {
+        console.warn(`reCAPTCHA score too low: ${data.score}`);
+        return false;
+      }
+      return true;
+    }
     
-    return res.status(200).json({ message: 'Form submitted successfully!' });
+    return false;
+  } catch (error) {
+    console.error('Error verifying reCAPTCHA:', error);
+    return false;
+  }
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    // Parse the JSON request body
+    const body = await request.json() as ContactFormData;
+    const { name, email, subject, message, recaptchaToken } = body;
+    
+    // Validate form data
+    if (!name || !email || !subject || !message) {
+      return NextResponse.json(
+        { message: 'All fields are required' },
+        { status: 400 }
+      );
+    }
+    
+    // Validate reCAPTCHA token
+    if (!recaptchaToken) {
+      return NextResponse.json(
+        { message: 'reCAPTCHA verification failed. Please try again.' },
+        { status: 400 }
+      );
+    }
+    
+    // Verify reCAPTCHA token
+    const isRecaptchaValid = await verifyRecaptcha(recaptchaToken);
+    if (!isRecaptchaValid) {
+      return NextResponse.json(
+        { message: 'reCAPTCHA verification failed. Please try again.' },
+        { status: 400 }
+      );
+    }
+    
+    // Format current date in ISO format for Google Sheets
+    const datetime = new Date().toISOString();
+    
+    // Write to Google Sheet - exclude recaptchaToken as it's not needed in the sheet
+    await writeToSheet({ name, email, subject, message, datetime });
+    
+    return NextResponse.json(
+      { message: 'Your message has been sent! I\'ll get back to you soon.' },
+      { status: 200 }
+    );
   } catch (error) {
     console.error('Error handling form submission:', error);
-    return res.status(500).json({ message: 'Internal server error' });
+    return NextResponse.json(
+      { message: 'There was an error processing your request. Please try again.' },
+      { status: 500 }
+    );
   }
 }
 
-async function writeToSheet({ name, email, message, date }) {
-  // Configure auth
-  const auth = new google.auth.GoogleAuth({
-    credentials: {
-      client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
-      // Handle newline characters in the private key
-      private_key: process.env.GOOGLE_SHEETS_PRIVATE_KEY.replace(/\\n/g, '\n'),
-    },
-    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-  });
+async function writeToSheet({ name, email, subject, message, datetime }: Omit<ContactFormData, 'recaptchaToken'> & { datetime: string }) {
+  try {
+    // Configure auth
+    const auth = new google.auth.GoogleAuth({
+      credentials: {
+        client_email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
+        // Handle newline characters in the private key
+        private_key: process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      },
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    });
 
-  const sheets = google.sheets({ version: 'v4', auth });
-  
-  // Prepare row values
-  const values = [[date, name, email, message]];
-  
-  // Append data to sheet
-  await sheets.spreadsheets.values.append({
-    spreadsheetId: process.env.GOOGLE_SHEETS_SHEET_ID,
-    range: 'Sheet1!A:D', // Adjust range as needed
-    valueInputOption: 'USER_ENTERED',
-    resource: { values },
-  });
-}
-
-async function sendNotificationEmail({ name, email, message }) {
-  // Skip if email settings not configured
-  if (!process.env.EMAIL_USERNAME || !process.env.EMAIL_PASSWORD || !process.env.NOTIFICATION_EMAIL) {
-    return;
+    const sheets = google.sheets({ version: 'v4', auth });
+    
+    // Prepare row values - match exact column headings: datetime, name, email, subject, message
+    const values = [[datetime, name, email, subject, message]];
+    
+    // Append data to sheet
+    const response = await sheets.spreadsheets.values.append({
+      spreadsheetId: process.env.GOOGLE_SHEETS_SHEET_ID,
+      range: 'Sheet1!A:E', // Match column headings in the sheet
+      valueInputOption: 'USER_ENTERED',
+      requestBody: { values },
+    });
+    
+    return response;
+  } catch (error) {
+    console.error('Error writing to Google Sheet:', error);
+    throw new Error('Failed to save form data to Google Sheet');
   }
-
-  // Configure transporter
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD, // Use app password for Gmail
-    },
-  });
-
-  // Email content
-  const mailOptions = {
-    from: process.env.EMAIL_USERNAME,
-    to: process.env.NOTIFICATION_EMAIL,
-    subject: `New Contact Form Submission from ${name}`,
-    text: `
-      Name: ${name}
-      Email: ${email}
-      Message: ${message}
-      Date: ${new Date().toLocaleString()}
-    `,
-  };
-
-  // Send email
-  await transporter.sendMail(mailOptions);
 }
 ```
 
-### Step 5: Create the Frontend Contact Form
+### Step 5: Create the Frontend Contact Form with reCAPTCHA
 
-Create a component for your contact form in your Next.js app:
+Create a component for your contact form in your Next.js app with reCAPTCHA integration:
 
-```jsx
-// components/ContactForm.jsx
-import { useState } from 'react';
+```tsx
+// components/ContactForm.tsx
+'use client';
+
+import React, { useState, useRef } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { ReCaptchaProvider } from '@/components/ReCaptchaProvider';
+
+// Define form data interface
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  recaptchaToken: string;
+}
+
+// Define form status interface
+interface FormStatus {
+  isSubmitting: boolean;
+  isSubmitted: boolean;
+  isError: boolean;
+  message: string;
+}
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
+  // Initial empty form data
+  const initialFormData: FormData = {
     name: '',
     email: '',
-    message: ''
-  });
-  
-  const [status, setStatus] = useState({
-    submitted: false,
-    submitting: false,
-    info: { error: false, msg: null }
-  });
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setFormData(prevData => ({ ...prevData, [name]: value }));
+    subject: '',
+    message: '',
+    recaptchaToken: ''
   };
 
-  const handleSubmit = async e => {
+  // Form state
+  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [formStatus, setFormStatus] = useState<FormStatus>({
+    isSubmitting: false,
+    isSubmitted: false,
+    isError: false,
+    message: '',
+  });
+
+  // Reference to reCAPTCHA component
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
+  // Handle form input changes
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus(prevStatus => ({ ...prevStatus, submitting: true }));
     
+    setFormStatus({
+      isSubmitting: true,
+      isSubmitted: false,
+      isError: false,
+      message: '',
+    });
+
     try {
+      // Execute reCAPTCHA and get token
+      const token = await recaptchaRef.current?.executeAsync();
+      
+      // If reCAPTCHA fails, handle error
+      if (!token) {
+        throw new Error('reCAPTCHA verification failed');
+      }
+      
+      // Update form data with reCAPTCHA token
+      const formDataWithToken = {
+        ...formData,
+        recaptchaToken: token,
+      };
+      
+      // Submit form data to API endpoint
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formDataWithToken),
       });
       
-      const data = await response.json();
+      // Parse response
+      const result = await response.json();
       
-      if (response.status === 200) {
-        setStatus({
-          submitted: true,
-          submitting: false,
-          info: { error: false, msg: data.message }
+      // Reset reCAPTCHA
+      recaptchaRef.current?.reset();
+      
+      // Handle response based on status
+      if (response.ok) {
+        // Success - reset form
+        setFormData(initialFormData);
+        setFormStatus({
+          isSubmitting: false,
+          isSubmitted: true,
+          isError: false,
+          message: result.message || 'Your message has been sent!',
         });
-        setFormData({ name: '', email: '', message: '' });
       } else {
-        setStatus({
-          info: { error: true, msg: data.message || 'Something went wrong' }
+        // API error
+        setFormStatus({
+          isSubmitting: false,
+          isSubmitted: false,
+          isError: true,
+          message: result.message || 'Something went wrong. Please try again.',
         });
       }
     } catch (error) {
-      setStatus({
-        submitting: false,
-        info: { error: true, msg: 'Error submitting form' }
+      // Client-side error
+      console.error('Error submitting form:', error);
+      setFormStatus({
+        isSubmitting: false,
+        isSubmitted: false,
+        isError: true,
+        message: 'An error occurred. Please try again later.',
       });
+      
+      // Reset reCAPTCHA
+      recaptchaRef.current?.reset();
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium">
-          Name
-        </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-        />
-      </div>
+    <ReCaptchaProvider>
+      <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-gray-200 dark:border-gray-700">
+          <div className="space-y-6">
+            {/* Name field */}
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Name <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white"
+              />
+            </div>
+            
+            {/* Email field */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Email <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white"
+              />
+            </div>
+            
+            {/* Subject field */}
+            <div>
+              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Subject <span className="text-red-500">*</span>
+              </label>
+              <input
+                id="subject"
+                name="subject"
+                type="text"
+                required
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white"
+              />
+            </div>
+            
+            {/* Message field */}
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                Message <span className="text-red-500">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={6}
+                required
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:text-white"
+              />
+            </div>
+            
+            {/* Status message */}
+            {(formStatus.isSubmitted || formStatus.isError) && (
+              <div className={`p-3 rounded ${formStatus.isError ? 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300' : 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300'}`}>
+                {formStatus.message}
+              </div>
+            )}
+            
+            {/* Submit button */}
+            <div>
+              <button
+                type="submit"
+                disabled={formStatus.isSubmitting}
+                className="w-full py-3 px-4 border border-transparent rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {formStatus.isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
+            </div>
+            
+            {/* reCAPTCHA */}
+            <div className="recaptcha-container">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                size="invisible"
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+              />
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
+                This site is protected by reCAPTCHA and the Google{' '}
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline">
+                  Privacy Policy
+                </a>{' '}
+                and{' '}
+                <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline">
+                  Terms of Service
+                </a>{' '}
+                apply.
+              </p>
+            </div>
+          </div>
+        </div>
+      </form>
+    </ReCaptchaProvider>
+  );
+}
 
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium">
-          Email
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-        />
-      </div>
+### Step 6: Create the ReCaptcha Provider Component
 
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
-          value={formData.message}
-          onChange={handleChange}
-          required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-        />
-      </div>
+```tsx
+// components/ReCaptchaProvider.tsx
+'use client';
 
-      <button
-        type="submit"
-        disabled={status.submitting}
-        className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-      >
-        {status.submitting ? 'Submitting...' : 'Send Message'}
-      </button>
+import React from 'react';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
-      {status.info.error && (
-        <div className="text-red-500 text-sm mt-2">{status.info.msg}</div>
-      )}
-      
-      {status.submitted && (
-        <div className="text-green-500 text-sm mt-2">{status.info.msg}</div>
-      )}
-    </form>
+export function ReCaptchaProvider({ children }: { children: React.ReactNode }) {
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '';
+  
+  return (
+    <GoogleReCaptchaProvider
+      reCaptchaKey={siteKey}
+      scriptProps={{
+        async: true,
+        defer: true,
+        appendTo: 'head',
+      }}
+    >
+      {children}
+    </GoogleReCaptchaProvider>
   );
 }
 ```
 
-### Step 6: Include the Form in Your Page
+### Step 7: Include the Form in Your Page
 
-```jsx
-// pages/contact.js (or wherever you want to include the form)
-import ContactForm from '../components/ContactForm';
+```tsx
+// app/contact/page.tsx
+import ContactForm from '@/components/ContactForm';
 
-export default function Contact() {
+export const metadata = {
+  title: 'Contact | Brian Fending',
+  description: 'Get in touch with Brian Fending for technology leadership insights, consulting, or speaking opportunities.',
+};
+
+export default function ContactPage() {
   return (
-    <div className="py-12 px-4">
-      <h1 className="text-3xl font-bold text-center mb-8">Contact Us</h1>
-      <ContactForm />
+    <div className="container mx-auto px-4 py-12">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">Contact</h1>
+        
+        <div className="prose dark:prose-invert max-w-none mb-12">
+          <p>
+            Have a question, comment, or opportunity you'd like to discuss? 
+            Use the form below to get in touch, and I'll get back to you as soon as possible.
+          </p>
+        </div>
+        
+        <ContactForm />
+      </div>
     </div>
   );
 }
 ```
 
-### Step 7: Deploy to Vercel
+### Step 8: Deploy to Vercel
 
-Push your changes to your repository, and Vercel will automatically deploy your updates.
+Push your changes to your repository, and Vercel will automatically deploy your updates. Make sure you've set all required environment variables in your Vercel project settings:
+
+- `GOOGLE_SHEETS_CLIENT_EMAIL`: From your service account JSON
+- `GOOGLE_SHEETS_PRIVATE_KEY`: From your service account JSON (with escaped newlines)
+- `GOOGLE_SHEETS_SHEET_ID`: Your Google Sheet's ID
+- `RECAPTCHA_SECRET_KEY`: Your reCAPTCHA v3 secret key
+- `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`: Your reCAPTCHA v3 site key
 
 ## Setting Up Google Sheet
 
 For optimal use, format your Google Sheet with these headers in the first row:
 
-| Date/Time | Name | Email | Message |
-|-----------|------|-------|---------|
+| Date/Time | Name | Email | Subject | Message |
+|-----------|------|-------|---------|---------|
 
 ## Troubleshooting
 
@@ -318,19 +524,29 @@ For optimal use, format your Google Sheet with these headers in the first row:
 2. **Permission Errors**: 
    - Check that service account has Editor access to the spreadsheet
 
-3. **Missing Data**:
+3. **reCAPTCHA Issues**:
+   - Ensure both server and client keys are set correctly
+   - Check browser console for reCAPTCHA errors
+   - Verify reCAPTCHA domains are configured correctly in the Google reCAPTCHA console
+
+4. **Missing Data**:
    - Verify sheet range in API call matches your actual sheet structure
 
 ## Security Considerations
 
-- Validate form inputs on both client and server
-- Consider adding rate limiting to prevent abuse
-- Use environment variables for all sensitive credentials
-- Never expose your service account key in client-side code
+- Server-side validation ensures all form fields are validated even if client-side validation is bypassed
+- reCAPTCHA v3 provides protection against bots and spam submissions
+- TypeScript interfaces ensure type safety throughout the application
+- Environment variables protect sensitive credentials
+- Request validation prevents malicious inputs
+- Error handling prevents exposing sensitive error details to clients
 
-## Next Steps & Enhancements
+## Implemented Enhancements
 
-- Add reCAPTCHA to prevent spam
-- Implement form validation with a library like Formik or React Hook Form
-- Add custom fields to collect additional information
-- Set up a scheduled function to automatically create backups of form submissions
+- reCAPTCHA v3 integration with invisible captcha (no user interaction required)
+- TypeScript interfaces for improved type safety
+- Responsive design with dark mode support
+- Proper error handling and user feedback
+- Subject field for better organization of submissions
+- Complete server-side validation
+- Compatible with Next.js 14 App Router and React 18
