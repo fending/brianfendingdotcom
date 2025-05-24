@@ -12,6 +12,12 @@ jobs:
       - name: Checkout website code
         uses: actions/checkout@v3
       
+      - name: Checkout content repository
+        uses: actions/checkout@v3
+        with:
+          repository: fending/bfdc-content
+          path: bfdc-content
+      
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -20,6 +26,24 @@ jobs:
       
       - name: Install dependencies
         run: npm ci
+      
+      - name: Copy new image assets
+        run: |
+          # Create target directory if it doesn't exist
+          mkdir -p public/images
+          
+          # Copy images from bfdc-content that don't already exist in public/images
+          for image in bfdc-content/content/assets/images/*; do
+            if [ -f "$image" ]; then
+              filename=$(basename "$image")
+              if [ ! -f "public/images/$filename" ]; then
+                echo "Copying new image: $filename"
+                cp "$image" "public/images/"
+              else
+                echo "Skipping existing image: $filename"
+              fi
+            fi
+          done
       
       - name: Build website
         run: npm run build
