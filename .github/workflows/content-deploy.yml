@@ -5,6 +5,9 @@ on:
     types: [content-update]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   sync-and-deploy:
     runs-on: ubuntu-latest
