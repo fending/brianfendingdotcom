@@ -18,6 +18,7 @@ jobs:
           repository: fending/bfdc-content
           token: ${{ secrets.CONTENT_REPO_TOKEN }}
           path: bfdc-content
+          ref: main
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
