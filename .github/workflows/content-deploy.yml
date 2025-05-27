@@ -1,4 +1,4 @@
-name: Content Deployment
+name: Content Sync and Trigger Vercel Deploy
 
 on:
   repository_dispatch:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  sync-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout website code
@@ -19,15 +19,6 @@ jobs:
           token: ${{ secrets.CONTENT_REPO_TOKEN }}
           path: bfdc-content
           ref: main
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
       
       - name: Copy new image assets
         run: |
@@ -47,15 +38,5 @@ jobs:
             fi
           done
       
-      - name: Build website
-        run: npm run build
-        env:
-          GITHUB_CONTENT_URL: 'https://raw.githubusercontent.com/fending/bfdc-content/main'
-      
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
+      - name: Trigger Vercel Deploy Hook
+        run: curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
