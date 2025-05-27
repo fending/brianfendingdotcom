@@ -38,5 +38,63 @@ jobs:
             fi
           done
       
+      - name: Update articles.json from content
+        run: |
+          # Create a simple script to process content and update articles.json
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          
+          // Read existing articles
+          const articlesPath = 'public/static/articles.json';
+          let articles = [];
+          if (fs.existsSync(articlesPath)) {
+            articles = JSON.parse(fs.readFileSync(articlesPath, 'utf8'));
+          }
+          
+          // Process new articles from bfdc-content
+          const contentDir = 'bfdc-content/content/articles/full-articles';
+          if (fs.existsSync(contentDir)) {
+            const files = fs.readdirSync(contentDir);
+            files.forEach(file => {
+              if (file.endsWith('.md')) {
+                const content = fs.readFileSync(path.join(contentDir, file), 'utf8');
+                // Extract frontmatter and content - basic implementation
+                const slug = file.replace('.md', '');
+                
+                // Check if article already exists
+                if (!articles.find(a => a.slug === slug)) {
+                  console.log('Adding new article:', slug);
+                  // Add basic article structure - you'll need to parse frontmatter properly
+                  articles.push({
+                    slug: slug,
+                    title: slug.replace(/-/g, ' '),
+                    date: new Date().toISOString().split('T')[0],
+                    author: 'Brian Fending',
+                    excerpt: 'New article content',
+                    content: content,
+                    tags: ['New']
+                  });
+                }
+              }
+            });
+          }
+          
+          // Write updated articles
+          fs.writeFileSync(articlesPath, JSON.stringify(articles, null, 2));
+          "
+      
+      - name: Commit and push new images
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add public/images/ public/static/articles.json
+          if git diff --staged --quiet; then
+            echo "No new content to commit"
+          else
+            git commit -m "Add new content and image assets from content repository"
+            git push
+          fi
+      
       - name: Trigger Vercel Deploy Hook
         run: curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
