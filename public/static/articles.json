@@ -34,5 +34,24 @@
     "metaDescription": "A multi-dimensional framework for maintaining disaster recovery and business continuity plans through incremental reviews, addressing the gap between documentation and actual recovery capabilities.",
     "linkedinUrl": "https://www.linkedin.com/pulse/matrix-approach-incremental-drp-bcp-review-brian-fending-3klie/",
     "substackUrl": "https://brianfending.substack.com/p/the-matrix-approach-to-incremental"
+  },
+  {
+    "slug": "governance-gap-top-down-risk-management",
+    "title": "The Governance Gap: Why Top-Down Risk Management is Critical",
+    "date": "2025-05-30",
+    "author": "Brian Fending",
+    "excerpt": "McKinsey's latest research reveals a striking gap between GRC aspiration and implementation reality, making the case for top-down approaches to risk management.",
+    "content": "The digital transformation acceleration we've witnessed since 2022 has amplified the need for robust governance, risk, and compliance capabilities. Yet McKinsey's latest research reveals a substantial gap between GRC aspiration and implementation reality.\n\nMcKinsey's 2025 Global GRC Benchmarking Survey found that \"excellent governance, risk, and compliance (GRC) is a common aspiration, but how often is it a reality? For most companies, GRC is a work in progress.\" Despite 93% of organizations having framework documents, implementation gaps are enormous—nearly half lack formal governance procedures.\n\nThe survey reveals a striking correlation: organizations where the head of risk is positioned more than one level below the CEO report significantly less mature risk functions. This validates what ISACA has long advocated—that top-down approaches yield better results than bottom-up initiatives.\n\nPerhaps most concerning is the resource reality: 66% of companies operate risk management with just 20 or fewer full-time staff. When resources are this constrained, organizations can't afford ineffective approaches.\n\nThis is precisely why I developed the Matrix Approach to incremental DRP and BCP review—a multi-dimensional framework that addresses the exact challenges identified in McKinsey's research through classification systems, incremental review cadences, and progressive live drills.\n\nSo we don't really have a framework problem—we have an adoption problem. The research is clear: pragmatic-to-a-fault bottom-up approaches fail to deliver needed maturity. It's time to embrace top-down, matrix-based frameworks that connect executive priorities to operational activities.\n\n[Read the full analysis on LinkedIn](https://www.linkedin.com/pulse/governance-gap-why-top-down-risk-management-critical-brian-fending) or [Substack](https://brianfending.substack.com/p/the-governance-gap-why-top-down-risk-management-is-critical) for detailed implementation guidance and specific citations.",
+    "tags": [
+      "risk management",
+      "GRC",
+      "governance",
+      "compliance",
+      "enterprise security"
+    ],
+    "featuredImage": "governance-gap-top-down-risk-management.png",
+    "metaDescription": "McKinsey's latest research reveals a striking gap between GRC aspiration and implementation reality, making the case for top-down approaches to risk management.",
+    "linkedinUrl": "https://www.linkedin.com/pulse/governance-gap-why-top-down-risk-management-critical-2025-brian-fending",
+    "substackUrl": "https://brianfending.substack.com/p/the-governance-gap-why-top-down-risk-management-is-critical-in-2025"
   }
 ]
