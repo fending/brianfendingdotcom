@@ -126,6 +126,7 @@ jobs:
             echo "No new content to commit"
           else
             git commit -m "Add new content and image assets from content repository"
+            git pull --rebase origin main
             git push
           fi
       
