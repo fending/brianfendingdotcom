@@ -55,8 +55,10 @@ jobs:
             articles = JSON.parse(fs.readFileSync(articlesPath, 'utf8'));
           }
           
-          // Process new articles from bfdc-content
+          // Rebuild articles array from bfdc-content summaries
           const contentDir = 'bfdc-content/content/articles/summaries';
+          const newArticles = [];
+          
           if (fs.existsSync(contentDir)) {
             const files = fs.readdirSync(contentDir);
             files.forEach(file => {
@@ -92,25 +94,26 @@ jobs:
                 
                 const slug = metadata.slug || file.replace('.md', '');
                 
-                // Check if article already exists
-                if (!articles.find(a => a.slug === slug)) {
-                  console.log('Adding new article:', slug);
-                  articles.push({
-                    slug: slug,
-                    title: metadata.title || slug.replace(/-/g, ' '),
-                    date: metadata.date || new Date().toISOString().split('T')[0],
-                    author: metadata.author || 'Brian Fending',
-                    excerpt: metadata.excerpt || 'New article content',
-                    content: articleContent,
-                    tags: metadata.tags || ['New'],
-                    featuredImage: metadata.featuredImage,
-                    metaDescription: metadata.metaDescription || metadata.excerpt,
-                    linkedinUrl: metadata.linkedinUrl,
-                    substackUrl: metadata.substackUrl
-                  });
-                }
+                console.log('Processing article:', slug);
+                newArticles.push({
+                  slug: slug,
+                  title: metadata.title || slug.replace(/-/g, ' '),
+                  date: metadata.date || new Date().toISOString().split('T')[0],
+                  author: metadata.author || 'Brian Fending',
+                  excerpt: metadata.excerpt || 'Article summary',
+                  content: articleContent,
+                  tags: metadata.tags || [],
+                  featuredImage: metadata.featuredImage,
+                  metaDescription: metadata.metaDescription || metadata.excerpt,
+                  linkedinUrl: metadata.linkedinUrl,
+                  substackUrl: metadata.substackUrl
+                });
               }
             });
+            
+            // Sort articles by date (newest first)
+            newArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+            articles = newArticles;
           }
           
           // Write updated articles
