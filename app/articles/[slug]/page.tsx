@@ -111,26 +111,7 @@ export default async function ArticleDetailPage({ params }: { params: { slug: st
         </header>
         
         <div className="article-content text-lg leading-relaxed">
-          <p>
-            Have you noticed it's been hard to keep pace with AI news lately? In this article, 
-            I examine how traditional risk frameworks apply to emerging AI technologies, with a particular 
-            focus on Google's Agent-to-Agent (A2A) communication and Anthropic's Multi-Context Planning (MCP).
-          </p>
-          
-          <p className="mt-4">
-            This piece explores:
-          </p>
-          
-          <ul className="list-disc list-inside mt-2 mb-4 space-y-1">
-            <li>The n^a potential workflows created by Agent-to-Agent communication</li>
-            <li>How traditional GRC frameworks fall short with modern AI implementations</li>
-            <li>Three practical risk mitigation strategies for enterprise AI deployment</li>
-          </ul>
-          
-          <p className="mt-4">
-            If you're responsible for technology risk management in your organization, this analysis 
-            provides a practical framework for approaching AI integration with appropriate safeguards.
-          </p>
+          <ReactMarkdown>{article.content}</ReactMarkdown>
         </div>
         
         <div className="my-12 p-8 bg-gray-50 dark:bg-gray-800 rounded-xl">
