@@ -31,13 +31,18 @@ const experiences: Experience[] = [
     company: 'American Association for Physician Leadership (AAPL)',
     position: 'CIO',
     period: 'January 2020 – March 2025',
-    description: 'Led enterprise IT strategy, governance, and digital transformation, overseeing cloud infrastructure, cybersecurity, and business intelligence operations.',
+    description: 'Led enterprise IT strategy, governance, and digital transformation, overseeing cloud infrastructure, cybersecurity, and business intelligence operations for online revenue streams representing the majority of total operating revenue.',
     achievements: [
-      'AI-driven automations and processes, optimizing resource allocation and customer engagement',
-      'Established comprehensive IT governance frameworks, ensuring compliance with industry standards and enhancing data security',
-      'Managed a hybrid IT team and multiple MSP and development partners, delivering scalable infrastructure to support growth',
-      'Migrated all core IT infrastructure to the cloud, improving system resilience, scalability, and remote workforce enablement',
-      'Strengthened cybersecurity posture, implementing globally-oriented policies, multi-factor auth/auth, and continuous risk assessment frameworks'
+      'Oversaw online learning and transactional platforms responsible for majority of org revenue',
+      'Spearheaded AI initiatives with early adoption of internal AI models, followed by robust governance and inclusion of AI-driven features in customer-facing product development',
+      'Established comprehensive IT governance frameworks, ensuring compliance with industry standards and enhancing data security, allowing for growth into foreign markets increasing sales pipeline',
+      'Managed a hybrid IT team of direct reports and multiple MSP and development partners, delivering scalable infrastructure to support growth',
+      'Formulated and executed cloud strategy and migrated all IT infrastructure to Azure and a robust SaaS/PaaS fabric, improving system resilience, scalability, and remote workforce enablement',
+      'Designed and delivered Technical Skills Assessment product, completing assessment portfolio to capture full physician competency spectrum and expand revenue opportunities',
+      'Strengthened cybersecurity posture, implementing globally-oriented policies, multi-factor authentication, and continuous risk assessment and compliance frameworks',
+      'Optimized IT vendor strategy, renegotiating contracts and consolidating services to reduce costs and improve service levels',
+      'Managed to high uptime SLA for critical internal- and external-facing systems, for applications and infrastructure serving thousands of monthly active users',
+      'Regular board, Executive Committee, and Audit & Risk Committee participation, presenting IT strategic updates, cybersecurity assessments, and digital transformation progress to board of directors'
     ]
   },
   {
@@ -46,52 +51,54 @@ const experiences: Experience[] = [
     period: 'January 2019 – January 2020',
     description: 'Managed IT infrastructure, audits, and technology initiatives to ensure system resilience and readiness for growth.',
     achievements: [
-      'Directed IT staff and led projects to improve service delivery, optimize systems, and prepare the organization with future-facing technology',
-      'Implemented both Salesforce CRM and Hubspot marketing automation to replace legacy solutions'
-    ]
-  },
-  {
-    company: 'MADE, Inc.',
-    position: 'Owner and Principal Consultant',
-    period: 'March 2015 – December 2018',
-    description: 'Provided strategic IT leadership for startup, SME, and enterprise clients, focusing on IT governance, vendor management, compliance, and product development.',
-    achievements: [
-      'Led full product and system development lifecycles, from concept to launch, delivering scalable technology solutions for a variety of clients (including AAPL)',
-      'Implemented IT governance frameworks to enhance security, regulatory compliance, and risk management'
+      'Initiated comprehensive cloud migration strategy and IT governance framework development',
+      'Directed IT staff and led projects to improve service delivery, optimize systems, and prepare the organization with future-facing technology and risk postures',
+      'Implemented Salesforce CRM and Hubspot marketing automation, reducing direct expense annually as compared to legacy solutions',
+      'Promoted to CIO based on strategic technology leadership and operational excellence'
     ]
   },
   {
     company: 'CrowdBouncer',
     position: 'Chief Technology Officer',
     period: 'February 2013 – December 2014',
-    description: 'Designed and launched an API-driven compliance platform, enabling secure, automated, SEC-compliant verification for equity crowdfunding transactions.',
+    description: 'Designed and launched an API-delivered compliance platform, enabling secure, automated verification for equity crowdfunding transactions.',
     achievements: [
-      'Developed and implemented CrowdSIP protocol, creating a scalable infrastructure for a secondary market in equity crowdfunding',
+      'Developed and implemented CrowdSIP protocol, creating a scalable infrastructure for a secondary equity crowdfunding market',
+      'Helped to secure Series A funding, managing all IT-related investments and strategic direction',
       'Built a high-availability, distributed API, ensuring secure transactions for exposed services via Apigee'
     ]
   },
   {
-    company: 'Monster Assembly',
-    position: 'Owner and Principal Consultant',
-    period: 'December 2011 – January 2013',
-    description: 'Led numerous projects across multiple products with hundreds of releases, delivering scalable technology solutions across industries.',
+    company: 'Strategic Technology Consulting Practices',
+    position: 'Principal/Owner',
+    period: 'April 2010 – December 2018',
+    description: 'Led strategic technology consulting practice serving enterprise clients across multiple industries, scaling from startup advisory to full product development lifecycle management. Practice evolved from lean application development (Fending Group) to comprehensive product development (Monster Assembly) to fractional IT executive services (MADE, Inc.).',
     achievements: [
-      'Designed and deployed tailored technology solutions, optimizing business workflows and customer engagement'
+      'Grew practice with sustained annual revenue growth, leading technology projects across multiple verticals',
+      'Designed architecture for world\'s first at-scale iPad ordering system at JFK T5, custom integration with Micros POS',
+      'Developed proprietary solutions including graph-based CMS combining Neo4j and Lucene',
+      'Transitioned practice to focus on IT strategy and GRC for enterprise clients',
+      'Led full product development lifecycles, from concept to market launch, delivering scalable technology solutions'
     ]
   },
   {
     company: 'Black Squirrel Distillery',
     position: 'Cofounder | VP, Product Development',
     period: 'August 2013 – September 2019',
-    description: 'Built a craft distillery from concept to commercialization, launching four unique spirits into retail and distribution.',
+    description: 'Built a successful craft distillery from concept to commercialization, launching four unique spirits into retail and distribution.',
     achievements: [
-      'Developed operational and product standards, optimizing production and quality control',
+      'Developed operational and product standards to optimize production and quality control, scaled sales to thousands of cases annually, and drove growth through direct and channel distribution strategies',
       'Exited via sale to Lafayette Distilling (Buffalo, NY)'
     ]
   }
 ];
 
 const education: Education[] = [
+  {
+    institution: 'Information Systems Audit and Control Association (ISACA)',
+    degree: 'Certified Information Security Manager (CISM)',
+    period: 'Current'
+  },
   {
     institution: 'Miami University, Oxford, OH',
     degree: 'MM',
@@ -110,7 +117,7 @@ export default function ResumePage() {
       <div className="mb-12 pt-8">
         <h1 className="page-header text-gray-900 dark:text-white">Resume</h1>
         <p className="text-xl mt-4 text-gray-700 dark:text-gray-300 max-w-3xl">
-          Strategic IT executive with a track record of driving enterprise-wide digital transformation, optimizing IT spend, and leading high-impact AI and automation initiatives. Adept at aligning technology with business goals, governance, and velocity.
+          Technology executive driving revenue growth and digital transformation through strategic IT investments, enterprise governance, and AI innovation. Proven track record of board-level leadership, international compliance management, and scaling digital operations from startup through enterprise levels.
         </p>
         
         <div className="flex mt-6">
@@ -169,7 +176,7 @@ export default function ResumePage() {
       {/* Education */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2">
-          Education
+          Education & Certifications
         </h2>
         
         <div className="space-y-6">
@@ -210,6 +217,12 @@ export default function ResumePage() {
           <div>
             <h3 className="text-lg font-bold mb-3 text-gray-900 dark:text-white">Technology Leadership</h3>
             <ul className="space-y-2">
+              <li className="flex items-start">
+                <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-gray-700 dark:text-gray-300">Digital Strategy</span>
+              </li>
               <li className="flex items-start">
                 <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -256,13 +269,19 @@ export default function ResumePage() {
                 <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-gray-700 dark:text-gray-300">Risk Management</span>
+                <span className="text-gray-700 dark:text-gray-300">Enterprise Risk Management</span>
               </li>
               <li className="flex items-start">
                 <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-gray-700 dark:text-gray-300">Compliance (GDPR et al, NIST, Data Privacy)</span>
+                <span className="text-gray-700 dark:text-gray-300">IT Operations</span>
+              </li>
+              <li className="flex items-start">
+                <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-gray-700 dark:text-gray-300">Compliance (GDPR, NIST 800-171, US Data Privacy, KSA PDPL)</span>
               </li>
             </ul>
           </div>
@@ -274,19 +293,31 @@ export default function ResumePage() {
                 <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
+                <span className="text-gray-700 dark:text-gray-300">Board Governance</span>
+              </li>
+              <li className="flex items-start">
+                <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
                 <span className="text-gray-700 dark:text-gray-300">Cross-Functional Leadership</span>
               </li>
               <li className="flex items-start">
                 <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                <span className="text-gray-700 dark:text-gray-300">New Product and Category Development</span>
+                <span className="text-gray-700 dark:text-gray-300">Product Development</span>
               </li>
               <li className="flex items-start">
                 <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 <span className="text-gray-700 dark:text-gray-300">Vendor & Stakeholder Management</span>
+              </li>
+              <li className="flex items-start">
+                <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-gray-700 dark:text-gray-300">Cost Optimization</span>
               </li>
               <li className="flex items-start">
                 <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -303,7 +334,7 @@ export default function ResumePage() {
       <section className="mt-16 mb-12 py-12 px-6 bg-gray-50 dark:bg-gray-800 rounded-xl text-center">
         <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Interested in Working Together?</h2>
         <p className="text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-          I'm currently available for consulting, advising, and speaking engagements.
+          I'm currently open to employment opportunities, and available for consulting, advising, and speaking engagements.
         </p>
         <Link href="/contact" className="btn-primary">
           Get in Touch
