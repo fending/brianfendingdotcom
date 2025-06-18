@@ -1,10 +1,29 @@
 [
   {
+    "slug": "rethinking-team-topologies-ai-augmented-development",
+    "title": "Rethinking Team Topologies for AI-Augmented Development",
+    "date": "2025-06-17",
+    "author": "Brian Fending",
+    "excerpt": "Exploring how AI integration is reshaping software development team structures and the evolution from traditional PRD workflows to AI-augmented collaboration patterns.",
+    "content": "Software development team structures are undergoing their most significant transformation since the advent of agile methodologies. When a single developer with AI assistance can produce what previously required an entire squad, traditional team topologies need fundamental rethinking.\n\nTwo distinct approaches to AI-augmented development are emerging: a single file approach that centralizes all context in one discoverable location that plays nice with autonomous AI agents, and the context directory approach that distributes knowledge across specialized documents. Each serves different organizational needs and project complexities.\n\nBut the real revolution isn't just about organizing documentation, it's about breaking down the traditional \"PRD wall\" between Product Vision and development implementation. Both approaches enable something unprecedented: embedding Product Vision directly into development context, allowing AI agents and developers to validate against original user needs rather than translated requirements. The choice between approaches depends on whether you're optimizing for immediate AI effectiveness or long-term organizational sophistication. The most successful teams are finding hybrid strategies that serve both autonomous AI agents and complex human collaboration needs.\n\nUnderstanding these emerging patterns will help you to better position your organization for the fundamental shift in how Product Vision flows through development teams.",
+    "tags": [
+      "team topologies",
+      "AI",
+      "software development",
+      "organizational design",
+      "DevOps"
+    ],
+    "featuredImage": "rethinking-team-topologies-ai-augmented-development.png",
+    "metaDescription": "Exploring how AI integration is reshaping software development team structures and the evolution from traditional PRD workflows to AI-augmented collaboration patterns.",
+    "linkedinUrl": "https://www.linkedin.com/pulse/rethinking-team-topologies-ai-augmented-development-brian-fending-teuke",
+    "substackUrl": "https://brianfending.substack.com/p/rethinking-team-topologies-for-ai"
+  },
+  {
     "slug": "governance-gap-top-down-risk-management",
     "title": "The Governance Gap: Why Top-Down Risk Management is Critical",
-    "date": "2025-05-30",
+    "date": "2025-06-06",
     "author": "Brian Fending",
-    "excerpt": "McKinsey's latest research reveals a striking gap between GRC aspiration and implementation reality, making the case for top-down approaches to risk management.",
+    "excerpt": "McKinsey's latest research reveals a striking gap between GRC aspiration and implementation reality, further making the case for top-down approaches to risk management.",
     "content": "The digital transformation acceleration we've witnessed since 2022 has amplified the need for robust governance, risk, and compliance capabilities. Yet McKinsey's latest research reveals a substantial gap between GRC aspiration and implementation reality.\n\nMcKinsey's 2025 Global GRC Benchmarking Survey found that \"excellent governance, risk, and compliance (GRC) is a common aspiration, but how often is it a reality? For most companies, GRC is a work in progress.\" Despite 93% of organizations having framework documents, implementation gaps are enormous—nearly half lack formal governance procedures.\n\nThe survey reveals a striking correlation: organizations where the head of risk is positioned more than one level below the CEO report significantly less mature risk functions. This validates what ISACA has long advocated—that top-down approaches yield better results than bottom-up initiatives.\n\nPerhaps most concerning is the resource reality: 66% of companies operate risk management with just 20 or fewer full-time staff. When resources are this constrained, organizations can't afford ineffective approaches.\n\nThis is precisely why I developed the Matrix Approach to incremental DRP and BCP review—a multi-dimensional framework that addresses the exact challenges identified in McKinsey's research through classification systems, incremental review cadences, and progressive live drills.\n\nSo we don't really have a framework problem, we have an adoption problem. The research is clear: pragmatic-to-a-fault bottom-up approaches fail to deliver needed maturity. It's time to embrace top-down, matrix-based frameworks that connect executive priorities to operational activities.",
     "tags": [
       "risk management",
@@ -13,8 +32,8 @@
       "compliance",
       "enterprise security"
     ],
-    "featuredImage": "governance-gap-top-down-risk-management.png",
-    "metaDescription": "McKinsey's latest research reveals a striking gap between GRC aspiration and implementation reality, making the case for top-down approaches to risk management.",
+    "featuredImage": "grc_topdown_article_art_2025-06-06_vignette.png",
+    "metaDescription": "McKinsey's latest research reveals a striking gap between GRC aspiration and implementation reality, further making the case for top-down approaches to risk management.",
     "linkedinUrl": "https://www.linkedin.com/pulse/governance-gap-why-top-down-risk-management-critical-brian-fending-c2imc/",
     "substackUrl": "https://brianfending.substack.com/p/the-governance-gap-why-top-down-risk"
   },
