@@ -55,59 +55,59 @@ jobs:
             articles = JSON.parse(fs.readFileSync(articlesPath, 'utf8'));
           }
           
-          // Rebuild articles array from bfdc-content summaries
-          const contentDir = 'bfdc-content/content/articles/summaries';
+          // Rebuild articles array from bfdc-content metadata and summaries
+          const metadataDir = 'bfdc-content/content/articles/metadata';
+          const summariesDir = 'bfdc-content/content/articles/summaries';
           const newArticles = [];
           
-          if (fs.existsSync(contentDir)) {
-            const files = fs.readdirSync(contentDir);
+          if (fs.existsSync(metadataDir)) {
+            const files = fs.readdirSync(metadataDir);
             files.forEach(file => {
-              if (file.endsWith('.md')) {
-                const content = fs.readFileSync(path.join(contentDir, file), 'utf8');
-                
-                // Parse frontmatter
-                const frontmatterMatch = content.match(/^---\s*\n([\s\S]*?)\n---/);
-                let metadata = {};
-                let articleContent = content;
-                
-                if (frontmatterMatch) {
-                  const frontmatter = frontmatterMatch[1];
-                  articleContent = content.slice(frontmatterMatch[0].length).trim();
+              if (file.endsWith('.json')) {
+                try {
+                  // Read metadata from JSON file
+                  const metadataPath = path.join(metadataDir, file);
+                  const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
                   
-                  // Parse YAML-like frontmatter
-                  frontmatter.split('\n').forEach(line => {
-                    const match = line.match(/^(\w+):\s*(.+)$/);
-                    if (match) {
-                      let value = match[2].trim();
-                      // Remove quotes if present
-                      if (value.startsWith('\"') && value.endsWith('\"')) {
-                        value = value.slice(1, -1);
-                      }
-                      // Parse arrays
-                      if (value.startsWith('[') && value.endsWith(']')) {
-                        value = value.slice(1, -1).split(',').map(s => s.trim().replace(/\"/g, ''));
-                      }
-                      metadata[match[1]] = value;
+                  // Validate required fields
+                  const requiredFields = ['title', 'slug', 'date', 'author'];
+                  for (const field of requiredFields) {
+                    if (!metadata[field]) {
+                      console.error('Error: Missing required field \'' + field + '\' in ' + file);
+                      process.exit(1);
                     }
+                  }
+                  
+                  // Read corresponding content file
+                  const slug = file.replace('.json', '');
+                  const contentPath = path.join(summariesDir, slug + '.md');
+                  
+                  if (!fs.existsSync(contentPath)) {
+                    console.error('Error: Content file not found for ' + slug + ': ' + contentPath);
+                    process.exit(1);
+                  }
+                  
+                  const content = fs.readFileSync(contentPath, 'utf8').trim();
+                  
+                  console.log('Processing article:', slug);
+                  newArticles.push({
+                    slug: metadata.slug,
+                    title: metadata.title,
+                    date: metadata.date,
+                    author: metadata.author,
+                    excerpt: metadata.excerpt || 'Article summary',
+                    content: content,
+                    tags: metadata.tags || [],
+                    featuredImage: metadata.featuredImage,
+                    metaDescription: metadata.metaDescription || metadata.excerpt,
+                    linkedinUrl: metadata.linkedinUrl,
+                    substackUrl: metadata.substackUrl
                   });
+                  
+                } catch (error) {
+                  console.error('Error processing ' + file + ': ' + error.message);
+                  process.exit(1);
                 }
-                
-                const slug = metadata.slug || file.replace('.md', '');
-                
-                console.log('Processing article:', slug);
-                newArticles.push({
-                  slug: slug,
-                  title: metadata.title || slug.replace(/-/g, ' '),
-                  date: metadata.date || new Date().toISOString().split('T')[0],
-                  author: metadata.author || 'Brian Fending',
-                  excerpt: metadata.excerpt || 'Article summary',
-                  content: articleContent,
-                  tags: metadata.tags || [],
-                  featuredImage: metadata.featuredImage,
-                  metaDescription: metadata.metaDescription || metadata.excerpt,
-                  linkedinUrl: metadata.linkedinUrl,
-                  substackUrl: metadata.substackUrl
-                });
               }
             });
             

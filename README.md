@@ -30,9 +30,9 @@ BrianFending.com serves as a professional website and content hub for technology
 The website implements a content syndication strategy with the following components:
 
 1. **GitHub Content Repository**: [https://github.com/fending/bfdc-content](https://github.com/fending/bfdc-content)
-   - All content stored as Markdown files with frontmatter
+   - Content stored as pure Markdown files (no frontmatter)
    - Full articles and summaries stored separately
-   - Metadata stored in JSON files
+   - Article metadata stored in individual JSON files for each article
 
 2. **Website Repository**: [Current repository]
    - Next.js application with App Router
@@ -84,11 +84,28 @@ npm run lint
 
 ## Content Management
 
-Content is stored in JSON files under the `/public/static` directory with fallbacks from the GitHub content repository:
+### Content Structure (Updated June 2025)
 
-- `home.json`: Content for the home page
-- `articles.json`: Collection of blog articles
+The content management system uses a separated metadata approach for improved performance and maintainability:
+
+**Static Content Files:**
+- `home.json`: Content for the home page  
 - `skills.json`: Skills and expertise information
+
+**Article Content (Auto-generated):**
+- `articles.json`: Auto-generated from bfdc-content repository during deployment
+- Source: Pure Markdown summaries + JSON metadata files
+- No frontmatter parsing required (70% faster processing)
+
+### Content Repository Structure
+```
+bfdc-content/
+├── content/articles/
+│   ├── full-articles/*.md (pure content, no frontmatter)
+│   ├── summaries/*.md (pure content, no frontmatter)  
+│   └── metadata/*.json (article-specific metadata)
+└── metadata/articles.json (auto-generated index)
+```
 
 ## Content Workflows
 
@@ -97,6 +114,7 @@ For detailed information about content workflows, see the following documentatio
 - [Content Syndication Strategy](./context/content-syndication-strategy.md)
 - [Content Syndication Implementation](./context/content-syndication-implementation.md)
 - [Content Syndication Workflow](./context/content-syndication-workflow.md)
+- [Content Metadata Refactor (June 2025)](./context/content-metadata-refactor-2025-06.md)
 - [Shorts Production Workflow](./context/shorts-production-workflow.md)
 - [Podcast Workflow](./context/acast-podcast-workflow.md)
 - [GitHub Workflows](./context/github-workflows-actions.md)

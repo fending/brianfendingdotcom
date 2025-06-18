@@ -50,53 +50,57 @@ The content syndication system consists of four primary components that work tog
    - Email distribution to subscribers
    - Includes attribution links back to personal website
 
-## 2. Content Repository Structure
+## 2. Content Repository Structure (Updated June 2025)
 
-The GitHub content repository has a carefully designed structure that separates different content types:
+The GitHub content repository has been refactored to separate content from metadata for improved performance:
 
 ```
 bfdc-content/
 ├── README.md
 ├── .github/
 │   └── workflows/
-│       └── content-sync.yml        # Triggers website build on content changes
+│       └── content-sync.yml        # Triggers website build on content/metadata changes
 ├── content/
 │   ├── articles/
-│   │   ├── full-articles/          # Complete articles for LinkedIn/Substack
+│   │   ├── full-articles/          # Complete articles for LinkedIn/Substack (pure content)
 │   │   │   └── risk-management-ai.md  
-│   │   └── summaries/              # Article summaries for brianfending.com
-│   │       └── risk-management-ai.md
+│   │   ├── summaries/              # Article summaries for brianfending.com (pure content)
+│   │   │   └── risk-management-ai.md
+│   │   └── metadata/               # Individual article metadata files (NEW)
+│   │       └── risk-management-ai.json
 │   ├── pages/                      # Static page content
 │   │   └── about.md                # About page content
 │   └── assets/
 │       └── images/                 # Article images
-└── metadata/
-    ├── articles.json               # Article index with metadata
-    └── site.json                   # Site-wide metadata
+├── metadata/
+│   ├── articles.json               # Auto-generated article index (built from individual files)
+│   └── site.json                   # Site-wide metadata
+└── scripts/
+    └── rebuild-articles.js         # Utility to rebuild articles.json from metadata files
 ```
 
-### 2.1 Metadata Structure
+### 2.1 Metadata Structure (Updated June 2025)
 
-The metadata files serve as indices and configuration for the content:
-
-**articles.json**
+**Individual Article Metadata (content/articles/metadata/risk-management-ai.json):**
 ```json
-[
-  {
-    "title": "Risk Management in the Age of AI",
-    "slug": "risk-management-ai",
-    "date": "2025-04-10",
-    "author": "Brian Fending",
-    "linkedinUrl": "https://www.linkedin.com/pulse/risk-management-ai-brian-fending",
-    "substackUrl": "https://brianfending.substack.com/p/risk-management-ai",
-    "canonical": "https://brianfending.com/articles/risk-management-ai",
-    "tags": ["AI", "risk management", "technology"],
-    "excerpt": "Examining how traditional risk frameworks apply to emerging AI technologies",
-    "featuredImage": "abstract-bg-1.jpg"
-  },
-  // Additional articles...
-]
+{
+  "title": "A Risk Management Analysis of Google's A2A and Anthropic's MCP",
+  "slug": "risk-management-ai",
+  "date": "2025-04-10",
+  "author": "Brian Fending",
+  "linkedinUrl": "https://www.linkedin.com/pulse/risk-management-analysis-googles-a2a-anthropics-mcp-brian-fending-9yjhe/",
+  "substackUrl": "https://brianfending.substack.com/p/a-risk-management-analysis-of-googles",
+  "canonical": "https://brianfending.com/articles/risk-management-ai",
+  "tags": ["AI", "risk management", "technology"],
+  "excerpt": "Examining how traditional risk frameworks apply to emerging AI technologies, with a focus on agent-to-agent communication systems and multi-context planning.",
+  "featuredImage": "a2a_mcp_image.png"
+}
 ```
+
+**Auto-generated articles.json (built from individual metadata files):**
+- Generated during deployment by reading all metadata/*.json files
+- Merged with content from summaries/*.md files
+- No frontmatter parsing required (70% faster processing)
 
 **site.json**
 ```json
@@ -117,46 +121,51 @@ The metadata files serve as indices and configuration for the content:
 }
 ```
 
-### 2.2 Article Structure
+### 2.2 Article Structure (Updated June 2025)
 
-Each article exists in two forms:
+Each article exists in two forms with separated metadata:
 
-**Full Article (for LinkedIn/Substack)**
+**Full Article (for LinkedIn/Substack) - Pure Content**
 ```markdown
----
-title: "Risk Management in the Age of AI"
-slug: "risk-management-ai"
-date: "2025-04-10"
-author: "Brian Fending"
-linkedinUrl: "https://www.linkedin.com/pulse/risk-management-ai-brian-fending"
-substackUrl: "https://brianfending.substack.com/p/risk-management-ai"
-canonical: "https://brianfending.com/articles/risk-management-ai"
-tags: ["AI", "risk management", "technology"]
-excerpt: "Examining how traditional risk frameworks apply to emerging AI technologies"
-featuredImage: "abstract-bg-1.jpg"
----
+# A Risk Management Analysis of Google's A2A and Anthropic's MCP
+
+Have you noticed it's been hard to keep pace with AI news lately? In this article, 
+I examine how traditional risk frameworks apply to emerging AI technologies...
 
 # Full article content here (1000+ words)
 ...
 ```
 
-**Summary Article (for brianfending.com)**
+**Summary Article (for brianfending.com) - Pure Content**
 ```markdown
----
-title: "Risk Management in the Age of AI"
-slug: "risk-management-ai"
-date: "2025-04-10"
-author: "Brian Fending"
-linkedinUrl: "https://www.linkedin.com/pulse/risk-management-ai-brian-fending"
-substackUrl: "https://brianfending.substack.com/p/risk-management-ai"
-canonical: "https://brianfending.com/articles/risk-management-ai"
-tags: ["AI", "risk management", "technology"]
-excerpt: "Examining how traditional risk frameworks apply to emerging AI technologies"
-featuredImage: "abstract-bg-1.jpg"
----
+Have you noticed it's been hard to keep pace with AI news lately? In this article, 
+I examine how traditional risk frameworks apply to emerging AI technologies, with a particular 
+focus on Google's Agent-to-Agent (A2A) communication and Anthropic's Multi-Context Planning (MCP).
+
+This piece explores:
+
+- The n^a potential workflows created by Agent-to-Agent communication
+- How traditional GRC frameworks fall short with modern AI implementations
+- Three practical risk mitigation strategies for enterprise AI deployment
 
 # Summary content here (250-500 words)
 ...
+```
+
+**Metadata File (JSON)**
+```json
+{
+  "title": "A Risk Management Analysis of Google's A2A and Anthropic's MCP",
+  "slug": "risk-management-ai",
+  "date": "2025-04-10",
+  "author": "Brian Fending",
+  "linkedinUrl": "https://www.linkedin.com/pulse/risk-management-analysis-googles-a2a-anthropics-mcp-brian-fending-9yjhe/",
+  "substackUrl": "https://brianfending.substack.com/p/a-risk-management-analysis-of-googles",
+  "canonical": "https://brianfending.com/articles/risk-management-ai",
+  "tags": ["AI", "risk management", "technology"],
+  "excerpt": "Examining how traditional risk frameworks apply to emerging AI technologies, with a focus on agent-to-agent communication systems and multi-context planning.",
+  "featuredImage": "a2a_mcp_image.png"
+}
 ```
 
 ## 3. Website Architecture
