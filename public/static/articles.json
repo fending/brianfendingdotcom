@@ -1,5 +1,25 @@
 [
   {
+    "slug": "implementing-nist-ai-rmf-governing-part-1-4",
+    "title": "Implementing NIST AI RMF: Governing (Part 1 of 4)",
+    "date": "2025-06-24",
+    "author": "Brian Fending",
+    "excerpt": "Transforming the NIST AI Risk Management Framework from compliance theater to strategic enablement. Part 1 focuses on governance structures that accelerate AI adoption while managing real risks.",
+    "content": "Most AI initiatives fail because of governance problems, not technology problems. While 75% of AI projects don't deliver expected ROI, organizations keep burning budgets on \"governance theater\", or elaborate processes that miss the actual risks killing their projects.\n\nTraditional IT governance frameworks almost completely fail when it comes to AI. Your standard security reviews can't totally handle AI systems that need access to data sets no regular application would touch. Meanwhile, every software vendor is slapping AI features into their products without clear documentation or, sometimes, notice.\n\nThe NIST AI Risk Management Framework offers the first practical approach designed specifically for AI's unique challenges. Unlike compliance-heavy alternatives, it builds on existing structures and focuses on business enablement over process documentation.\n\nThis is Part 1 of a four-part series transforming NIST's framework into actionable implementation strategies. We'll cover how to build governance that accelerates AI adoption while managing real risks—moving from pilot purgatory to production value.",
+    "tags": [
+      "NIST",
+      "AI governance",
+      "risk management",
+      "AI RMF",
+      "compliance",
+      "enterprise AI"
+    ],
+    "featuredImage": "NIST_AI_RMF_1_govern.png",
+    "metaDescription": "Transforming the NIST AI Risk Management Framework from compliance theater to strategic enablement. Part 1 focuses on governance structures that accelerate AI adoption while managing real risks.",
+    "linkedinUrl": "https://www.linkedin.com/pulse/implementing-nist-ai-rmf-governing-part-1-4-brian-fending-3wxse/",
+    "substackUrl": "https://brianfending.substack.com/p/implementing-nist-ai-rmf-governing"
+  },
+  {
     "slug": "rethinking-team-topologies-ai-augmented-development",
     "title": "Rethinking Team Topologies for AI-Augmented Development",
     "date": "2025-06-17",
