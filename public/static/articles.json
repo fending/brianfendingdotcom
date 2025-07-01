@@ -1,5 +1,26 @@
 [
   {
+    "slug": "implementing-nist-ai-rmf-mapping-part-2-4",
+    "title": "Implementing NIST AI RMF: Mapping (Part 2 of 4)",
+    "date": "2025-06-30",
+    "author": "Brian Fending",
+    "excerpt": "The real AI governance crisis isn't the models you've formally approved, it's the ones you don't know exist. Part 2 tackles the visibility gap that's creating compliance exposure and security risks.",
+    "content": "The real AI governance crisis isn't the models you've formally approved, it's the ones you don't know exist. Organizations consistently underestimate their AI footprint by 3-5x when conducting systematic inventories, creating immediate compliance exposure and security risks.\n\nTraditional IT asset management fails catastrophically for AI because vendors don't clearly disclose AI features. What gets sold as \"enhanced analytics\" or \"intelligent automation\" often includes machine learning models processing your data in ways that weren't part of the original contract review.\n\nShadow AI adoption compounds the problem. Marketing subscribes to AI writing platforms, sales deploys conversation intelligence software, finance adopts AI-powered forecasting tools, all without formal approval processes. Meanwhile, vendor updates quietly add AI functionality to existing systems.\n\nThe NIST MAP function transforms this chaos into strategic visibility through systematic discovery, categorization, and impact assessment. Organizations move from compliance theater to actionable intelligence about their actual AI landscape.\n\nThis is Part 2 of the four-part NIST AI RMF implementation series. Stop discovering AI applications during compliance audits. Start discovering them before they become problems.",
+    "tags": [
+      "NIST",
+      "AI mapping",
+      "AI discovery",
+      "risk management",
+      "AI RMF",
+      "enterprise AI",
+      "AI inventory"
+    ],
+    "featuredImage": "NIST_AI_RMF_2_map.png",
+    "metaDescription": "The real AI governance crisis isn't the models you've formally approved, it's the ones you don't know exist. Part 2 tackles the visibility gap that's creating compliance exposure and security risks.",
+    "linkedinUrl": "https://www.linkedin.com/pulse/implementing-nist-ai-rmf-mapping-part-2-4-brian-fending-dlt4e/",
+    "substackUrl": "https://brianfending.substack.com/p/implementing-nist-ai-rmf-mapping"
+  },
+  {
     "slug": "implementing-nist-ai-rmf-governing-part-1-4",
     "title": "Implementing NIST AI RMF: Governing (Part 1 of 4)",
     "date": "2025-06-24",
