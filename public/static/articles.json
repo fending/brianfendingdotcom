@@ -1,10 +1,70 @@
 [
   {
+    "slug": "implementing-nist-ai-rmf-mapping-part-2-4",
+    "title": "Implementing NIST AI RMF: Mapping (Part 2 of 4)",
+    "date": "2025-06-30",
+    "author": "Brian Fending",
+    "excerpt": "The real AI governance crisis isn't the models you've formally approved, it's the ones you don't know exist. Part 2 tackles the visibility gap that's creating compliance exposure and security risks.",
+    "content": "The real AI governance crisis isn't the models you've formally approved, it's the ones you don't know exist. Organizations consistently underestimate their AI footprint by 3-5x when conducting systematic inventories, creating immediate compliance exposure and security risks.\n\nTraditional IT asset management fails catastrophically for AI because vendors don't clearly disclose AI features. What gets sold as \"enhanced analytics\" or \"intelligent automation\" often includes machine learning models processing your data in ways that weren't part of the original contract review.\n\nShadow AI adoption compounds the problem. Marketing subscribes to AI writing platforms, sales deploys conversation intelligence software, finance adopts AI-powered forecasting tools, all without formal approval processes. Meanwhile, vendor updates quietly add AI functionality to existing systems.\n\nThe NIST MAP function transforms this chaos into strategic visibility through systematic discovery, categorization, and impact assessment. Organizations move from compliance theater to actionable intelligence about their actual AI landscape.\n\nThis is Part 2 of the four-part NIST AI RMF implementation series. Stop discovering AI applications during compliance audits. Start discovering them before they become problems.",
+    "tags": [
+      "NIST",
+      "AI mapping",
+      "AI discovery",
+      "risk management",
+      "AI RMF",
+      "enterprise AI",
+      "AI inventory"
+    ],
+    "featuredImage": "NIST_AI_RMF_2_map.png",
+    "metaDescription": "The real AI governance crisis isn't the models you've formally approved, it's the ones you don't know exist. Part 2 tackles the visibility gap that's creating compliance exposure and security risks.",
+    "linkedinUrl": "https://www.linkedin.com/pulse/implementing-nist-ai-rmf-mapping-part-2-4-brian-fending-dlt4e/",
+    "substackUrl": "https://brianfending.substack.com/p/implementing-nist-ai-rmf-mapping"
+  },
+  {
+    "slug": "implementing-nist-ai-rmf-governing-part-1-4",
+    "title": "Implementing NIST AI RMF: Governing (Part 1 of 4)",
+    "date": "2025-06-24",
+    "author": "Brian Fending",
+    "excerpt": "Transforming the NIST AI Risk Management Framework from compliance theater to strategic enablement. Part 1 focuses on governance structures that accelerate AI adoption while managing real risks.",
+    "content": "Most AI initiatives fail because of governance problems, not technology problems. While 75% of AI projects don't deliver expected ROI, organizations keep burning budgets on \"governance theater\", or elaborate processes that miss the actual risks killing their projects.\n\nTraditional IT governance frameworks almost completely fail when it comes to AI. Your standard security reviews can't totally handle AI systems that need access to data sets no regular application would touch. Meanwhile, every software vendor is slapping AI features into their products without clear documentation or, sometimes, notice.\n\nThe NIST AI Risk Management Framework offers the first practical approach designed specifically for AI's unique challenges. Unlike compliance-heavy alternatives, it builds on existing structures and focuses on business enablement over process documentation.\n\nThis is Part 1 of a four-part series transforming NIST's framework into actionable implementation strategies. We'll cover how to build governance that accelerates AI adoption while managing real risks—moving from pilot purgatory to production value.",
+    "tags": [
+      "NIST",
+      "AI governance",
+      "risk management",
+      "AI RMF",
+      "compliance",
+      "enterprise AI"
+    ],
+    "featuredImage": "NIST_AI_RMF_1_govern.png",
+    "metaDescription": "Transforming the NIST AI Risk Management Framework from compliance theater to strategic enablement. Part 1 focuses on governance structures that accelerate AI adoption while managing real risks.",
+    "linkedinUrl": "https://www.linkedin.com/pulse/implementing-nist-ai-rmf-governing-part-1-4-brian-fending-3wxse/",
+    "substackUrl": "https://brianfending.substack.com/p/implementing-nist-ai-rmf-governing"
+  },
+  {
+    "slug": "rethinking-team-topologies-ai-augmented-development",
+    "title": "Rethinking Team Topologies for AI-Augmented Development",
+    "date": "2025-06-17",
+    "author": "Brian Fending",
+    "excerpt": "Exploring how AI integration is reshaping software development team structures and the evolution from traditional PRD workflows to AI-augmented collaboration patterns.",
+    "content": "Software development team structures are undergoing their most significant transformation since the advent of agile methodologies. When a single developer with AI assistance can produce what previously required an entire squad, traditional team topologies need fundamental rethinking.\n\nTwo distinct approaches to AI-augmented development are emerging: a single file approach that centralizes all context in one discoverable location that plays nice with autonomous AI agents, and the context directory approach that distributes knowledge across specialized documents. Each serves different organizational needs and project complexities.\n\nBut the real revolution isn't just about organizing documentation, it's about breaking down the traditional \"PRD wall\" between Product Vision and development implementation. Both approaches enable something unprecedented: embedding Product Vision directly into development context, allowing AI agents and developers to validate against original user needs rather than translated requirements. The choice between approaches depends on whether you're optimizing for immediate AI effectiveness or long-term organizational sophistication. The most successful teams are finding hybrid strategies that serve both autonomous AI agents and complex human collaboration needs.\n\nUnderstanding these emerging patterns will help you to better position your organization for the fundamental shift in how Product Vision flows through development teams.",
+    "tags": [
+      "team topologies",
+      "AI",
+      "software development",
+      "organizational design",
+      "DevOps"
+    ],
+    "featuredImage": "rethinking-team-topologies-ai-augmented-development.png",
+    "metaDescription": "Exploring how AI integration is reshaping software development team structures and the evolution from traditional PRD workflows to AI-augmented collaboration patterns.",
+    "linkedinUrl": "https://www.linkedin.com/pulse/rethinking-team-topologies-ai-augmented-development-brian-fending-teuke",
+    "substackUrl": "https://brianfending.substack.com/p/rethinking-team-topologies-for-ai"
+  },
+  {
     "slug": "governance-gap-top-down-risk-management",
     "title": "The Governance Gap: Why Top-Down Risk Management is Critical",
-    "date": "2025-05-30",
+    "date": "2025-06-06",
     "author": "Brian Fending",
-    "excerpt": "McKinsey's latest research reveals a striking gap between GRC aspiration and implementation reality, making the case for top-down approaches to risk management.",
+    "excerpt": "McKinsey's latest research reveals a striking gap between GRC aspiration and implementation reality, further making the case for top-down approaches to risk management.",
     "content": "The digital transformation acceleration we've witnessed since 2022 has amplified the need for robust governance, risk, and compliance capabilities. Yet McKinsey's latest research reveals a substantial gap between GRC aspiration and implementation reality.\n\nMcKinsey's 2025 Global GRC Benchmarking Survey found that \"excellent governance, risk, and compliance (GRC) is a common aspiration, but how often is it a reality? For most companies, GRC is a work in progress.\" Despite 93% of organizations having framework documents, implementation gaps are enormous—nearly half lack formal governance procedures.\n\nThe survey reveals a striking correlation: organizations where the head of risk is positioned more than one level below the CEO report significantly less mature risk functions. This validates what ISACA has long advocated—that top-down approaches yield better results than bottom-up initiatives.\n\nPerhaps most concerning is the resource reality: 66% of companies operate risk management with just 20 or fewer full-time staff. When resources are this constrained, organizations can't afford ineffective approaches.\n\nThis is precisely why I developed the Matrix Approach to incremental DRP and BCP review—a multi-dimensional framework that addresses the exact challenges identified in McKinsey's research through classification systems, incremental review cadences, and progressive live drills.\n\nSo we don't really have a framework problem, we have an adoption problem. The research is clear: pragmatic-to-a-fault bottom-up approaches fail to deliver needed maturity. It's time to embrace top-down, matrix-based frameworks that connect executive priorities to operational activities.",
     "tags": [
       "risk management",
@@ -13,8 +73,8 @@
       "compliance",
       "enterprise security"
     ],
-    "featuredImage": "governance-gap-top-down-risk-management.png",
-    "metaDescription": "McKinsey's latest research reveals a striking gap between GRC aspiration and implementation reality, making the case for top-down approaches to risk management.",
+    "featuredImage": "grc_topdown_article_art_2025-06-06_vignette.png",
+    "metaDescription": "McKinsey's latest research reveals a striking gap between GRC aspiration and implementation reality, further making the case for top-down approaches to risk management.",
     "linkedinUrl": "https://www.linkedin.com/pulse/governance-gap-why-top-down-risk-management-critical-brian-fending-c2imc/",
     "substackUrl": "https://brianfending.substack.com/p/the-governance-gap-why-top-down-risk"
   },
