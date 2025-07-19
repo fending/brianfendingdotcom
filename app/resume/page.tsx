@@ -33,22 +33,44 @@ const experiences: Experience[] = [
     company: 'American Association for Physician Leadership (AAPL)',
     position: 'Chief Information Officer',
     period: 'January 2020 – March 2025',
-    description: 'Led enterprise technology strategy and governance for healthcare-serving membership organization, overseeing business-critical platforms that drive the majority of organizational revenue. Established comprehensive governance frameworks and a security program that enabled international market expansion while maintaining regulatory compliance across multiple jurisdictions including GDPR, US Data Privacy, KSA PDPL, PCI DSS, and similar. Pioneered early AI adoption strategy with robust governance frameworks, implementing pilots and expanding to multiple enterprise LLM models across business units and functions. Orchestrated cloud migration reducing IT costs while maintaining enterprise-grade uptime for mission-critical systems. Presented regularly to Executive Committee and Audit & Risk Committee on technology strategy, enterprise risk posture, and compliance status.',
-    achievements: []
+    description: 'Led enterprise technology strategy and governance for healthcare-serving membership organization, overseeing business-critical platforms that drive the majority of organizational revenue.',
+    achievements: [
+      'Oversaw online learning and transactional platforms responsible for majority of org revenue',
+      'Spearheaded AI initiatives with early adoption of internal AI models, followed by robust governance and inclusion of AI-driven features in customer-facing product development',
+      'Established comprehensive IT governance frameworks, ensuring compliance with industry standards and enhancing data security, allowing for growth into foreign markets increasing sales pipeline',
+      'Managed a hybrid IT team of direct reports and multiple MSP and development partners, delivering scalable infrastructure to support growth',
+      'Formulated and executed cloud strategy and migrated all IT infrastructure to Azure and a robust SaaS/PaaS fabric, improving system resilience, scalability, and remote workforce enablement',
+      'Designed and delivered Technical Skills Assessment product, completing assessment portfolio to capture full physician competency spectrum and expand revenue opportunities',
+      'Strengthened cybersecurity posture, implementing globally-oriented policies, multi-factor authentication, and continuous risk assessment and compliance frameworks',
+      'Optimized IT vendor strategy, renegotiating contracts and consolidating services to reduce costs and improve service levels',
+      'Managed to 99.9% uptime SLA for critical internal- and external-facing systems, for applications and infrastructure',
+      'Regular board, Executive Committee, and Audit & Risk Committee participation, presenting IT strategic updates, cybersecurity assessments, and digital transformation progress to board of directors'
+    ]
   },
   {
     company: 'American Association for Physician Leadership (AAPL)',
     position: 'Senior VP, Information Technology',
     period: 'January 2019 – January 2020',
-    description: 'Modernized enterprise infrastructure and established governance frameworks for scalable technology operations. Led comprehensive HubSpot and Salesforce CRM implementations, establishing integrated customer data platform and automated workflows. Established enterprise IT audit cycle. and protocols, disaster recovery / business continuity planning, and compliance frameworks aligned with COBIT standards. Streamlined technology stack through strategic vendor evaluation and platform consolidation, improving operational efficiency while reducing complexity. Moves made in this period directly contributed to the relative ease of moving to a fully-remote workforce in 2020.',
-    achievements: []
+    description: 'Managed IT infrastructure, audits, and technology initiatives to ensure system resilience and readiness for growth.',
+    achievements: [
+      'Initiated comprehensive cloud migration strategy and IT governance framework development',
+      'Directed IT staff and led projects to improve service delivery, optimize systems, and prepare the organization with future-facing technology and risk postures',
+      'Implemented Salesforce CRM and Hubspot marketing automation, reducing direct expense annually as compared to legacy solutions',
+      'Promoted to CIO based on strategic technology leadership and operational excellence'
+    ]
   },
   {
     company: 'Strategic Technology Consulting Practices',
     position: 'Principal/Owner',
     period: 'April 2010 – December 2018',
-    description: 'Led strategic technology consulting practices focused on enterprise architecture and complex systems integration across multiple industries. Started as startup advisory and product development services and evolved into comprehensive enterprise technology leadership, growing practice through referrals and successful project outcomes. Designed world\'s first at-scale iPad ordering system at JFK Terminal 5, managing complex integration with legacy POS systems and real-time inventory management. Built proprietary solutions including graph-based content management systems combining advanced search technologies for enterprise content discovery and workflow optimization. Created 100+ delivered enterprise and commercial mobile apps managing small teams. Transitioned practice focus to fractional CTO/CIO services, providing IT governance, compliance frameworks, vendor management, and strategic technology planning to enterprise clients. Led comprehensive HubSpot deployment and Salesforce CRM implementation for AAPL (2017-2018), establishing integrated marketing automation and customer data platform that directly led to full-time executive role. Specialized in healthcare, manufacturing, financial services, and government sectors with pattern recognition for scaling challenges and regulatory compliance across diverse environments.',
-    achievements: []
+    description: 'Led strategic technology consulting practice serving enterprise clients across multiple industries, scaling from startup advisory to full product development lifecycle management. Practice evolved from lean application development (Fending Group) to comprehensive product development (Monster Assembly) to fractional IT executive services (MADE, Inc.).',
+    achievements: [
+      'Grew practice with sustained annual revenue growth, leading 100+ technology projects across multiple verticals',
+      'Designed architecture for world\'s first at-scale iPad ordering system at JFK T5, custom integration with Micros POS (Fending Group, 2011)',
+      'Developed proprietary solutions including graph-based CMS combining Neo4j and Lucene (Monster Assembly, 2012)',
+      'Transitioned practice to focus on IT strategy and GRC for enterprise clients (MADE, Inc., 2015)',
+      'Led comprehensive HubSpot deployment and Salesforce CRM implementation for AAPL (2017-2018), establishing integrated marketing automation and customer data platform that directly led to full-time executive role'
+    ]
   },
   {
     company: 'BuildingGreen, LLC',
@@ -139,7 +161,23 @@ export default function ResumePage() {
                   <span className="text-gray-600 dark:text-gray-400">{exp.period}</span>
                 </div>
                 
-                <p className="text-gray-700 dark:text-gray-300">{exp.description}</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">{exp.description}</p>
+                
+                {exp.achievements && exp.achievements.length > 0 && (
+                  <>
+                    <h4 className="font-medium text-gray-900 dark:text-white mb-2">Key Contributions:</h4>
+                    <ul className="space-y-2">
+                      {exp.achievements.map((achievement, i) => (
+                        <li key={i} className="flex items-start">
+                          <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          <span className="text-gray-700 dark:text-gray-300">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
               </div>
             </div>
           ))}
