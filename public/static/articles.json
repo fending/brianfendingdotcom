@@ -1,5 +1,26 @@
 [
   {
+    "slug": "implementing-nist-ai-rmf-measuring-part-3-4",
+    "title": "Implementing NIST AI RMF: Measuring (Part 3 of 4)",
+    "date": "2025-07-25",
+    "author": "Brian Fending",
+    "excerpt": "Beyond trust theater: implementing metrics that actually matter for AI trustworthiness. Part 3 transforms measurement from technical performance dashboards to systematic evaluation of the seven NIST characteristics that determine whether AI systems are safe to deploy.",
+    "content": "Most AI measurement systems focus on technical performance while missing basic safety and fairness evaluations. While 75% of AI initiatives fail, organizations continue reporting success based on narrow performance metrics alone, like tracking uptime while ignoring response quality.\n\nAI systems require evaluation across seven NIST trustworthiness characteristics that traditional metrics miss completely: validity, safety, security, accountability, explainability, privacy enhancement, and fairness. Organizations that evaluate trustworthiness before deployment avoid the drift and inconsistencies that destroy user trust.\n\nThe NIST AI RMF MEASURE function transforms measurement from performance theater into systematic trustworthiness evaluation. Instead of beautiful dashboards showing perfect technical metrics, organizations build frameworks that assess whether AI systems actually work safely in production.\n\nThis is Part 3 of the four-part NIST AI RMF implementation series. The part where you stop relying on convenience metrics, and start measuring trust (and trustworthiness!) before your AI systems fail in ways that matter.",
+    "tags": [
+      "NIST",
+      "AI measurement",
+      "trustworthiness metrics",
+      "AI RMF",
+      "AI evaluation",
+      "enterprise AI",
+      "risk management"
+    ],
+    "featuredImage": "NIST_AI_RMF_3_measure.png",
+    "metaDescription": "Beyond trust theater: implementing metrics that actually matter for AI trustworthiness. Part 3 transforms measurement from technical performance dashboards to systematic evaluation of the seven NIST characteristics that determine whether AI systems are safe to deploy.",
+    "linkedinUrl": "https://www.linkedin.com/pulse/implementing-nist-ai-rmf-measuring-part-3-4-brian-fending-1iige",
+    "substackUrl": "https://brianfending.substack.com/p/implementing-nist-ai-rmf-measuring"
+  },
+  {
     "slug": "implementing-nist-ai-rmf-mapping-part-2-4",
     "title": "Implementing NIST AI RMF: Mapping (Part 2 of 4)",
     "date": "2025-06-30",
