@@ -6,9 +6,6 @@
 # testing
 /coverage
 
-# Context directory/ies
-/context
-
 # next.js
 /.next/
 /out/
