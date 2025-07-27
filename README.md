@@ -41,7 +41,8 @@ A decoupled content architecture that separates content management from presenta
 1. **GitHub Content Repository**: [https://github.com/fending/bfdc-content](https://github.com/fending/bfdc-content)
    - Pure Markdown files without frontmatter (70% faster processing)
    - Separation of concerns: content, summaries, and metadata stored independently
-   - Automated content pipeline with GitHub Actions
+   - Automated content pipeline with GitHub Actions, which fire only if new content exists
+   - Schema validation prior to build attempt/s
    - Version-controlled content with collaborative editing capabilities
 
 2. **Website Repository**: [Current repository]
