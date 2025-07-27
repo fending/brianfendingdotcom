@@ -129,14 +129,9 @@ bfdc-content/
 
 For detailed information about content workflows, see the following documentation:
 
-- [Content Syndication Strategy](./context/content-syndication-strategy.md)
-- [Content Syndication Implementation](./context/content-syndication-implementation.md)
-- [Content Syndication Workflow](./context/content-syndication-workflow.md)
-- [Content Metadata Refactor (June 2025)](./context/content-metadata-refactor-2025-06.md)
-- [Shorts Production Workflow](./context/shorts-production-workflow.md)
-- [Podcast Workflow](./context/acast-podcast-workflow.md)
-- [GitHub Workflows](./context/github-workflows-actions.md)
-- [Google Sheets Implementation](./context/nextjs-google-sheets-implementation_2025-05-02.md)
+- [Content Publishing & Syndication](./context/content-publishing-and-syndication.md) - Complete strategy, implementation, automation & metadata architecture for cross-platform content distribution
+- [Video Production Workflows](./context/video-production-workflows.md) - Podcast and shorts production with automated distribution (FUTURE STATE)
+- [Google Sheets Implementation](./context/nextjs-google-sheets-implementation.md)
 
 ## Design System
 
