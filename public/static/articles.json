@@ -1,5 +1,26 @@
 [
   {
+    "slug": "implementing-nist-ai-rmf-managing-part-4-4",
+    "title": "Implementing NIST AI RMF: Managing (Part 4 of 4)",
+    "date": "2025-08-02",
+    "author": "Brian Fending",
+    "excerpt": "Operationalizing governance at scale: moving from pilot purgatory to production deployment while maintaining control. Part 4 transforms NIST frameworks into sustainable operations that deliver consistent business value without collapsing under operational complexity.",
+    "content": "Most organizations get stuck between successful AI pilots and production deployment. Governance frameworks that work perfectly for a few pilot projects collapse under the operational complexity of managing dozens of AI systems in production. Teams build comprehensive frameworks but discover their approaches require manual oversight that doesn't scale.\n\nThe NIST AI RMF MANAGE function addresses this through four operational capabilities: risk prioritization integrated with existing systems, benefit maximization strategies focused on business outcomes, systematic third-party vendor management, and continuous monitoring with automated exception handling.\n\nTraditional checklist governance proves insufficient for emerging complexity like multi-agent systems and Model Context Protocol architectures. These create new blind spots through cascading hallucinations and autonomous behaviors that conflict with human oversight requirements. Organizations need \"AgentOps\" approaches that monitor agent behavior and maintain accountability across distributed AI systems.",
+    "tags": [
+      "NIST",
+      "AI governance",
+      "operational scale",
+      "AI RMF",
+      "vendor management",
+      "enterprise AI",
+      "risk management"
+    ],
+    "featuredImage": "NIST_AI_RMF_4_manage.png",
+    "metaDescription": "Operationalizing governance at scale: moving from pilot purgatory to production deployment while maintaining control. Part 4 transforms NIST frameworks into sustainable operations that deliver consistent business value without collapsing under operational complexity.",
+    "linkedinUrl": "https://www.linkedin.com/pulse/implementing-nist-ai-rmf-managing-part-4-brian-fending-hvexe",
+    "substackUrl": "https://brianfending.substack.com/p/implementing-nist-ai-rmf-managing"
+  },
+  {
     "slug": "implementing-nist-ai-rmf-measuring-part-3-4",
     "title": "Implementing NIST AI RMF: Measuring (Part 3 of 4)",
     "date": "2025-07-25",
