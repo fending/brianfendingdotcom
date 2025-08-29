@@ -111,6 +111,13 @@ const education: Education[] = [
     certificateUrl: 'https://www.credly.com/badges/d7425071-c00b-42e7-ab2a-b625557499c1/brianfendingdotcom'
   },
   {
+    institution: 'UKAS (United Kingdom Accreditation Service)',
+    degree: 'AIQI ISO/IEC 42001',
+    period: 'August 2025',
+    certificateId: '3d727ad6-7074-5d9f-e063-6f8d460afaa0',
+    certificateUrl: 'https://training-academy.ukas.com/lmt/clmsbadges.pView?bdg=3d727ad6-7074-5d9f-e063-6f8d460afaa0'
+  },
+  {
     institution: 'Miami University, Oxford, OH',
     degree: 'MM',
     period: 'Aug 1996 – Dec 1999'
