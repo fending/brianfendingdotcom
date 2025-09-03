@@ -1,5 +1,6 @@
 import { google } from 'googleapis';
 import { NextRequest, NextResponse } from 'next/server';
+import JiraApi from 'jira-client';
 
 // Define the expected request body structure
 interface ContactFormData {
@@ -76,11 +77,31 @@ export async function POST(request: NextRequest) {
       );
     }
     
-    // Format current date in ISO format for Google Sheets
+    // Format current date in ISO format
     const datetime = new Date().toISOString();
     
-    // Write to Google Sheet - exclude recaptchaToken as it's not needed in the sheet
-    await writeToSheet({ name, email, subject, message, datetime });
+    // Try Jira first, fallback to Google Sheets if Jira fails
+    try {
+      // Check if Jira is configured
+      if (process.env.JIRA_HOST && process.env.JIRA_USERNAME && process.env.JIRA_API_TOKEN) {
+        await createJiraIssue({ name, email, subject, message, datetime });
+        console.log('Contact form submitted to Jira successfully');
+      } else {
+        // Fallback to Google Sheets if Jira is not configured
+        console.log('Jira not configured, falling back to Google Sheets');
+        await writeToSheet({ name, email, subject, message, datetime });
+      }
+    } catch (jiraError) {
+      console.error('Jira submission failed, attempting Google Sheets fallback:', jiraError);
+      // Try Google Sheets as fallback
+      try {
+        await writeToSheet({ name, email, subject, message, datetime });
+        console.log('Successfully saved to Google Sheets as fallback');
+      } catch (sheetsError) {
+        console.error('Both Jira and Google Sheets failed:', sheetsError);
+        throw new Error('Failed to save form submission');
+      }
+    }
     
     return NextResponse.json(
       { message: 'Your message has been sent! I\'ll get back to you soon.' },
@@ -124,5 +145,41 @@ async function writeToSheet({ name, email, subject, message, datetime }: Omit<Co
   } catch (error) {
     console.error('Error writing to Google Sheet:', error);
     throw new Error('Failed to save form data to Google Sheet');
+  }
+}
+
+async function createJiraIssue({ name, email, subject, message, datetime }: Omit<ContactFormData, 'recaptchaToken'> & { datetime: string }) {
+  try {
+    // Initialize Jira client
+    const jira = new JiraApi({
+      protocol: process.env.JIRA_PROTOCOL || 'https',
+      host: process.env.JIRA_HOST!,
+      username: process.env.JIRA_USERNAME!,
+      password: process.env.JIRA_API_TOKEN!,
+      apiVersion: '2',
+      strictSSL: true
+    });
+
+    // Create Jira issue from contact form
+    const issue = {
+      fields: {
+        project: {
+          key: process.env.JIRA_PROJECT_KEY!
+        },
+        summary: `Contact Form: ${subject} - from ${name}`,
+        description: `*Contact Form Submission*\n\n*Name:* ${name}\n*Email:* ${email}\n*Subject:* ${subject}\n\n*Message:*\n${message}\n\n----\n*Submitted:* ${datetime}`,
+        issuetype: {
+          name: process.env.JIRA_ISSUE_TYPE || 'Task'
+        },
+        labels: ['contact-form', 'website']
+      }
+    };
+
+    const result = await jira.addNewIssue(issue);
+    console.log(`Created Jira issue: ${result.key}`);
+    return result;
+  } catch (error) {
+    console.error('Error creating Jira issue:', error);
+    throw new Error('Failed to create Jira issue');
   }
 }
