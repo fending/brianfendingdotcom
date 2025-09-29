@@ -32,73 +32,46 @@ const experiences: Experience[] = [
   {
     company: 'American Association for Physician Leadership (AAPL)',
     position: 'Chief Information Officer',
-    period: 'January 2020 – March 2025',
-    description: 'Led enterprise technology strategy and governance for healthcare-serving membership organization, overseeing business-critical platforms that drive the majority of organizational revenue.',
+    period: '2020-2025',
+    description: '',
     achievements: [
-      'Oversaw online learning and transactional platforms responsible for majority of org revenue',
-      'Spearheaded AI initiatives with early adoption of internal AI models, followed by robust governance and inclusion of AI-driven features in customer-facing product development',
-      'Established comprehensive IT governance frameworks, ensuring compliance with industry standards and enhancing data security, allowing for growth into foreign markets increasing sales pipeline',
-      'Managed a hybrid IT team of direct reports and multiple MSP and development partners, delivering scalable infrastructure to support growth',
-      'Formulated and executed cloud strategy and migrated all IT infrastructure to Azure and a robust SaaS/PaaS fabric, improving system resilience, scalability, and remote workforce enablement',
-      'Designed and delivered Technical Skills Assessment product, completing assessment portfolio to capture full physician competency spectrum and expand revenue opportunities',
-      'Strengthened cybersecurity posture, implementing globally-oriented policies, multi-factor authentication, and continuous risk assessment and compliance frameworks',
-      'Optimized IT vendor strategy, renegotiating contracts and consolidating services to reduce costs and improve service levels',
-      'Managed to 99.9% uptime SLA for critical internal- and external-facing systems, for applications and infrastructure',
-      'Regular board, Executive Committee, and Audit & Risk Committee participation, presenting IT strategic updates, cybersecurity assessments, and digital transformation progress to board of directors'
+      'Directed enterprise technology strategy, cybersecurity, and digital transformation.',
+      'Partnered with the executive team, board, and executive committee on risk, compliance, and strategy.',
+      'Introduced AI governance and workflow automation initiatives.'
     ]
   },
   {
     company: 'American Association for Physician Leadership (AAPL)',
-    position: 'Senior VP, Information Technology',
-    period: 'January 2019 – January 2020',
-    description: 'Managed IT infrastructure, audits, and technology initiatives to ensure system resilience and readiness for growth.',
+    position: 'Senior Vice President, Information Technology',
+    period: '2019-2020',
+    description: '',
     achievements: [
-      'Initiated comprehensive cloud migration strategy and IT governance framework development',
-      'Directed IT staff and led projects to improve service delivery, optimize systems, and prepare the organization with future-facing technology and risk postures',
-      'Implemented Salesforce CRM and Hubspot marketing automation, reducing direct expense annually as compared to legacy solutions',
-      'Promoted to CIO based on strategic technology leadership and operational excellence'
+      'Stabilized IT operations during a period of transition.',
+      'Rebuilt governance structures and modernized platforms.',
+      'Developed IT talent and prepared the organization for growth.'
     ]
   },
   {
-    company: 'Strategic Technology Consulting Practices',
-    position: 'Principal/Owner',
-    period: 'April 2010 – December 2018',
-    description: 'Led strategic technology consulting practice serving enterprise clients across multiple industries, scaling from startup advisory to full product development lifecycle management. Practice evolved from lean application development (Fending Group) to comprehensive product development (Monster Assembly) to fractional IT executive services (MADE, Inc.).',
+    company: 'Strategic Technology Consulting',
+    position: 'Principal / Fractional CIO & CTO (Consulting)',
+    period: '2010-2018',
+    description: 'Led strategic technology consulting practice, scaling from startup advisory to full product development lifecycle and governance management. Practice evolved from lean application development (Fending Group) to comprehensive product development (Monster Assembly) to fractional IT executive services (MADE, Inc.).',
     achievements: [
-      'Grew practice with sustained annual revenue growth, leading 100+ technology projects across multiple verticals',
-      'Designed architecture for world\'s first at-scale iPad ordering system at JFK T5, custom integration with Micros POS (Fending Group, 2011)',
-      'Developed proprietary solutions including graph-based CMS combining Neo4j and Lucene (Monster Assembly, 2012)',
-      'Transitioned practice to focus on IT strategy and GRC for enterprise clients (MADE, Inc., 2015)',
-      'Led comprehensive HubSpot deployment and Salesforce CRM implementation for AAPL (2017-2018), establishing integrated marketing automation and customer data platform that directly led to full-time executive role'
+      'Provided fractional executive leadership in healthcare, finance, and education.',
+      'Guided digital transformations, governance programs, and compliance frameworks.',
+      'Managed full new product development process for multiple products.',
+      'Partnered with boards and executives to align technology with strategy.'
     ]
   },
   {
-    company: 'BuildingGreen, LLC',
-    position: 'Senior Web Developer',
-    period: '2007-2010',
-    description: 'Led enterprise platform development for digital publishing serving green building professionals and federal agencies. Principal architect and developer for LEEDuser (https://www.leeduser.com) launch in partnership with USGBC, creating new subscription-based revenue stream. Managed development of U.S. Department of Energy High Performance Buildings Database and enterprise publishing systems for federal agencies.',
-    achievements: []
-  },
-  {
-    company: 'Delaware North Companies',
-    position: 'Information Analyst',
-    period: '2005-2007',
-    description: 'Delivered Oracle BI solutions and enterprise analytics for global hospitality operations across sports, travel, and gaming business units. Developed data frameworks supporting real-time and strategic decision-making with custom project management dashboards. Chaired HTNG "Next-Generation Entertainment Systems" working group, setting industry standards for in-room technology later adopted by AHLA (2007).',
-    achievements: []
-  },
-  {
-    company: 'LoVullo Associates',
-    position: 'Senior Programmer',
-    period: '2003-2005',
-    description: 'Built custom insurance rating engines and data integration solutions for managing general agent specializing in online rating systems serving specialty P&C products. Translated complex underwriting rules and state-level regulatory requirements into scalable, compliant systems. Led ETL design and execution for historical insurance data migration, ensuring regulatory compliance and system integrity.',
-    achievements: []
-  },
-  {
-    company: 'Buffalo & Erie County Public Library',
-    position: 'Web Administrator',
-    period: '2001-2003',
-    description: 'Managed digital services and public web infrastructure for 52-branch library system. Replaced static workflows with database-driven CMS enabling dynamic updates and distributed content authorship. Designed internal knowledge management platform allowing staff librarians to maintain shared, searchable knowledge base across branches. Served as technical liaison on Digitization Committee, consulting on technology direction for the System.',
-    achievements: []
+    company: 'Earlier Technology Leadership',
+    position: '',
+    period: '2002-2010',
+    description: '',
+    achievements: [
+      'Roles with BuildingGreen, Delaware North, LoVullo Associates, and Buffalo & Erie County Public Library.',
+      'Contributed to new product development, platform initiatives, and industry collaboration.'
+    ]
   }
 ];
 
@@ -106,26 +79,36 @@ const education: Education[] = [
   {
     institution: 'Information Systems Audit and Control Association (ISACA)',
     degree: 'Certified Information Security Manager (CISM)',
-    period: 'Expires January 2029',
+    period: 'Active through 2029',
     certificateId: '252857849',
     certificateUrl: 'https://www.credly.com/badges/d7425071-c00b-42e7-ab2a-b625557499c1/brianfendingdotcom'
   },
   {
-    institution: 'UKAS (United Kingdom Accreditation Service)',
-    degree: 'AIQI ISO/IEC 42001',
-    period: 'August 2025',
+    institution: 'Information Systems Audit and Control Association (ISACA)',
+    degree: 'Certified in Risk and Information Systems Control (CRISC)',
+    period: 'Anticipated Q4 2025'
+  },
+  {
+    institution: 'Information Systems Audit and Control Association (ISACA)',
+    degree: 'Advanced in AI Security Management (AAISM)',
+    period: 'Anticipated Q1 2026'
+  },
+  {
+    institution: 'UKAS',
+    degree: 'ISO/IEC 42001 (AI Management Systems)',
+    period: 'Issued 2025',
     certificateId: '3d727ad6-7074-5d9f-e063-6f8d460afaa0',
     certificateUrl: 'https://training-academy.ukas.com/lmt/clmsbadges.pView?bdg=3d727ad6-7074-5d9f-e063-6f8d460afaa0'
   },
   {
-    institution: 'Miami University, Oxford, OH',
-    degree: 'MM',
-    period: 'Aug 1996 – Dec 1999'
+    institution: 'Miami University',
+    degree: 'Graduate Studies',
+    period: ''
   },
   {
-    institution: 'State University of New York at Fredonia, Fredonia, NY',
-    degree: 'BM',
-    period: 'Aug 1992 – May 1996'
+    institution: 'SUNY Fredonia',
+    degree: 'Undergraduate Studies',
+    period: ''
   }
 ];
 
@@ -135,7 +118,7 @@ export default function ResumePage() {
       <div className="mb-12 pt-8">
         <h1 className="page-header text-gray-900 dark:text-white">Resume</h1>
         <p className="text-xl mt-4 text-gray-700 dark:text-gray-300 max-w-3xl">
-          Technology executive driving revenue growth and digital transformation through strategic IT investments, enterprise governance, and AI innovation. Proven track record of board-level leadership, international compliance management, and scaling digital operations from startup through enterprise levels.
+          Technology executive with two decades of leadership experience, most recently serving as CIO of a national healthcare association. My work centers on building technology programs that strengthen organizational resilience, ensure regulatory compliance, and enable growth. Specializing in cybersecurity governance, board engagement, and aligning IT operations with mission and strategy.
         </p>
         
         <div className="flex mt-6">
