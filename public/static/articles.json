@@ -1,10 +1,10 @@
 [
   {
-    "slug": "turning-digital-dust-into-consulting-platform",
-    "title": "Turning Digital Dust into a Consulting Platform: The Rebuild of MADE, Inc.",
+    "slug": "blueprint-rebuilding-consulting-practice-around-assessments",
+    "title": "A Blueprint for Rebuilding Your Consulting Practice Around Assessments",
     "date": "2025-09-16",
     "author": "Brian Fending",
-    "excerpt": "After six years away from consulting, I transformed a dormant WordPress site into an AI-powered assessment platform that demonstrates methodology through action, showing how AI-assisted development enables solo developers to build sophisticated consulting platforms.",
+    "excerpt": "Rebuilding MADE, Inc. for the Age of AI: A blueprint for transforming a dormant consulting practice into an AI-powered assessment platform that demonstrates methodology through action, showing how modern development enables sophisticated consulting platforms.",
     "content": "Most consulting websites describe what you can do without demonstrating how you think and execute. After six years, I found MADE, Inc. sitting as abandoned WordPress brochureware. The rebuild transformed it into an AI-powered assessment platform that makes prospects experience methodology before ever talking to me.\n\nThe platform features four assessment tracks addressing consistent organizational struggles: AI Risk Assessment revealing the 3-5x hidden AI applications companies don't realize they're running, Product Development Maturity distinguishing between having a process and having a scaling process, Technology Governance separating theater from enablement, and Security Posture assessing pattern anticipation beyond checklists. Each assessment uses questions based on respected research, evolving from surface-level checkboxes to reveal actual business problems and organizational maturity patterns.\n\nAI processes assessment data with extensive context about what scores mean in practice, generating nuanced insights about organizational dynamics that procedural logic couldn't capture. The platform stores and versions every summary tied to specific assessments, enabling historical consistency while allowing methodology evolution. This creates a foundation for proprietary market research as data accrues over time.",
     "tags": [
       "AI development",
@@ -17,9 +17,9 @@
       "business transformation"
     ],
     "featuredImage": "madeinc_licensed_artwork_pixelated.png",
-    "metaDescription": "Learn how I rebuilt MADE, Inc. from abandoned WordPress to AI-powered assessment platform using Claude Code, Next.js, and modern development practices. A case study in demonstrating consulting expertise through technology.",
+    "metaDescription": "A blueprint for rebuilding your consulting practice around assessments: Learn how I rebuilt MADE, Inc. for the Age of AI using Claude Code, Next.js, and AI-powered development practices. A case study in demonstrating consulting expertise through technology.",
     "linkedinUrl": "https://www.linkedin.com/pulse/turning-digital-dust-consulting-platform-rebuild-made-brian-fending-euafe",
-    "substackUrl": "https://brianfending.substack.com/p/turning-digital-dust-into-a-consulting"
+    "substackUrl": "https://brianfending.substack.com/p/blueprint-rebuilding-consulting-practice-around-assessments"
   },
   {
     "slug": "implementing-nist-ai-rmf-managing-part-4-4",
