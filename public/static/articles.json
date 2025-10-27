@@ -1,5 +1,26 @@
 [
   {
+    "slug": "mcp-security-problem-supply-chain",
+    "title": "The MCP Security Problem",
+    "date": "2025-10-27",
+    "author": "Brian Fending",
+    "excerpt": "Recent research exposed over 3,000 MCP servers through a single path traversal vulnerability in centralized infrastructure. Every AI integration creates security debt we have few ways to track, and most organizations are flying blind on what's actually running.",
+    "content": "Recently published research revealed findings on MCP server vulnerabilities that exposed over 3,000 servers and compromised API keys from thousands of clients. The broader issue is that every AI integration creates security debt we have few ways to track. The research demonstrates how traditional security approaches fail for AI integrations that expose functionality to a much broader user base through conversational interfaces.\n\nThe right tooling surfaces misconfigurations immediately, scores them by risk, and gives teams actionable data instead of hoping someone notices during the next pen test. The MCP security problem isn't theoretical anymore - we need to figure out how to secure these integrations at scale.",
+    "tags": [
+      "MCP",
+      "security",
+      "supply chain",
+      "AI integrations",
+      "vulnerability research",
+      "threat intelligence",
+      "risk management"
+    ],
+    "featuredImage": "mcp_server_security_problem.png",
+    "metaDescription": "Recent research exposed over 3,000 MCP servers through a single path traversal vulnerability in centralized infrastructure. Every AI integration creates security debt we have few ways to track, and most organizations are flying blind on what's actually running.",
+    "linkedinUrl": "https://www.linkedin.com/pulse/mcp-security-problem-brian-fending-2mhwc",
+    "substackUrl": "https://brianfending.substack.com/p/mcp-security-problem-supply-chain"
+  },
+  {
     "slug": "blueprint-rebuilding-consulting-practice-around-assessments",
     "title": "A Blueprint for Rebuilding Your Consulting Practice Around Assessments",
     "date": "2025-09-16",
