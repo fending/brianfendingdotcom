@@ -65,9 +65,9 @@ export function LLMPriming() {
   return (
     <div>
       <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
-        Ask AI about Brian Fending
+        Ask these LLMs about me:
       </p>
-      <div className="flex items-center gap-4 flex-wrap">
+      <div className="flex items-center gap-4 flex-wrap mb-6">
         {platforms.map((platform) => (
           <a
             key={platform.name}
@@ -88,6 +88,29 @@ export function LLMPriming() {
             />
           </a>
         ))}
+      </div>
+
+      <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+        ...or chat with my RAG-powered AI assistant:
+      </p>
+      <div className="flex items-center gap-4 flex-wrap">
+        <a
+          href="https://ai.brianfending.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackLLMClick('brianfending-ai')}
+          aria-label="Chat with Brian's AI Assistant"
+          className="transition-opacity duration-200 hover:opacity-80 transform hover:scale-105"
+          title="Brian's AI Assistant"
+        >
+          <Image
+            src="/llm-icons/brianfending-ai.webp"
+            alt="Brian's AI Assistant"
+            width={50}
+            height={50}
+            className="rounded-lg"
+          />
+        </a>
       </div>
     </div>
   )
