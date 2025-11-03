@@ -52,25 +52,61 @@ const experiences: Experience[] = [
     ]
   },
   {
-    company: 'Strategic Technology Consulting',
-    position: 'Principal / Fractional CIO & CTO (Consulting)',
-    period: '2010-2018',
-    description: 'Led strategic technology consulting practice, scaling from startup advisory to full product development lifecycle and governance management. Practice evolved from lean application development (Fending Group) to comprehensive product development (Monster Assembly) to fractional IT executive services (MADE, Inc.).',
+    company: 'American Association for Physician Leadership (AAPL)',
+    position: 'Consultant (via MADE, Inc.) - Fractional Executive',
+    period: 'Aug 2016 – Dec 2018',
+    description: 'Fractional technology executive guiding enterprise transformation for $10M healthcare association with 40 staff.',
     achievements: [
-      'Provided fractional executive leadership in healthcare, finance, and education.',
-      'Guided digital transformations, governance programs, and compliance frameworks.',
-      'Managed full new product development process for multiple products.',
-      'Partnered with boards and executives to align technology with strategy.'
+      'Delivered IT transformation roadmap (governance, cloud migration, vendor rationalization) adopted as 2-year baseline for incoming SVP Technology and CIO',
+      'Identified 20+ critical infrastructure gaps blocking organizational growth, including CRM modernization, marketing automation deficit, and fragmented data architecture',
+      'Introduced modern IT governance framework (COBIT/NIST-aligned) establishing IT audit cycles and vendor management lifecycle'
     ]
   },
   {
-    company: 'Earlier Technology Leadership',
-    position: '',
-    period: '2002-2010',
-    description: '',
+    company: 'MADE, Inc.',
+    position: 'Founder and Principal Consultant',
+    period: '2015 – 2018',
+    description: 'Innovation studio delivering digital products, assessments, and advisory services across healthcare nonprofits, retail, financial services, and SaaS product development. Served 12 enterprise clients over three years maintaining retainer and project-based engagements.',
     achievements: [
-      'Roles with BuildingGreen, Delaware North, LoVullo Associates, and Buffalo & Erie County Public Library.',
-      'Contributed to new product development, platform initiatives, and industry collaboration.'
+      'Developed AI readiness, cybersecurity maturity, and digital transformation assessments adopted by C-suite executives to benchmark security posture and compliance maturity',
+      'Architected production AWS (EC2, RDS, S3, Route53, Elasticsearch, SQS, SNS) and Azure environments with multi-AZ configurations, security hardening, and continuous cost optimization',
+      'Led COBOL-to-modern-API integration for retail POS serving 20+ locations, bridging 1970s-era systems with contemporary architecture',
+      'Created repeatable assessment frameworks spanning cybersecurity, AI readiness, and digital transformation maturity'
+    ]
+  },
+  {
+    company: 'Monster Assembly',
+    position: 'Founder and Principal Consultant',
+    period: 'Dec 2012 – 2015',
+    description: 'Boutique product studio launching apps and digital tools across consumer products, financial services, and medical devices. Brought in 3-6 contractors per engagement from network of 10 specialized developers and designers.',
+    achievements: [
+      'Web, mobile, and SaaS platforms across iOS, Android, and web serving consumer and enterprise markets',
+      'iPad showcase application for cardiac device specialists deployed to 500+ medical device sales professionals',
+      'Production AWS infrastructure with multi-AZ configurations, custom security groups, and cost optimization for client deployments',
+      'Scaled prototypes to production environments for early-stage companies and enterprise clients'
+    ]
+  },
+  {
+    company: 'Fending Group',
+    position: 'Founder and Principal Consultant',
+    period: 'Apr 2010 – Dec 2011',
+    description: 'Early consultancy focused on custom business applications and digital infrastructure. Pioneered tablet-based ordering systems years before market adoption became mainstream.',
+    achievements: [
+      'Built first iPad-based restaurant ordering platform deployed at scale in US hospitality market (2010)',
+      'Integrated iPad ordering system with Micros POS, deployed across airport restaurant locations',
+      'Created extensible RFP publishing and delivery platform for enterprise procurement workflows',
+      'Architected production AWS infrastructure (EC2, RDS, S3, Route53) with multi-AZ configurations and custom security groups'
+    ]
+  },
+  {
+    company: 'BuildingGreen, Inc.',
+    position: 'Senior Web Developer',
+    period: 'Sep 2008 – Jan 2010',
+    description: 'Three-person technology team supporting $2M mission-driven publisher in sustainable building sector.',
+    achievements: [
+      'Lead developer of LEEDuser.com, becoming a standard reference for 200,000+ LEED certification professionals',
+      'Partnered with U.S. Department of Energy to modernize High Performance Buildings (HPB) database serving national green building community',
+      'Executed digital strategy for sustainable building publisher'
     ]
   }
 ];
