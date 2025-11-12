@@ -15,6 +15,16 @@ const nextConfig = {
         source: '/privacy-policy',
         destination: '/privacy',
         permanent: true,
+      },
+      {
+        source: '/resume',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/skills',
+        destination: '/about',
+        permanent: true,
       }
     ];
   },
