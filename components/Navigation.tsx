@@ -74,13 +74,10 @@ export function Navigation() {
           <Link href="/speaking" className={navLinkClasses('/speaking')}>
             Speaking
           </Link>
-          <Link href="/resume" className={navLinkClasses('/resume')}>
-            Resume
+          <Link href="/about" className={navLinkClasses('/about')}>
+            About
           </Link>
-          <Link href="/skills" className={navLinkClasses('/skills')}>
-            Skills
-          </Link>
-          
+
           {/* Dark mode toggle */}
           <button 
             onClick={toggleTheme}
@@ -152,11 +149,8 @@ export function Navigation() {
           <Link href="/speaking" className={mobileNavLinkClasses('/speaking')} onClick={() => setIsMenuOpen(false)}>
             Speaking
           </Link>
-          <Link href="/resume" className={mobileNavLinkClasses('/resume')} onClick={() => setIsMenuOpen(false)}>
-            Resume
-          </Link>
-          <Link href="/skills" className={mobileNavLinkClasses('/skills')} onClick={() => setIsMenuOpen(false)}>
-            Skills
+          <Link href="/about" className={mobileNavLinkClasses('/about')} onClick={() => setIsMenuOpen(false)}>
+            About
           </Link>
           <div className="px-4 py-4 mt-2 border-t border-gray-200 dark:border-gray-700">
             <Link href="/contact" 
