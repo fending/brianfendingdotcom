@@ -60,8 +60,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/resume" className="text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400">
-                  Resume
+                <Link href="/about" className="text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400">
+                  About
                 </Link>
               </li>
             </ul>
