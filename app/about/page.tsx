@@ -36,6 +36,16 @@ export default function AboutPage() {
             </p>
 
             <p>
+              With over 25 years of experience in the technology sector, I've led engineering teams and architected solutions for startups and enterprises of all sizes. My expertise spans cloud infrastructure, data engineering, application development, and building scalable processes and systems that balance innovation with governance.
+            </p>
+
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">My Approach</h3>
+
+            <p>
+              I believe in pragmatic engineering practices that balance innovation with reliability, and progress with governance. My leadership style emphasizes mentorship, continuous learning, and creating an environment where engineers can do their best work while staying aligned with business objectives.
+            </p>
+
+            <p>
               I write about AI governance and technology leadership on{' '}
               <Link
                 href="https://linkedin.com/in/brianfending"
@@ -54,11 +64,7 @@ export default function AboutPage() {
               >
                 Substack
               </Link>
-              , focusing on how organizations can enable AI adoption without creating ungovernable risk. My core goal is to help organizations build frameworks that accelerate innovation rather than bureaucratize it.
-            </p>
-
-            <p>
-              Current interests include enterprise AI governance implementation, board-level technology risk communication, and cybersecurity maturity for organizations operating across multiple regulatory regimes. There are some helpful links in the footer if you'd like to learn more about me.
+              , focusing on how organizations can enable AI adoption without creating ungovernable risk.
             </p>
 
             <p className="text-base italic text-gray-600 dark:text-gray-400">
