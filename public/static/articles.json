@@ -1,5 +1,26 @@
 [
   {
+    "slug": "shadow-ai-discovery-containment-practitioners-guide",
+    "title": "From Shadow IT to Shadow AI: A Practitioner's Guide to Discovery and Containment",
+    "date": "2025-11-16",
+    "author": "Brian Fending",
+    "excerpt": "Shadow AI represents a fundamental shift in how unauthorized technology enters the enterprise. Where shadow IT required deliberate procurement decisions, shadow AI often arrives embedded in existing approved platforms, creating governance challenges that demand new approaches to discovery and containment.",
+    "content": "Shadow AI represents a fundamental shift in how unauthorized technology enters the enterprise. Where shadow IT required deliberate procurement decisions, shadow AI often arrives embedded in existing approved platforms. The technology stack expands without a single new purchase order.\n\nRecent ISACA research confirms 83% of IT professionals believe employees are using AI, yet only 31% of organizations have implemented formal AI policies. Organizations discover they're running three separate AI copywriting platforms in marketing alone, while enterprise pilots go underutilized.\n\nAddressing shadow AI requires adapting traditional governance approaches. Discovery demands expense pattern analysis, SaaS feature inventory, and usage pattern monitoring. Not all shadow AI presents equivalent risk - classification must consider technology characteristics and data environment to enable effective prioritization. The organizations seeing the least shadow AI aren't those with the most restrictive policies, they're the ones with the fastest approved alternative delivery.",
+    "tags": [
+      "Shadow AI",
+      "AI governance",
+      "risk management",
+      "shadow IT",
+      "compliance",
+      "enterprise AI",
+      "security"
+    ],
+    "featuredImage": "shadow_ai.png",
+    "metaDescription": "Shadow AI represents a fundamental shift in how unauthorized technology enters the enterprise. Where shadow IT required deliberate procurement decisions, shadow AI often arrives embedded in existing approved platforms, creating governance challenges that demand new approaches to discovery and containment.",
+    "linkedinUrl": "https://www.linkedin.com/pulse/from-shadow-ai-practitioners-guide-discovery-brian-fending-mhzje",
+    "substackUrl": "https://brianfending.substack.com/p/shadow-ai-discovery-containment-practitioners-guide"
+  },
+  {
     "slug": "mcp-security-problem-supply-chain",
     "title": "The MCP Security Problem",
     "date": "2025-10-27",
