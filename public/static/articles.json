@@ -1,5 +1,26 @@
 [
   {
+    "slug": "monkeys-librarian-magician-llm-scaling-agi",
+    "title": "The Monkeys, the Librarian, and the Magician: Why LLMs aren't an absolute path to AGI",
+    "date": "2025-12-07",
+    "author": "Brian Fending",
+    "excerpt": "The hockey stick curves toward AGI that populate pitch decks assume scaling LLMs will yield qualitatively different results. Three metaphors illuminate the structural limits: the verification wall, the interpolation ceiling, and the perception gap between demos and production.",
+    "content": "The hockey stick curves toward AGI that populate pitch decks assume scaling LLMs will yield qualitatively different results. But those impressive scaling curves use logarithmic scales that make diminishing returns look like steady progress. DeepMind's Chinchilla study found a power law relationship where the loss function flattens and more compute yields less improvement.\n\nThe counterargument invoking agentic systems, multi-agent architectures, and world models concedes the core claim. You're no longer arguing that scaling LLMs is the path, but that LLMs might be one component of a much more complex system. That's a different bet with different timelines and capital requirements.\n\nExecutives drawing hockey stick curves to AGI solely through LLM scaling are betting on a trajectory that bends in ways the underlying technology can't support. If AGI emerges, it won't be because we scaled token prediction harder, but because we built fundamentally different coordination, reasoning, and embodiment layers on top of it.",
+    "tags": [
+      "AI",
+      "AGI",
+      "LLM scaling",
+      "machine learning",
+      "AI limitations",
+      "enterprise AI",
+      "risk management"
+    ],
+    "featuredImage": "monkeys_librarian_magician.png",
+    "metaDescription": "The hockey stick curves toward AGI that populate pitch decks assume scaling LLMs will yield qualitatively different results. Three metaphors illuminate the structural limits: the verification wall, the interpolation ceiling, and the perception gap between demos and production.",
+    "linkedinUrl": "https://www.linkedin.com/pulse/monkeys-librarian-magician-why-llms-arent-absolute-path-brian-fending-ljqte",
+    "substackUrl": "https://open.substack.com/pub/brianfending/p/monkeys-librarian-magician-llm-scaling-agi"
+  },
+  {
     "slug": "shadow-ai-discovery-containment-practitioners-guide",
     "title": "From Shadow IT to Shadow AI: A Practitioner's Guide to Discovery and Containment",
     "date": "2025-11-16",
