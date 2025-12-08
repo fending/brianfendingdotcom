@@ -1,13 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  
-  // SWC minifier enabled for better performance
-  swcMinify: true,
-  
+
   // Default output mode instead of standalone to avoid CSS issues
   // output: 'standalone',
-  
+
   // Redirects
   async redirects() {
     return [
@@ -36,9 +33,6 @@ const nextConfig = {
       ? process.env.NEXT_PUBLIC_IMAGE_DOMAINS.split(',') 
       : ['localhost', 'brianfending.com', 'www.brianfending.com']
   },
-  
-  // Font optimization disabled for simplified builds
-  optimizeFonts: false,
   
   // Increase timeout for static page generation
   staticPageGenerationTimeout: 180,
