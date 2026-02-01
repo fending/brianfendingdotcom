@@ -1,5 +1,26 @@
 [
   {
+    "slug": "ai-enablement-not-ai-governance",
+    "title": "AI Enablement Is Not AI Governance",
+    "date": "2026-01-31",
+    "author": "Brian Fending",
+    "excerpt": "Organizations conflate AI Governance and AI Enablement, treating fundamentally different capabilities as the same job. Governance manages risk through guardrails and approval processes. Enablement builds capability through training, coaching, and change management. You need both, but they require different skills, and conflating them means one will fail.",
+    "content": "Organizations are posting job titles for \"AI Governance Director\" and \"AI Enablement Director\" while writing descriptions that treat them as the same role. This confusion isn't just a hiring problem but a symptom of a deeper misunderstanding about what makes AI programs work. A recent survey found that while 72% of organizations have AI integrated, only a third have responsible controls in place.\n\nGovernance answers \"should we?\" and \"how do we stay safe?\" It creates guardrails, establishes approval processes, and defines acceptable use policies. By design, governance creates friction at every checkpoint. The failure mode appears when governance becomes a locked gate. Campaign deadlines don't accommodate weeks-long reviews. Teams solve immediate problems with available tools rather than waiting for approval processes. Shadow AI proliferates not because people want to circumvent policy, but because the formal process takes too long.\n\nGovernance without enablement produces policies nobody follows. Enablement without governance produces risk accumulation. Research found that roughly 70% of AI implementation challenges stem from people and process issues, not technical problems. The integration point requires both functions working as partners rather than adversaries.\n\nShadow AI becomes inevitable when governance operates without enablement. Approved alternatives need to be faster than unauthorized procurement. The path of least resistance should lead through governance rather than around it, making compliance the easier path.",
+    "tags": [
+      "AI governance",
+      "AI enablement",
+      "change management",
+      "shadow AI",
+      "enterprise AI",
+      "risk management",
+      "organizational design"
+    ],
+    "featuredImage": "ai-enablement-not-ai-governance.jpg",
+    "metaDescription": "Why AI Governance and AI Enablement are distinct functions requiring different skills. Governance manages risk; enablement builds capability. Organizations that treat them as the same role struggle with adoption while accumulating shadow AI.",
+    "linkedinUrl": "https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7405286993166979072",
+    "substackUrl": "https://brianfending.substack.com/p/ai-enablement-is-not-ai-governance"
+  },
+  {
     "slug": "monkeys-librarian-magician-llm-scaling-agi",
     "title": "The Monkeys, the Librarian, and the Magician: Why LLMs aren't an absolute path to AGI",
     "date": "2025-12-07",
