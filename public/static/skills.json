@@ -1,49 +1,38 @@
 {
   "title": "Skills & Expertise",
-  "description": "My professional skills and areas of expertise from years of experience in technology leadership and software engineering.",
+  "description": "Core capabilities across IT and security operations, AI governance, and software development.",
   "skills": [
     {
-      "category": "Leadership & Management",
+      "category": "IT & Security Operations",
       "items": [
-        "Technical Strategy",
-        "Engineering Leadership",
-        "Team Building & Mentorship",
+        "Infrastructure & Cloud Platforms (Azure, AWS)",
+        "Security Program Development",
         "Governance, Risk & Compliance (GRC)",
-        "Development & Documentation Methodologies",
-        "New Product & Category Development"
-      ]
-    },
-    {
-      "category": "Software Architecture",
-      "items": [
-        "Cloud Architecture",
-        "System Scalability",
-        "Event-Driven Systems",
-        "API Design",
-        "Data Architecture",
-        "Microservice Implementations"
-      ]
-    },
-    {
-      "category": "Technologies",
-      "items": [
-        "Cloud Platforms (Azure, AWS)",
         "DevOps & CI/CD Pipelines",
-        "Modern Web Technologies",
-        "JavaScript/TypeScript Ecosystem",
-        "Python, C#, similar languages & constructs",
-        "Database Systems (SQL & NoSQL)"
+        "Database Systems (SQL & NoSQL)",
+        "Regulatory Compliance Across Multiple Regimes"
       ]
     },
     {
-      "category": "AI & Machine Learning",
+      "category": "AI Governance & Enablement",
       "items": [
-        "AI Strategy & Governance",
-        "AI Risk Management & Policy Design",
-        "Executive Leadership of AI Initiatives",
-        "Data Engineering Foundations",
-        "Ethical & Responsible AI Oversight",
-        "AI-Driven Business Process Automation"
+        "AI Strategy & Risk Management",
+        "AI Policy Design & Oversight",
+        "Responsible AI Governance",
+        "AI-Driven Process Automation",
+        "Organizational Enablement & Adoption Programs",
+        "ISO/IEC 42001 AI Management Systems"
+      ]
+    },
+    {
+      "category": "Software Development & Product Lifecycle",
+      "items": [
+        "Cloud & System Architecture",
+        "Full-Stack Web Development",
+        "API Design & Event-Driven Systems",
+        "Data Architecture & Engineering",
+        "New Product & Category Development",
+        "Development Methodologies & Documentation"
       ]
     }
   ]

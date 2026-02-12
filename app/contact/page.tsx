@@ -5,7 +5,7 @@ import { ReCaptchaProvider } from '@/components/ReCaptchaProvider'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch with Brian Fending for consulting, speaking engagements, or other inquiries.',
+  description: 'Get in touch with Brian Fending about technology leadership roles, advisory engagements, or speaking opportunities.',
 }
 
 export const viewport: Viewport = {
@@ -93,7 +93,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-lg font-medium mb-2 text-gray-900 dark:text-white">Newsletter</h3>
               <p className="text-gray-700 dark:text-gray-300 mb-3">
-                Subscribe to my newsletter for insights on technology leadership and software engineering.
+                Subscribe to my newsletter for insights on technology leadership and governance.
               </p>
               <a 
                 href="https://brianfending.substack.com/" 
@@ -113,25 +113,19 @@ export default function ContactPage() {
                 <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span>Speaking engagement opportunities</span>
+                <span>Technology leadership roles</span>
               </li>
               <li className="flex items-start">
                 <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span>Technology leadership consulting</span>
+                <span>Advisory and fractional engagements</span>
               </li>
               <li className="flex items-start">
                 <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <span>Software architecture reviews</span>
-              </li>
-              <li className="flex items-start">
-                <svg className="h-5 w-5 text-primary-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>AI implementation strategy</span>
+                <span>Speaking opportunities</span>
               </li>
             </ul>
           </div>
