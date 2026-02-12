@@ -23,7 +23,7 @@ export default async function SkillsPage() {
       </div>
 
       {content.skills && content.skills.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {content.skills.map((category: SkillCategory, index: number) => (
             <div key={index} className="feature-card">
               <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
