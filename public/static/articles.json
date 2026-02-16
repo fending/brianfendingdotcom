@@ -1,5 +1,26 @@
 [
   {
+    "slug": "stability-bias-is-the-new-fight-club",
+    "title": "\"Stability Bias\" Is The New \"Fight Club\" in ChatGPT",
+    "date": "2026-02-16",
+    "author": "Brian Fending",
+    "excerpt": "When I asked ChatGPT to review a post critical of OpenAI, it applied disproportionate editorial standards that shifted based on which company was being critiqued. It eventually admitted the asymmetry.",
+    "content": "I asked ChatGPT to gut-check a LinkedIn post critical of OpenAI's advertising pivot after Anthropic's Super Bowl ads. What I got back was a seven-section numbered critique telling me to \"tighten the proof\" and \"show causality.\" For a LinkedIn post, mind you. Five draft attempts later, every version came out in the same consultant-narrator cadence, and it could describe my writing voice accurately but couldn't produce it.\n\nWhen I fed the full transcript to Claude for a second opinion, the assessment was immediate: ChatGPT had been raising the evidentiary bar to a standard appropriate for sworn testimony. The interesting part came when I brought that critique back to ChatGPT. It engaged seriously, and eventually admitted to something it called \"stability bias,\" including that it would have smoothed my tone less if I'd been critiquing Anthropic instead of OpenAI.\n\nThat admission, what it reveals about how these models handle editorial influence, and what peer-reviewed research says about self-preference bias in LLMs are all worth unpacking.",
+    "tags": [
+      "AI",
+      "AI limitations",
+      "enterprise AI",
+      "risk management",
+      "LLM bias",
+      "content creation",
+      "AI transparency"
+    ],
+    "featuredImage": "stability-bias-is-the-new-fight-club.png",
+    "metaDescription": "How ChatGPT's 'stability bias' quietly nudges editorial choices when content touches its own maker. An experiment in AI-assisted content creation.",
+    "linkedinUrl": "",
+    "substackUrl": "https://open.substack.com/pub/brianfending/p/stability-bias-is-the-new-fight-club"
+  },
+  {
     "slug": "ai-enablement-not-ai-governance",
     "title": "AI Enablement Is Not AI Governance",
     "date": "2026-01-31",
