@@ -49,10 +49,16 @@ export function Footer() {
                   Home
                 </Link>
               </li>
-              <li>
+              <li className="flex items-center gap-1.5">
                 <Link href="/articles" className="text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400">
                   Articles
                 </Link>
+                <a href="/articles/feed.xml" target="_blank" rel="noopener noreferrer" aria-label="Articles RSS Feed" className="text-orange-400/70 hover:text-orange-500 dark:text-orange-500/60 dark:hover:text-orange-400 transition-colors">
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="6.18" cy="17.82" r="2.18" />
+                    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z" />
+                  </svg>
+                </a>
               </li>
               <li>
                 <Link href="/speaking" className="text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400">

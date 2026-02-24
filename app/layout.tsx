@@ -62,6 +62,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link href="/tailwind.css" rel="stylesheet" />
+        <link rel="alternate" type="application/rss+xml" title="Brian Fending - Articles" href="/articles/feed.xml" />
       </head>
       <body>
         <GoogleAnalytics />
