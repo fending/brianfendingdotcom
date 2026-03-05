@@ -1,5 +1,26 @@
 [
   {
+    "slug": "context-engineering-on-your-terms",
+    "title": "Context Engineering on Your Terms",
+    "date": "2026-03-05",
+    "author": "Brian Fending",
+    "excerpt": "Runtime proxies promise to compress your AI context window automatically. A file-based approach trades that convenience for something more valuable: visibility into exactly what your AI sees.",
+    "content": "We're seeing a lot of project spring up with the intent of helping people solving context window bloat in Claude Code. Two tools caught my attention: one rewrites your shell commands through a Rust proxy, the other routes tool output through an MCP server with a SQLite backend. Both report dramatic token reductions. Both made me uncomfortable for reasons I go into in the article.\n\nAt the core of the dissonance was a governance question I keep asking in other contexts: Can you prove what happened? Runtime proxies compress what the AI sees, but you're trusting a process you can't easily inspect to decide what gets filtered. I built a Claude Code plugin that takes a different approach, one that's honestly less powerful but entirely visible and under your complete control.\n\nThe plugin analyzes your project and generates concise command variants that live in your repo as plain markdown. No binaries, no servers, no databases. Whether that tradeoff works for you depends on how much you care about the last 10% of edge cases versus knowing exactly what your AI was told to do.",
+    "tags": [
+      "AI development",
+      "Claude Code",
+      "software development",
+      "DevOps",
+      "context engineering",
+      "AI integrations",
+      "platform engineering"
+    ],
+    "featuredImage": "context-engineering-on-your-terms.png",
+    "metaDescription": "A Claude Code plugin that analyzes your project and generates concise command variants to reduce context window waste without runtime dependencies.",
+    "linkedinUrl": "https://www.linkedin.com/pulse/context-engineering-your-terms-brian-fending-npume/",
+    "substackUrl": "https://brianfending.substack.com/p/context-engineering-on-your-terms"
+  },
+  {
     "slug": "stability-bias-is-the-new-fight-club",
     "title": "\"Stability Bias\" Is The New \"Fight Club\" in ChatGPT",
     "date": "2026-02-16",
