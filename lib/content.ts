@@ -5,7 +5,8 @@ import path from 'path'
 export interface HomeContent {
   title: string
   description: string
-  sections: { title: string; content: string }[]
+  capabilities: { title: string; description: string }[]
+  sections?: { title: string; content: string }[]
 }
 
 /**
@@ -24,10 +25,10 @@ export async function getHomeContent(): Promise<HomeContent> {
     return {
       title: 'Brian Fending',
       description: 'Technology Leadership',
-      sections: [
+      capabilities: [
         {
-          title: 'Welcome',
-          content: 'Welcome to my site. Content is currently being updated.'
+          title: 'Advisory',
+          description: 'AI governance and enablement advisory.'
         }
       ]
     }
@@ -44,6 +45,58 @@ export interface SkillsContent {
   title: string;
   description: string;
   skills: SkillCategory[];
+}
+
+// Define types for talks content
+export interface Talk {
+  id: string;
+  title: string;
+  hook: string;
+  takeaways: string[];
+  formats: string[];
+  tags: string[];
+  relatedArticle?: string;
+}
+
+export interface PastEngagement {
+  title: string;
+  event: string;
+  date: string;
+  location: string;
+  description: string;
+  imageUrl?: string;
+  slideUrl?: string;
+  videoUrl?: string;
+  tags: string[];
+}
+
+export interface TalksContent {
+  title: string;
+  description: string;
+  intro: string;
+  talks: Talk[];
+  pastEngagements: PastEngagement[];
+}
+
+/**
+ * Reads talks content from the static JSON file
+ */
+export async function getTalksContent(): Promise<TalksContent> {
+  const filePath = path.join(process.cwd(), 'public', 'static', 'talks.json')
+
+  try {
+    const fileContent = fs.readFileSync(filePath, 'utf8')
+    return JSON.parse(fileContent) as TalksContent
+  } catch (error) {
+    console.error('Error reading talks content:', error)
+    return {
+      title: 'Talks & Workshops',
+      description: '',
+      intro: '',
+      talks: [],
+      pastEngagements: []
+    }
+  }
 }
 
 /**

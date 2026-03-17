@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['DM Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         serif: ['Fraunces', 'Georgia', 'ui-serif', 'serif'],
         mono: ['Fira Code', 'ui-monospace', 'monospace'],
       },

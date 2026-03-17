@@ -44,7 +44,7 @@ export default function DesignSystemPage() {
               </div>
               
               <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                <p className="font-sans text-2xl mb-2 text-gray-900 dark:text-white">Inter</p>
+                <p className="font-sans text-2xl mb-2 text-gray-900 dark:text-white">DM Sans</p>
                 <p className="text-gray-700 dark:text-gray-300 text-sm">
                   Used for body text and UI elements
                 </p>
