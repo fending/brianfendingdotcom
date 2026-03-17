@@ -21,16 +21,32 @@ export default async function HomePage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero */}
       <AnimatedElement animation="fade-in" duration={150}>
-        <section className="mb-12 pt-8">
-          <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between md:gap-8">
-            <div className="md:max-w-[68%] lg:max-w-[70%]">
+        <section className="pt-8 pb-16 md:pb-20">
+          <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between md:gap-12">
+            <div className="md:max-w-[65%]">
               <h1 className="text-gray-900 dark:text-white text-fluid-5xl text-balanced">{content.title}</h1>
-              <p className="text-fluid-xl mt-4 text-gray-700 dark:text-gray-300">{content.description}</p>
+              <p className="text-fluid-xl mt-6 text-gray-700 dark:text-gray-300 leading-relaxed">
+                Managing Director of{' '}
+                <Link href="https://ordovera.com" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline decoration-primary-600/30 dark:decoration-primary-400/30 underline-offset-2">
+                  Ordovera Advisory
+                </Link>
+                , where I help mid-market organizations build AI governance frameworks that manage risk and enablement programs that drive adoption.
+              </p>
+              <div className="mt-6 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                <span>Writing on</span>
+                <Link href="https://linkedin.com/in/brianfending" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium">
+                  LinkedIn
+                </Link>
+                <span className="text-gray-400 dark:text-gray-600">/</span>
+                <Link href="https://brianfending.substack.com" target="_blank" rel="noopener noreferrer" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium">
+                  Substack
+                </Link>
+              </div>
             </div>
             <div className="mb-8 md:mb-0 flex justify-center shrink-0">
-              {/* Single responsive container with tailwind classes for sizing */}
-              <div className="w-[160px] h-[160px] md:w-[240px] md:h-[240px] rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg flex-shrink-0">
+              <div className="w-[160px] h-[160px] md:w-[220px] md:h-[220px] rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg flex-shrink-0">
                 <Image
                   src="/images/fending_profile_headshot.jpg"
                   alt="Brian Fending"
@@ -45,19 +61,50 @@ export default async function HomePage() {
         </section>
       </AnimatedElement>
 
-      {content.sections.map((section, index) => (
-        <AnimatedElement 
-          key={index} 
-          animation="slide-up" 
-          delay={index * 50} 
-          duration={150}
-        >
-          <section className="mb-12">
-            <h2 className="text-gray-900 dark:text-white text-fluid-3xl text-balanced">{section.title}</h2>
-            <p className="text-gray-700 dark:text-gray-300 text-fluid-base">{section.content}</p>
-          </section>
-        </AnimatedElement>
-      ))}
+      {/* What I Do - Capability Grid */}
+      <AnimatedElement animation="slide-up" duration={150}>
+        <section className="pb-16 md:pb-20">
+          <div className="border-t border-gray-200 dark:border-gray-800 pt-12 md:pt-16">
+            <h2 className="text-gray-900 dark:text-white text-fluid-3xl text-balanced mb-10">What I Do</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+              {content.capabilities.map((capability, index) => (
+                <AnimatedElement
+                  key={index}
+                  animation="slide-up"
+                  delay={index * 75}
+                  duration={150}
+                >
+                  <div>
+                    <h3 className="font-serif text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                      {capability.title}
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-400 text-fluid-sm leading-relaxed">
+                      {capability.description.includes('MADE, Inc.') ? (
+                        <>
+                          {capability.description.split('MADE, Inc.')[0]}
+                          <Link href="https://www.madeinc.xyz" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline decoration-primary-600/30 dark:decoration-primary-400/30 underline-offset-2">
+                            MADE, Inc.
+                          </Link>
+                          {capability.description.split('MADE, Inc.')[1]}
+                        </>
+                      ) : (
+                        capability.description
+                      )}
+                    </p>
+                  </div>
+                </AnimatedElement>
+              ))}
+            </div>
+            <p className="mt-10 text-gray-600 dark:text-gray-400 text-fluid-sm">
+              This work is the foundation of{' '}
+              <Link href="https://www.ordovera.com" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline decoration-primary-600/30 dark:decoration-primary-400/30 underline-offset-2">
+                Ordovera Advisory
+              </Link>
+              , where I help organizations build both functions with intention.
+            </p>
+          </div>
+        </section>
+      </AnimatedElement>
 
       {/* Newsletter Signup */}
       <AnimatedElement animation="scale" duration={150}>

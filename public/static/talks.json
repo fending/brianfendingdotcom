@@ -1,0 +1,89 @@
+{
+  "title": "Talks & Workshops",
+  "description": "Available talks and workshops on AI governance, society, privacy, and applied technology leadership.",
+  "intro": "I speak to boards, leadership teams, and technical audiences about the governance, ethical, and practical dimensions of AI adoption. Each talk is tailored to the room -- from a 20-minute keynote to a half-day workshop.",
+  "talks": [
+    {
+      "id": "ai-governance-vs-enablement",
+      "title": "AI Governance versus AI Enablement",
+      "hook": "Most organizations treat governance and enablement as opposing forces. They're not -- they're the same program.",
+      "takeaways": [
+        "Why governance-first organizations adopt AI faster and with fewer incidents",
+        "A practical framework for standing up AI governance without stalling innovation",
+        "How to surface shadow AI and convert it into sanctioned, governed usage"
+      ],
+      "formats": ["Keynote", "Workshop", "Briefing"],
+      "tags": ["AI Governance", "Enterprise AI", "Risk Management"],
+      "relatedArticle": "/articles/ai-enablement-not-ai-governance"
+    },
+    {
+      "id": "ai-and-society",
+      "title": "AI and Society",
+      "hook": "The decisions we make about AI in the next few years will shape institutions for decades. Most of those decisions are being made without public input.",
+      "takeaways": [
+        "Where AI is already reshaping labor markets, education, and civic infrastructure",
+        "The gap between AI policy proposals and what's actually being deployed",
+        "What leaders can do now to ensure AI serves communities, not just shareholders"
+      ],
+      "formats": ["Keynote", "Panel"],
+      "tags": ["AI Ethics", "Public Policy", "Social Impact"]
+    },
+    {
+      "id": "writing-with-ai",
+      "title": "Writing with AI",
+      "hook": "AI doesn't replace writing skill -- it reveals how much of it you actually have.",
+      "takeaways": [
+        "How to use AI as an editorial partner without surrendering your voice",
+        "Prompt patterns that produce better drafts, outlines, and research briefs",
+        "When AI-assisted writing crosses from tool use into intellectual dishonesty"
+      ],
+      "formats": ["Workshop", "Keynote"],
+      "tags": ["AI Tools", "Content Strategy", "Professional Writing"]
+    },
+    {
+      "id": "software-development-with-ai",
+      "title": "Software Development with AI",
+      "hook": "AI coding assistants are changing how software gets built. The teams that win aren't the ones writing the most code -- they're the ones reviewing it best.",
+      "takeaways": [
+        "Where AI-assisted development delivers real productivity gains versus false confidence",
+        "How to structure code review and testing practices for AI-generated code",
+        "The security and intellectual property considerations most teams are ignoring"
+      ],
+      "formats": ["Keynote", "Workshop", "Briefing"],
+      "tags": ["Software Engineering", "AI Tools", "Developer Productivity"]
+    },
+    {
+      "id": "ai-and-privacy",
+      "title": "AI and Privacy",
+      "hook": "Every AI initiative is a data initiative. If your privacy posture can't keep up, your AI program is a liability.",
+      "takeaways": [
+        "How AI model training and inference create novel privacy risks beyond traditional data processing",
+        "Practical controls for deploying AI within GDPR, CCPA, and emerging AI-specific regulations",
+        "Building a privacy-by-design approach that doesn't require you to say no to every AI use case"
+      ],
+      "formats": ["Keynote", "Briefing"],
+      "tags": ["Privacy", "AI Governance", "Data Protection"]
+    }
+  ],
+  "pastEngagements": [
+    {
+      "title": "Generative AI, Healthcare, and Governance: Opening the black box to deliver results and safety for patients",
+      "event": "AAPL Fall Institute (Vanguard Meeting)",
+      "date": "2023-10-26",
+      "location": "Scottsdale, AZ",
+      "description": "Kicking off a day of discussion around AI disruption and governance in healthcare, attended by leaders of hospital systems and payors.",
+      "imageUrl": "/images/aapl_logo.svg",
+      "tags": ["AI", "Healthcare", "Governance"]
+    },
+    {
+      "title": "Salesforce Project Management Success",
+      "event": "DemandBlue Customer Success Webinar Series",
+      "date": "2021-07-19",
+      "location": "",
+      "description": "An interactive webinar hosted by DemandBlue, tag teaming questions with Henry Svendblad, CTO of Company Nurse.",
+      "imageUrl": "/images/demandblue_logo.svg",
+      "videoUrl": "https://www.youtube.com/watch?v=9SCUhgWu-sw",
+      "tags": ["Salesforce", "Project Management", "Customer Success"]
+    }
+  ]
+}

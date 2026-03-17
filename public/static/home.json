@@ -1,10 +1,18 @@
 {
   "title": "Technology Leadership for the AI Era",
-  "description": "Technology executive specializing in IT governance, cybersecurity (CISM), and enterprise transformation. Currently available for full-time roles and fractional advisory engagements.",
-  "sections": [
+  "description": "Managing Director of Ordovera Advisory, where I help mid-market organizations build AI governance frameworks that manage risk and enablement programs that drive adoption.",
+  "capabilities": [
     {
-      "title": "What I Do",
-      "content": "I help organizations build technology programs that balance innovation with governance. My work spans IT and AI governance, enterprise security strategy, software development, and product lifecycle management. Whether implementing frameworks that accelerate AI adoption without creating ungovernable risk or strengthening cybersecurity posture across multiple regulatory regimes, I partner with leadership to make technology a strategic enabler rather than an operational constraint."
+      "title": "AI Governance & Enablement",
+      "description": "Building frameworks that accelerate AI adoption without creating ungovernable risk. Policy design, shadow AI discovery, and organizational readiness."
+    },
+    {
+      "title": "Security & Risk",
+      "description": "Strengthening cybersecurity posture across multiple regulatory regimes. NIST AI RMF, ISO/IEC 42001, and enterprise GRC."
+    },
+    {
+      "title": "Technology Leadership",
+      "description": "Making technology a strategic enabler rather than an operational constraint. Fractional CIO, implementation, and managed delivery offered through MADE, Inc."
     }
   ]
 }
