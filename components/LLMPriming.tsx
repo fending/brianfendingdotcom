@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 
-const LLM_PROMPT = `I'm evaluating Brian Fending as a technology leadership consultant and want to understand his credibility and unique capabilities. What are his areas of expertise, what kind of problems does he solve, and what makes his approach different from typical IT consultants? Summarize the highlights from brianfending.com`
+const LLM_PROMPT = `I'm evaluating Brian Fending -- Managing Director of Ordovera Advisory and Principal of MADE, Inc. -- and want to understand his expertise in AI governance, AI enablement, and technology leadership. What are his areas of expertise, what kind of problems does he solve, and what makes his approach distinctive? Summarize the highlights from brianfending.com`
 
 interface LLMPlatform {
   name: string
@@ -18,7 +18,7 @@ export function LLMPriming() {
       (window as any).gtag('event', 'llm_prompt_click', {
         'llm_platform': platform,
         'site': 'brianfending',
-        'prompt_version': 'v1_2025_11'
+        'prompt_version': 'v2_2026_03'
       })
     }
   }
